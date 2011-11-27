@@ -1,0 +1,13 @@
+Statistiques :
+
+	Distance totale parcourue par les robots
+	Temps pour éteindre tous les incendies
+	Temps moyen pour éteindre un seul incendies
+	Nombre de robots
+	Nombre d'incendies
+	..
+	
+PLAN DES PHASES DE DEVELOPPEMENT
+CAS D'UTILISATION
+DOCUMENT DE VISION
+BILAN D'ITÉRATION

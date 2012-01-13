@@ -6,7 +6,7 @@ package Model;
 /** 
  * <!-- begin-UML-doc -->
  * <!-- end-UML-doc -->
- * @author test
+ * @author Marc
  * @generated "UML vers Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
  */
 public class RobotTypeFactory {
@@ -16,6 +16,26 @@ public class RobotTypeFactory {
 	 * @generated "UML vers Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
 	 */
 	private RobotType robotModel;
+
+	/** 
+	 * @return robotModel
+	 * @generated "UML vers Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
+	 */
+	public RobotType getRobotModel() {
+		// begin-user-code
+		return robotModel;
+		// end-user-code
+	}
+
+	/** 
+	 * @param robotModel robotModel à définir
+	 * @generated "UML vers Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
+	 */
+	public void setRobotModel(RobotType robotModel) {
+		// begin-user-code
+		this.robotModel = robotModel;
+		// end-user-code
+	}
 
 	/** 
 	 * <!-- begin-UML-doc -->

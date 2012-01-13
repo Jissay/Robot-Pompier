@@ -6,7 +6,7 @@ package Model;
 /** 
  * <!-- begin-UML-doc -->
  * <!-- end-UML-doc -->
- * @author test
+ * @author Marc
  * @generated "UML vers Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
  */
 public enum ETerrainType {
@@ -58,4 +58,24 @@ public enum ETerrainType {
 	 * @generated "UML vers Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
 	 */
 	private Cell cell;
+
+	/** 
+	 * @return cell
+	 * @generated "UML vers Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
+	 */
+	public Cell getCell() {
+		// begin-user-code
+		return cell;
+		// end-user-code
+	}
+
+	/** 
+	 * @param cell cell à définir
+	 * @generated "UML vers Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
+	 */
+	public void setCell(Cell cell) {
+		// begin-user-code
+		this.cell = cell;
+		// end-user-code
+	}
 }

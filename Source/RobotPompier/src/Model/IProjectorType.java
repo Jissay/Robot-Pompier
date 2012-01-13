@@ -6,7 +6,7 @@ package Model;
 /** 
  * <!-- begin-UML-doc -->
  * <!-- end-UML-doc -->
- * @author test
+ * @author Marc
  * @generated "UML vers Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
  */
 public interface IProjectorType {
@@ -28,4 +28,10 @@ public interface IProjectorType {
 	 * @generated "UML vers Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
 	 */
 	RobotType robotModel = null;
+	/** 
+	 * <!-- begin-UML-doc -->
+	 * <!-- end-UML-doc -->
+	 * @generated "UML vers Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
+	 */
+	int _range = 0;
 }

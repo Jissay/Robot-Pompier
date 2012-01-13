@@ -1470,13 +1470,13 @@
       <ownedLiteral xmi:id="_B8UpEDe3EeGNq74NrrUlgg" name="Air" classifier="_ak6sQDezEeGNq74NrrUlgg"/>
     </packagedElement>
     <packagedElement xmi:type="uml:Interface" xmi:id="_GcdW8De4EeGNq74NrrUlgg" name="IProjectorType">
-      <ownedAttribute xmi:id="_NEhQEDe4EeGNq74NrrUlgg" name="_flow" visibility="private" type="_RkSrMDexEeGNq74NrrUlgg"/>
-      <ownedAttribute xmi:id="_e1IyADe4EeGNq74NrrUlgg" name="_weight" visibility="private" type="_RkSrMDexEeGNq74NrrUlgg"/>
-      <ownedAttribute xmi:id="_NE9WpD3nEeGVPY42N5hx-g" name="robotModel" visibility="private" type="_tE5ZIDe0EeGNq74NrrUlgg" association="_NE9WoD3nEeGVPY42N5hx-g">
+      <ownedAttribute xmi:id="_NEhQEDe4EeGNq74NrrUlgg" name="_flow" visibility="public" type="_RkSrMDexEeGNq74NrrUlgg"/>
+      <ownedAttribute xmi:id="_e1IyADe4EeGNq74NrrUlgg" name="_weight" visibility="public" type="_RkSrMDexEeGNq74NrrUlgg"/>
+      <ownedAttribute xmi:id="_NE9WpD3nEeGVPY42N5hx-g" name="robotModel" visibility="public" type="_tE5ZIDe0EeGNq74NrrUlgg" association="_NE9WoD3nEeGVPY42N5hx-g">
         <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_NE9Wpj3nEeGVPY42N5hx-g" value="1"/>
         <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_NE9WpT3nEeGVPY42N5hx-g" value="1"/>
       </ownedAttribute>
-      <ownedAttribute xmi:id="_1YwscD35EeGrhf2_sP2Bzw" name="_range" visibility="private">
+      <ownedAttribute xmi:id="_1YwscD35EeGrhf2_sP2Bzw" name="_range" visibility="public">
         <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
       </ownedAttribute>
     </packagedElement>
@@ -1504,11 +1504,11 @@
       </ownedAttribute>
     </packagedElement>
     <packagedElement xmi:type="uml:Interface" xmi:id="_U6fgEDezEeGNq74NrrUlgg" name="IMoveType">
-      <ownedAttribute xmi:id="_NtWMVD3nEeGVPY42N5hx-g" name="robotModel" visibility="private" type="_tE5ZIDe0EeGNq74NrrUlgg" association="_NtWMUD3nEeGVPY42N5hx-g">
+      <ownedAttribute xmi:id="_NtWMVD3nEeGVPY42N5hx-g" name="robotModel" visibility="public" type="_tE5ZIDe0EeGNq74NrrUlgg" association="_NtWMUD3nEeGVPY42N5hx-g">
         <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_NtWMVj3nEeGVPY42N5hx-g" value="1"/>
         <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_NtWMVT3nEeGVPY42N5hx-g" value="1"/>
       </ownedAttribute>
-      <ownedAttribute xmi:id="_zWAoAD3tEeGVPY42N5hx-g" name="weight" visibility="private">
+      <ownedAttribute xmi:id="_zWAoAD3tEeGVPY42N5hx-g" name="weight" visibility="public">
         <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#float"/>
       </ownedAttribute>
       <ownedOperation xmi:id="_WICRQDezEeGNq74NrrUlgg" name="float vitesse">
@@ -1522,7 +1522,7 @@
         <ownedParameter xmi:id="_a17vQThtEeGkX9pejqaYtA" name="RobotConcret robot"/>
         <ownedParameter xmi:id="_a18WUDhtEeGkX9pejqaYtA" name="Cell cell"/>
         <ownedParameter xmi:id="_sbxkUD3uEeGVPY42N5hx-g" name="Paramètre1" direction="return">
-          <type xmi:type="uml:Class" href="pathmap://ROSE_LIBRARIES/RoseJavaDatatypes.emx#_Q5vYeQddEdm1Sa24K-Ukow?RoseJavaDatatypes/java/util/ArrayList?"/>
+          <type xmi:type="uml:Class" href="mmi:///#jbintype%5Ename=java.util.ArrayList%5Bproject%5Eid=RobotPompier%5D$uml.Class"/>
         </ownedParameter>
       </ownedOperation>
     </packagedElement>

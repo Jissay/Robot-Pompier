@@ -1,176 +1,60 @@
-/**
- * 
- */
 package Model;
 
 import java.util.Set;
 
-/** 
- * <!-- begin-UML-doc -->
- * <!-- end-UML-doc -->
- * @author Marc
- * @generated "UML vers Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
- */
 public class RobotType {
-	/** 
-	 * <!-- begin-UML-doc -->
-	 * <!-- end-UML-doc -->
-	 * @generated "UML vers Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
-	 */
-	private Simulation simulation;
+	private Simulation _simulation;
+	private IProjectorType _projectorType;
+	private IMoveType _moveType;
+	private Algorithm _algorithm;
+	private float _waterCapacity;
+	private Robot _robot;
 
-	/** 
-	 * @return simulation
-	 * @generated "UML vers Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
-	 */
 	public Simulation getSimulation() {
-		// begin-user-code
-		return simulation;
-		// end-user-code
+		return _simulation;
 	}
 
-	/** 
-	 * @param simulation simulation à définir
-	 * @generated "UML vers Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
-	 */
 	public void setSimulation(Simulation simulation) {
-		// begin-user-code
-		this.simulation = simulation;
-		// end-user-code
+		_simulation = simulation;
 	}
 
-	/** 
-	 * <!-- begin-UML-doc -->
-	 * <!-- end-UML-doc -->
-	 * @generated "UML vers Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
-	 */
-	private Set<IProjectorType> projectorType;
-
-	/** 
-	 * @return projectorType
-	 * @generated "UML vers Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
-	 */
-	public Set<IProjectorType> getProjectorType() {
-		// begin-user-code
-		return projectorType;
-		// end-user-code
+	public IProjectorType getProjectorType() {
+		return _projectorType;
 	}
 
-	/** 
-	 * @param projectorType projectorType à définir
-	 * @generated "UML vers Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
-	 */
-	public void setProjectorType(Set<IProjectorType> projectorType) {
-		// begin-user-code
-		this.projectorType = projectorType;
-		// end-user-code
+	public void setProjectorType(IProjectorType projectorType) {
+		_projectorType = projectorType;
 	}
 
-	/** 
-	 * <!-- begin-UML-doc -->
-	 * <!-- end-UML-doc -->
-	 * @generated "UML vers Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
-	 */
-	private Set<IMoveType> iMoveType;
-
-	/** 
-	 * @return iMoveType
-	 * @generated "UML vers Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
-	 */
-	public Set<IMoveType> getiMoveType() {
-		// begin-user-code
-		return iMoveType;
-		// end-user-code
+	public IMoveType getMoveType() {
+		return _moveType;
 	}
 
-	/** 
-	 * @param iMoveType iMoveType à définir
-	 * @generated "UML vers Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
-	 */
-	public void setiMoveType(Set<IMoveType> iMoveType) {
-		// begin-user-code
-		this.iMoveType = iMoveType;
-		// end-user-code
+	public void setMoveType(IMoveType moveType) {
+		_moveType = moveType;
 	}
 
-	/** 
-	 * <!-- begin-UML-doc -->
-	 * <!-- end-UML-doc -->
-	 * @generated "UML vers Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
-	 */
-	private Algorithm algorithm2;
-
-	/** 
-	 * @return algorithm2
-	 * @generated "UML vers Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
-	 */
-	public Algorithm getAlgorithm2() {
-		// begin-user-code
-		return algorithm2;
-		// end-user-code
+	public Algorithm getAlgorithm() {
+		return _algorithm;
 	}
 
-	/** 
-	 * @param algorithm2 algorithm2 à définir
-	 * @generated "UML vers Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
-	 */
-	public void setAlgorithm2(Algorithm algorithm2) {
-		// begin-user-code
-		this.algorithm2 = algorithm2;
-		// end-user-code
+	public void setAlgorithm(Algorithm algorithm) {
+		_algorithm = algorithm;
 	}
 
-	/** 
-	 * <!-- begin-UML-doc -->
-	 * <!-- end-UML-doc -->
-	 * @generated "UML vers Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
-	 */
-	private float waterCapacity;
-
-	/** 
-	 * @return waterCapacity
-	 * @generated "UML vers Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
-	 */
 	public float getWaterCapacity() {
-		// begin-user-code
-		return waterCapacity;
-		// end-user-code
+		return _waterCapacity;
 	}
 
-	/** 
-	 * @param waterCapacity waterCapacity à définir
-	 * @generated "UML vers Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
-	 */
 	public void setWaterCapacity(float waterCapacity) {
-		// begin-user-code
-		this.waterCapacity = waterCapacity;
-		// end-user-code
+		_waterCapacity = waterCapacity;
 	}
 
-	/** 
-	 * <!-- begin-UML-doc -->
-	 * <!-- end-UML-doc -->
-	 * @generated "UML vers Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
-	 */
-	private Robot robot;
-
-	/** 
-	 * @return robot
-	 * @generated "UML vers Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
-	 */
 	public Robot getRobot() {
-		// begin-user-code
-		return robot;
-		// end-user-code
+		return _robot;
 	}
 
-	/** 
-	 * @param robot robot à définir
-	 * @generated "UML vers Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
-	 */
 	public void setRobot(Robot robot) {
-		// begin-user-code
-		this.robot = robot;
-		// end-user-code
+		_robot = robot;
 	}
 }

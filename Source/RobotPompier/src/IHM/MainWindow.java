@@ -3,28 +3,44 @@
  */
 package IHM;
 
+import java.awt.BorderLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 
+import javax.swing.BoxLayout;
 import javax.swing.JFrame;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
+import javax.swing.JPanel;
 import javax.swing.KeyStroke;
 
 public class MainWindow extends JFrame implements ActionListener {
-	private static final long serialVersionUID = -5464261678769218180L;
+	
+	private static final long serialVersionUID = 1L;
+	private RobotModelView robotModelView;
+	private EventsView eventsView;
+	private MapView mapView;
+	private SimulationView simulationView;
 	
 	public MainWindow() {
 		setTitle("Fire Disaster Simulator");
+		getContentPane().setLayout(new BorderLayout());
+		JPanel east = new JPanel();
+		east.setLayout(new BoxLayout(east, BoxLayout.PAGE_AXIS));
+		add(east, BorderLayout.EAST);
 		simulationView = new SimulationView();
-		add(simulationView);
+		east.add(simulationView);
+		robotModelView = new RobotModelView();
+		east.add(robotModelView);
+		mapView = new MapView();
+		add(mapView, BorderLayout.CENTER);
+		eventsView = new EventsView();
+		add(eventsView, BorderLayout.SOUTH);
 		createMenuBar();
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	}
-	
-	private MapView mapView;
 
 	public MapView getMapView() {
 		// begin-user-code
@@ -38,8 +54,6 @@ public class MainWindow extends JFrame implements ActionListener {
 		// end-user-code
 	}
 
-	private SimulationView simulationView;
-
 	public SimulationView getSimulationView() {
 		// begin-user-code
 		return simulationView;
@@ -51,8 +65,6 @@ public class MainWindow extends JFrame implements ActionListener {
 		this.simulationView = simulationView;
 		// end-user-code
 	}
-
-	private RobotModelView robotModelView;
 
 	public RobotModelView getRobotModelView() {
 		// begin-user-code
@@ -66,8 +78,6 @@ public class MainWindow extends JFrame implements ActionListener {
 		// end-user-code
 	}
 
-	private EventsView eventsView;
-
 	public EventsView getEventsView() {
 		// begin-user-code
 		return eventsView;
@@ -77,20 +87,6 @@ public class MainWindow extends JFrame implements ActionListener {
 	public void setEventsView(EventsView eventsView) {
 		// begin-user-code
 		this.eventsView = eventsView;
-		// end-user-code
-	}
-
-	private RobotModelView robotModelView2;
-
-	public RobotModelView getRobotModelView2() {
-		// begin-user-code
-		return robotModelView2;
-		// end-user-code
-	}
-
-	public void setRobotModelView2(RobotModelView robotModelView2) {
-		// begin-user-code
-		this.robotModelView2 = robotModelView2;
 		// end-user-code
 	}
 	
@@ -105,6 +101,14 @@ public class MainWindow extends JFrame implements ActionListener {
 		run.setActionCommand("Run");
 		run.addActionListener(this);
 		simulation.add(run);
+		JMenuItem stop = new JMenuItem("Arrêter");
+		stop.setMnemonic('a');
+		stop.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_S, ActionEvent.CTRL_MASK));
+		stop.getAccessibleContext().setAccessibleDescription("Arrête la simulation");
+		stop.setActionCommand("Stop");
+		stop.addActionListener(this);
+		simulation.add(stop);
+		simulation.addSeparator();
 		JMenuItem quit = new JMenuItem("Quitter");
 		quit.setMnemonic('q');
 		quit.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_Q, ActionEvent.CTRL_MASK));
@@ -120,7 +124,9 @@ public class MainWindow extends JFrame implements ActionListener {
 	public void actionPerformed(ActionEvent arg0) {
 		if (arg0.getActionCommand().equals("Quit"))
 			System.exit(0);
-		if (arg0.getActionCommand().equals("Run")) {
+		else if (arg0.getActionCommand().equals("Run")) {
+			// TODO
+		} else if (arg0.getActionCommand().equals("Stop")) {
 			// TODO
 		}
 	}

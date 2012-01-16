@@ -3,120 +3,79 @@
  */
 package Model;
 
-import java.util.Set;
+import java.util.ArrayList;
 
 /** 
- * <!-- begin-UML-doc -->
- * <!-- end-UML-doc -->
  * @author Marc
- * @generated "UML vers Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
  */
 public class Map {
-	/** 
-	 * <!-- begin-UML-doc -->
-	 * <!-- end-UML-doc -->
-	 * @generated "UML vers Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
+	
+	private int _largeur;
+	private int _longueur;
+	private ArrayList<ArrayList<Cell>> _cells;
+	private Manager _manager;
+	
+	public Map(int longueur, int largeur) {
+		_longueur = longueur;
+		_largeur = largeur;
+		
+		generateMapArrayLists();
+	}
+	
+	/**
+	 * MŽthode gŽnŽrant une map alŽatoire, dans l'attribut _cells.
 	 */
-	private float _largeur;
-
-	/** 
-	 * @return _largeur
-	 * @generated "UML vers Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
-	 */
-	public float get_largeur() {
-		// begin-user-code
+	private void generateMapArrayLists() {
+		// Create Lists
+		_cells = new ArrayList<ArrayList<Cell>>();
+		
+		for (int i = 0; i < _longueur; i++) {
+			// Creation de la liste contenant les cases, d'un nombre Žgal ˆ la largueur de la map,
+			// pour chaque unitŽ de longueur
+			ArrayList<Cell> cellsContainer = new ArrayList<Cell>();
+			
+			// Parcours de la nouvelle liste pour ajouter des cellles jusqu'ˆ la largeur donnŽe
+			for (int j = 0; j < _largeur; j++) {
+				Cell c = new Cell();
+				
+				// Set terrain par defaut
+				c.setTerrainType(ETerrainType.Herbe);
+				c.setX(i); // DŽfinit l'emplacement de la liste contenant la cellule dans l'ArrayList<ArrayList<Cell>>
+				c.setY(j); // DŽfinit l'emplacement de la cellule dans l'ArrayList<Cell>
+				
+				cellsContainer.add(c);
+			}
+			_cells.add(cellsContainer);
+		}
+	}
+	
+	/* ------------------- */
+	/* GETTERS AND SETTERS */
+	/* ------------------- */
+	public int getLargeur() {
 		return _largeur;
-		// end-user-code
 	}
-
-	/** 
-	 * @param _largeur _largeur à définir
-	 * @generated "UML vers Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
-	 */
-	public void set_largeur(float _largeur) {
-		// begin-user-code
-		this._largeur = _largeur;
-		// end-user-code
+	public void setLargeur(int largeur) {
+		_largeur = largeur;
 	}
-
-	/** 
-	 * <!-- begin-UML-doc -->
-	 * <!-- end-UML-doc -->
-	 * @generated "UML vers Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
-	 */
-	private float _longueur;
-
-	/** 
-	 * @return _longueur
-	 * @generated "UML vers Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
-	 */
-	public float get_longueur() {
-		// begin-user-code
+	public int getLongueur() {
 		return _longueur;
-		// end-user-code
 	}
-
-	/** 
-	 * @param _longueur _longueur à définir
-	 * @generated "UML vers Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
-	 */
-	public void set_longueur(float _longueur) {
-		// begin-user-code
-		this._longueur = _longueur;
-		// end-user-code
+	public void setLongueur(int longueur) {
+		_longueur = longueur;
 	}
-
-	/** 
-	 * <!-- begin-UML-doc -->
-	 * <!-- end-UML-doc -->
-	 * @generated "UML vers Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
-	 */
-	private Set<Cell> cell;
-
-	/** 
-	 * @return cell
-	 * @generated "UML vers Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
-	 */
-	public Set<Cell> getCell() {
-		// begin-user-code
-		return cell;
-		// end-user-code
+	public ArrayList<ArrayList<Cell>> getCell() {
+		return _cells;
 	}
-
-	/** 
-	 * @param cell cell à définir
-	 * @generated "UML vers Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
-	 */
-	public void setCell(Set<Cell> cell) {
-		// begin-user-code
-		this.cell = cell;
-		// end-user-code
+	public void setCell(ArrayList<ArrayList<Cell>> cell) {
+		_cells = cell;
 	}
-
-	/** 
-	 * <!-- begin-UML-doc -->
-	 * <!-- end-UML-doc -->
-	 * @generated "UML vers Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
-	 */
-	private Manager manager;
-
-	/** 
-	 * @return manager
-	 * @generated "UML vers Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
-	 */
 	public Manager getManager() {
-		// begin-user-code
-		return manager;
-		// end-user-code
+		return _manager;
+	}
+	public void setManager(Manager manager) {
+		_manager = manager;
 	}
 
-	/** 
-	 * @param manager manager à définir
-	 * @generated "UML vers Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
-	 */
-	public void setManager(Manager manager) {
-		// begin-user-code
-		this.manager = manager;
-		// end-user-code
-	}
+	
 }

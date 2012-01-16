@@ -2,6 +2,8 @@ package Model;
 
 import java.util.Set;
 
+import Model.algorithms.Algorithm;
+
 public class RobotType {
 	private Simulation _simulation;
 	private IProjectorType _projectorType;

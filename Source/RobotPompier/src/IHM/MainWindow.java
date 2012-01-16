@@ -90,6 +90,14 @@ public class MainWindow extends JFrame implements ActionListener {
 		run.setActionCommand("Run");
 		run.addActionListener(this);
 		simulation.add(run);
+		JMenuItem stop = new JMenuItem("Arrêter");
+		stop.setMnemonic('a');
+		stop.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_S, ActionEvent.CTRL_MASK));
+		stop.getAccessibleContext().setAccessibleDescription("Arrête la simulation");
+		stop.setActionCommand("Stop");
+		stop.addActionListener(this);
+		simulation.add(stop);
+		simulation.addSeparator();
 		JMenuItem quit = new JMenuItem("Quitter");
 		quit.setMnemonic('q');
 		quit.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_Q, ActionEvent.CTRL_MASK));
@@ -105,7 +113,9 @@ public class MainWindow extends JFrame implements ActionListener {
 	public void actionPerformed(ActionEvent arg0) {
 		if (arg0.getActionCommand().equals("Quit"))
 			System.exit(0);
-		if (arg0.getActionCommand().equals("Run")) {
+		else if (arg0.getActionCommand().equals("Run")) {
+			// TODO
+		} else if (arg0.getActionCommand().equals("Stop")) {
 			// TODO
 		}
 	}

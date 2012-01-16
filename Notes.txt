@@ -11,3 +11,8 @@ PLAN DES PHASES DE DEVELOPPEMENT
 CAS D'UTILISATION
 DOCUMENT DE VISION
 BILAN D'ITÉRATION
+
+-- Simulation
+	-- Génération de top, action sur un moment donné (1 fois toutes les secondes,  on exécute les actions)
+	-- Manager s'occupe de ses actions, mais ne participe pas à l'aspect simulation et temporel. Envoie uniquement des ordres.
+	-- Simulateur peut être candidate pour le rôle de contrôleur (MVC).

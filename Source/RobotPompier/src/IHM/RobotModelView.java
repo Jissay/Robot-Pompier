@@ -7,6 +7,7 @@ import javax.swing.BoxLayout;
 import javax.swing.JButton;
 import javax.swing.JList;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
 
 public class RobotModelView extends JPanel{
 
@@ -19,7 +20,7 @@ public class RobotModelView extends JPanel{
 	
 	public RobotModelView()
 	{
-		
+		// panel used to create, modify or delete a robot type
 		this.panelControlButton = new JPanel();
 		
 		// button used to add a new robot type
@@ -29,14 +30,17 @@ public class RobotModelView extends JPanel{
 		// button used to delete a robot type
 		this.buttonDeleteTypeRobot = new JButton("Supprimer");
 		
-		// add all buttons
+		// add all buttons to panelControlButton
 		this.panelControlButton.add(this.buttonAddRobotTYpe);
 		this.panelControlButton.add(this.buttonModifyRobotType);
 		this.panelControlButton.add(this.buttonDeleteTypeRobot);
 		
 		
-		// list used to show all the robot types
-		this.listRobotType = new JList();
+		// list used to show all the robot types : we use an array
+		String[]listRobot = {"Robot 1 Test", "Robot 2 Test", "Robot 3 Test", "Robot 4 Test", "Robot 5 Test", "Robot 6 Test"};
+		this.listRobotType = new JList(listRobot);
+		JScrollPane scrollPane = new JScrollPane(this.listRobotType);
+		this.listRobotType.setVisibleRowCount(3);
 		
 		this.setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
 		this.add(this.panelControlButton);

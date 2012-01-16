@@ -3,199 +3,74 @@
  */
 package Model;
 
-/** 
- * <!-- begin-UML-doc -->
- * <!-- end-UML-doc -->
- * @author Marc
- * @generated "UML vers Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
+/**
+ * 
+ * @author Jissay
+ *
  */
 public class Cell {
-	/** 
-	 * <!-- begin-UML-doc -->
-	 * <!-- end-UML-doc -->
-	 * @generated "UML vers Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
-	 */
-	private Map map;
+	
+	private Map _map;
+	
+	private int _isOnFire;
+	private int _x;
+	private int _y;
+	
+	private ETerrainType _terrainType;
+	
+	private Robot _robot;
 
-	/** 
-	 * @return map
-	 * @generated "UML vers Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
-	 */
+	/* ******************* */
+	/* GETTERS AND SETTERS */
+	/* ******************* */
+	
 	public Map getMap() {
-		// begin-user-code
-		return map;
-		// end-user-code
+		return _map;
 	}
 
-	/** 
-	 * @param map map à définir
-	 * @generated "UML vers Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
-	 */
 	public void setMap(Map map) {
-		// begin-user-code
-		this.map = map;
-		// end-user-code
+		_map = map;
 	}
 
-	/** 
-	 * <!-- begin-UML-doc -->
-	 * <!-- end-UML-doc -->
-	 * @generated "UML vers Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
-	 */
-	private int isOnFire;
-
-	/** 
-	 * @return isOnFire
-	 * @generated "UML vers Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
-	 */
 	public int getIsOnFire() {
-		// begin-user-code
-		return isOnFire;
-		// end-user-code
+		return _isOnFire;
 	}
 
-	/** 
-	 * @param isOnFire isOnFire à définir
-	 * @generated "UML vers Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
-	 */
 	public void setIsOnFire(int isOnFire) {
-		// begin-user-code
-		this.isOnFire = isOnFire;
-		// end-user-code
+		_isOnFire = isOnFire;
 	}
 
-	/** 
-	 * <!-- begin-UML-doc -->
-	 * <!-- end-UML-doc -->
-	 * @generated "UML vers Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
-	 */
-	private ETerrainType eTerrainType;
-
-	/** 
-	 * @return eTerrainType
-	 * @generated "UML vers Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
-	 */
-	public ETerrainType geteTerrainType() {
-		// begin-user-code
-		return eTerrainType;
-		// end-user-code
-	}
-
-	/** 
-	 * @param eTerrainType eTerrainType à définir
-	 * @generated "UML vers Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
-	 */
-	public void seteTerrainType(ETerrainType eTerrainType) {
-		// begin-user-code
-		this.eTerrainType = eTerrainType;
-		// end-user-code
-	}
-
-	/** 
-	 * <!-- begin-UML-doc -->
-	 * <!-- end-UML-doc -->
-	 * @generated "UML vers Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
-	 */
-	private Robot robot;
-
-	/** 
-	 * @return robot
-	 * @generated "UML vers Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
-	 */
-	public Robot getRobot() {
-		// begin-user-code
-		return robot;
-		// end-user-code
-	}
-
-	/** 
-	 * @param robot robot à définir
-	 * @generated "UML vers Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
-	 */
-	public void setRobot(Robot robot) {
-		// begin-user-code
-		this.robot = robot;
-		// end-user-code
-	}
-
-	/** 
-	 * <!-- begin-UML-doc -->
-	 * <!-- end-UML-doc -->
-	 * @generated "UML vers Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
-	 */
-	private int x;
-
-	/** 
-	 * @return x
-	 * @generated "UML vers Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
-	 */
 	public int getX() {
-		// begin-user-code
-		return x;
-		// end-user-code
+		return _x;
 	}
 
-	/** 
-	 * @param x x à définir
-	 * @generated "UML vers Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
-	 */
 	public void setX(int x) {
-		// begin-user-code
-		this.x = x;
-		// end-user-code
+		_x = x;
 	}
 
-	/** 
-	 * <!-- begin-UML-doc -->
-	 * <!-- end-UML-doc -->
-	 * @generated "UML vers Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
-	 */
-	private int y;
-
-	/** 
-	 * @return y
-	 * @generated "UML vers Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
-	 */
 	public int getY() {
-		// begin-user-code
-		return y;
-		// end-user-code
+		return _y;
 	}
 
-	/** 
-	 * @param y y à définir
-	 * @generated "UML vers Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
-	 */
 	public void setY(int y) {
-		// begin-user-code
-		this.y = y;
-		// end-user-code
+		_y = y;
 	}
 
-	/** 
-	 * <!-- begin-UML-doc -->
-	 * <!-- end-UML-doc -->
-	 * @generated "UML vers Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
-	 */
-	private Robot robot2;
-
-	/** 
-	 * @return robot2
-	 * @generated "UML vers Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
-	 */
-	public Robot getRobot2() {
-		// begin-user-code
-		return robot2;
-		// end-user-code
+	public ETerrainType getTerrainType() {
+		return _terrainType;
 	}
 
-	/** 
-	 * @param robot2 robot2 à définir
-	 * @generated "UML vers Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
-	 */
-	public void setRobot2(Robot robot2) {
-		// begin-user-code
-		this.robot2 = robot2;
-		// end-user-code
+	public void setTerrainType(ETerrainType terrainType) {
+		_terrainType = terrainType;
 	}
+
+	public Robot getRobot() {
+		return _robot;
+	}
+
+	public void setRobot(Robot robot) {
+		_robot = robot;
+	}
+	
+	
 }

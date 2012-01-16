@@ -7,6 +7,9 @@ import Model.Map;
 import Model.Robot;
 
 /**
+ * Algorithm steps -
+ * 
+ * 	1. Starting the search
  * 
  * @author Jissay
  *
@@ -23,7 +26,10 @@ public class Astar extends Algorithm {
 	
 	@Override
 	public ArrayList<Cell> findBestWay(Map map, Robot robot, Cell cell) {
-				return null;
 		
+		// Parcourir la map pour ajouter les poids des cellules
+		
+	
+		return null;
 	}
 }

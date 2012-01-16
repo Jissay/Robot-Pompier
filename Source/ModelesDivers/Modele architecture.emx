@@ -1426,7 +1426,7 @@
       </ownedAttribute>
       <ownedAttribute xmi:id="_bh9HwDhtEeGkX9pejqaYtA" name="x" visibility="private" type="_gq8a0DhtEeGkX9pejqaYtA"/>
       <ownedAttribute xmi:id="_hOWp4DhtEeGkX9pejqaYtA" name="y" visibility="private" type="_gq8a0DhtEeGkX9pejqaYtA"/>
-      <ownedAttribute xmi:id="_eDQ4kT3sEeGVPY42N5hx-g" name="robot2" visibility="private" type="_7eKkwDe0EeGNq74NrrUlgg" association="_eDQ4kD3sEeGVPY42N5hx-g">
+      <ownedAttribute xmi:id="_eDQ4kT3sEeGVPY42N5hx-g" name="robot" visibility="private" type="_7eKkwDe0EeGNq74NrrUlgg" association="_eDQ4kD3sEeGVPY42N5hx-g">
         <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_eDQ4kz3sEeGVPY42N5hx-g" value="1"/>
         <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_eDQ4kj3sEeGVPY42N5hx-g" value="1"/>
       </ownedAttribute>
@@ -1444,7 +1444,7 @@
         <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_NtWMUz3nEeGVPY42N5hx-g" value="*"/>
         <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_NtWMUj3nEeGVPY42N5hx-g"/>
       </ownedAttribute>
-      <ownedAttribute xmi:id="_o_SsEDhsEeGkX9pejqaYtA" name="algorithm2" visibility="private" type="_g2Ko0DhsEeGkX9pejqaYtA" association="_o_Rd8DhsEeGkX9pejqaYtA">
+      <ownedAttribute xmi:id="_o_SsEDhsEeGkX9pejqaYtA" name="algorithm" visibility="private" type="_g2Ko0DhsEeGkX9pejqaYtA" association="_o_Rd8DhsEeGkX9pejqaYtA">
         <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_o_TTIThsEeGkX9pejqaYtA" value="1"/>
         <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_o_TTIDhsEeGkX9pejqaYtA"/>
       </ownedAttribute>
@@ -1584,7 +1584,7 @@
         <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_4td_sDhtEeGkX9pejqaYtA" value="1"/>
         <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_4tdYoDhtEeGkX9pejqaYtA"/>
       </ownedAttribute>
-      <ownedAttribute xmi:id="_OQW5YDhuEeGkX9pejqaYtA" name="robotModelView2" visibility="private" type="_QiGX8De9EeGNq74NrrUlgg" association="_OQVrQDhuEeGkX9pejqaYtA">
+      <ownedAttribute xmi:id="_OQW5YDhuEeGkX9pejqaYtA" name="robotModelView" visibility="private" type="_QiGX8De9EeGNq74NrrUlgg" association="_OQVrQDhuEeGkX9pejqaYtA">
         <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_OQXgcThuEeGkX9pejqaYtA" value="1"/>
         <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_OQXgcDhuEeGkX9pejqaYtA"/>
       </ownedAttribute>

@@ -5,6 +5,8 @@ package Model;
 
 import java.util.Set;
 
+import Model.algorithms.Algorithm;
+
 /** 
  * <!-- begin-UML-doc -->
  * <!-- end-UML-doc -->

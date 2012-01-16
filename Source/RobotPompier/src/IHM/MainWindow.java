@@ -3,14 +3,17 @@
  */
 package IHM;
 
+import java.awt.BorderLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 
+import javax.swing.BoxLayout;
 import javax.swing.JFrame;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
+import javax.swing.JPanel;
 import javax.swing.KeyStroke;
 
 public class MainWindow extends JFrame implements ActionListener {
@@ -23,10 +26,18 @@ public class MainWindow extends JFrame implements ActionListener {
 	
 	public MainWindow() {
 		setTitle("Fire Disaster Simulator");
+		getContentPane().setLayout(new BorderLayout());
+		JPanel east = new JPanel();
+		east.setLayout(new BoxLayout(east, BoxLayout.PAGE_AXIS));
+		add(east, BorderLayout.EAST);
 		simulationView = new SimulationView();
-		add(simulationView);
+		east.add(simulationView);
 		robotModelView = new RobotModelView();
-		add(robotModelView);
+		east.add(robotModelView);
+		mapView = new MapView();
+		add(mapView, BorderLayout.CENTER);
+		eventsView = new EventsView();
+		add(eventsView, BorderLayout.SOUTH);
 		createMenuBar();
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	}

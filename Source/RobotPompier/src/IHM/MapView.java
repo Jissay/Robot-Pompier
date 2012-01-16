@@ -3,11 +3,12 @@
  */
 package IHM;
 
-/** 
- * <!-- begin-UML-doc -->
- * <!-- end-UML-doc -->
- * @author Marc
- * @generated "UML vers Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
- */
-public class MapView {
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+
+public class MapView extends JPanel {
+	private static final long serialVersionUID = -7235920432526423014L;
+	MapView() {
+		add(new JLabel("Map"));
+	}
 }

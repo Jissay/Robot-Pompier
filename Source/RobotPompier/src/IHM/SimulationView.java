@@ -3,11 +3,9 @@
  */
 package IHM;
 
-/** 
- * <!-- begin-UML-doc -->
- * <!-- end-UML-doc -->
- * @author Marc
- * @generated "UML vers Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
- */
-public class SimulationView {
+import javax.swing.JPanel;
+
+
+public class SimulationView extends JPanel {
+	private static final long serialVersionUID = -1535266699923981316L;
 }

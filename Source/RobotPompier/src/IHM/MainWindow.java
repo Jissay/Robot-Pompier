@@ -7,11 +7,15 @@ import javax.swing.JFrame;
 
 public class MainWindow extends JFrame {
 	private static final long serialVersionUID = -5464261678769218180L;
-	private MapView mapView;
 	
 	public MainWindow() {
 		setTitle("Fire Disaster Simulator");
+		simulationView = new SimulationView();
+		add(simulationView);
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	}
+	
+	private MapView mapView;
 
 	public MapView getMapView() {
 		// begin-user-code

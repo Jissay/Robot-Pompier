@@ -97,10 +97,19 @@ public class MainWindow extends JFrame implements ActionListener {
 	private void createMenuBar() {
 		JMenuBar bar = new JMenuBar();
 		JMenu simulation = new JMenu("Simulation");
+		simulation.setMnemonic('s');
+		JMenuItem run = new JMenuItem("Lancer");
+		run.setMnemonic('r');
+		run.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_R, ActionEvent.CTRL_MASK));
+		run.getAccessibleContext().setAccessibleDescription("Lance la simulation");
+		run.setActionCommand("Run");
+		run.addActionListener(this);
+		simulation.add(run);
 		JMenuItem quit = new JMenuItem("Quitter");
 		quit.setMnemonic('q');
 		quit.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_Q, ActionEvent.CTRL_MASK));
 		quit.getAccessibleContext().setAccessibleDescription("Quitte l'application");
+		quit.setActionCommand("Quit");
 		quit.addActionListener(this);
 		simulation.add(quit);
 		bar.add(simulation);
@@ -109,6 +118,10 @@ public class MainWindow extends JFrame implements ActionListener {
 
 	@Override
 	public void actionPerformed(ActionEvent arg0) {
-		System.exit(0);
+		if (arg0.getActionCommand().equals("Quit"))
+			System.exit(0);
+		if (arg0.getActionCommand().equals("Run")) {
+			// TODO
+		}
 	}
 }

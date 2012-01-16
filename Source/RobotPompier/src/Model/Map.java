@@ -5,8 +5,10 @@ package Model;
 
 import java.util.ArrayList;
 
-/** 
- * @author Marc
+/**
+ * 
+ * @author Jissay
+ *
  */
 public class Map {
 	
@@ -47,6 +49,11 @@ public class Map {
 			}
 			_cells.add(cellsContainer);
 		}
+	}
+	
+	private void addRandomFires() {
+		// A MODIFIER
+		_cells.get(5).get(5).setIsOnFire(3);
 	}
 	
 	/* ------------------- */

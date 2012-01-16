@@ -33,7 +33,7 @@ public enum ETerrainType {
 	 * <!-- end-UML-doc -->
 	 * @generated "UML vers Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
 	 */
-	Forêt,
+	Foret,
 	/** 
 	 * <!-- begin-UML-doc -->
 	 * <!-- end-UML-doc -->
@@ -70,7 +70,7 @@ public enum ETerrainType {
 	}
 
 	/** 
-	 * @param cell cell à définir
+	 * @param cell cell ï¿½ dï¿½finir
 	 * @generated "UML vers Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
 	 */
 	public void setCell(Cell cell) {

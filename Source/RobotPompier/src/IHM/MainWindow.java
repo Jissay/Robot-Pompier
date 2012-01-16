@@ -14,17 +14,22 @@ import javax.swing.JMenuItem;
 import javax.swing.KeyStroke;
 
 public class MainWindow extends JFrame implements ActionListener {
-	private static final long serialVersionUID = -5464261678769218180L;
+	
+	private static final long serialVersionUID = 1L;
+	private RobotModelView robotModelView;
+	private EventsView eventsView;
+	private MapView mapView;
+	private SimulationView simulationView;
 	
 	public MainWindow() {
 		setTitle("Fire Disaster Simulator");
 		simulationView = new SimulationView();
 		add(simulationView);
+		robotModelView = new RobotModelView();
+		add(robotModelView);
 		createMenuBar();
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	}
-	
-	private MapView mapView;
 
 	public MapView getMapView() {
 		// begin-user-code
@@ -38,8 +43,6 @@ public class MainWindow extends JFrame implements ActionListener {
 		// end-user-code
 	}
 
-	private SimulationView simulationView;
-
 	public SimulationView getSimulationView() {
 		// begin-user-code
 		return simulationView;
@@ -51,8 +54,6 @@ public class MainWindow extends JFrame implements ActionListener {
 		this.simulationView = simulationView;
 		// end-user-code
 	}
-
-	private RobotModelView robotModelView;
 
 	public RobotModelView getRobotModelView() {
 		// begin-user-code
@@ -66,8 +67,6 @@ public class MainWindow extends JFrame implements ActionListener {
 		// end-user-code
 	}
 
-	private EventsView eventsView;
-
 	public EventsView getEventsView() {
 		// begin-user-code
 		return eventsView;
@@ -77,20 +76,6 @@ public class MainWindow extends JFrame implements ActionListener {
 	public void setEventsView(EventsView eventsView) {
 		// begin-user-code
 		this.eventsView = eventsView;
-		// end-user-code
-	}
-
-	private RobotModelView robotModelView2;
-
-	public RobotModelView getRobotModelView2() {
-		// begin-user-code
-		return robotModelView2;
-		// end-user-code
-	}
-
-	public void setRobotModelView2(RobotModelView robotModelView2) {
-		// begin-user-code
-		this.robotModelView2 = robotModelView2;
 		// end-user-code
 	}
 	

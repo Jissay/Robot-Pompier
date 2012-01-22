@@ -51,8 +51,8 @@ public class Robot {
 	public float getWeight() {
 		float weight = 0;
 		
-		weight += _robotType.getProjectorType().getWeight();
-		weight += _robotType.getMoveType().getWeight();
+		weight += _robotType.getProjectorType().weight;
+		weight += _robotType.getMoveType().weight;
 		weight += _waterQuantity * WATER_WEIGHT_FACTOR;
 		
 		return weight;
@@ -69,7 +69,7 @@ public class Robot {
 	}
 
 	public Cell getCell() {
-		return cell;
+		return _cell;
 	}
 
 	public void setCell(Cell cell) {

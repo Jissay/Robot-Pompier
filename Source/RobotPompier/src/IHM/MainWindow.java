@@ -109,9 +109,9 @@ public class MainWindow extends JFrame implements ActionListener {
 		if (arg0.getActionCommand().equals("Quit"))
 			System.exit(0);
 		else if (arg0.getActionCommand().equals("Run")) {
-			getSimulationView().showTimer();
+			getSimulationView().startTimer();
 		} else if (arg0.getActionCommand().equals("Stop")) {
-			// TODO
+			getSimulationView().stopTimer();
 		}
 	}
 }

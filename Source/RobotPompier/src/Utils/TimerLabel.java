@@ -25,7 +25,7 @@ private static final long serialVersionUID = 1L;
 			public void actionPerformed (ActionEvent event)
 			{
 				valueTimer += 1000;
-				setText(String.valueOf(valueTimer));
+				setText(String.valueOf(valueTimer/1000)+"s");
 			}
 		};
 		return new Timer (1000, action);

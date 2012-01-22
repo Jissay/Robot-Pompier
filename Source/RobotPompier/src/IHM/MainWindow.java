@@ -76,8 +76,12 @@ public class MainWindow extends JFrame implements ActionListener {
 	
 	private void createMenuBar() {
 		JMenuBar bar = new JMenuBar();
+		
 		JMenu simulation = new JMenu("Simulation");
+		JMenu help = new JMenu("Aide");
+		
 		simulation.setMnemonic('s');
+		
 		JMenuItem run = new JMenuItem("Lancer");
 		run.setMnemonic('r');
 		run.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_R, ActionEvent.CTRL_MASK));
@@ -100,7 +104,15 @@ public class MainWindow extends JFrame implements ActionListener {
 		quit.setActionCommand("Quit");
 		quit.addActionListener(this);
 		simulation.add(quit);
+		
+		JMenuItem about = new JMenuItem("A propos");
+		about.getAccessibleContext().setAccessibleDescription("Affiche les informations concernant le logiciel");
+		about.setActionCommand("Propos");
+		about.addActionListener(this);
+		help.add(about);
+		
 		bar.add(simulation);
+		bar.add(help);
 		setJMenuBar(bar);
 	}
 
@@ -112,6 +124,10 @@ public class MainWindow extends JFrame implements ActionListener {
 			getSimulationView().startTimer();
 		} else if (arg0.getActionCommand().equals("Stop")) {
 			getSimulationView().stopTimer();
+		}
+		else if (arg0.getActionCommand().equals("Propos"))
+		{
+			new AboutDialog();
 		}
 	}
 }

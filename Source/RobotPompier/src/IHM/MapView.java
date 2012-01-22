@@ -91,10 +91,10 @@ public class MapView extends JPanel {
 	private void updateLabel(Cell c, int row, int col) {
 		System.out.println("=+>" + row + " " + col);
 		if (c.isOnFire() > 0) {
-			_map.elementAt(row).elementAt(col).setText("F");
+			_map.elementAt(row).elementAt(col).setText("<html><font size=\"12\">F</font></html>");
 			_map.elementAt(row).elementAt(col).setForeground(Color.red);
 		} else if (c.getRobot() != null) {
-			_map.elementAt(row).elementAt(col).setText("R");
+			_map.elementAt(row).elementAt(col).setText("<html><font size=\"12\">R</font></html>");
 			_map.elementAt(row).elementAt(col).setForeground(Color.blue);
 		} else {
 			_map.elementAt(row).elementAt(col).setText("");

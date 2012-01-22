@@ -34,7 +34,7 @@ public class MainWindow extends JFrame implements ActionListener {
 		east.add(simulationView);
 		robotModelView = new RobotModelView();
 		east.add(robotModelView);
-		mapView = new MapView();
+		mapView = new MapView(10, 10);
 		add(mapView, BorderLayout.CENTER);
 		eventsView = new EventsView();
 		add(eventsView, BorderLayout.SOUTH);

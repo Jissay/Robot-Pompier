@@ -8,6 +8,7 @@ import javax.swing.JButton;
 import javax.swing.JList;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
+import javax.swing.ListSelectionModel;
 
 public class RobotModelView extends JPanel{
 
@@ -17,6 +18,7 @@ public class RobotModelView extends JPanel{
 	private JButton buttonAddRobotTYpe;
 	private JButton buttonModifyRobotType;
 	private JButton buttonDeleteTypeRobot;
+	private JScrollPane scrollPaneList;
 	
 	public RobotModelView()
 	{
@@ -37,14 +39,18 @@ public class RobotModelView extends JPanel{
 		
 		
 		// list used to show all the robot types : we use an array
-		String[]listRobot = {"Robot 1 Test", "Robot 2 Test", "Robot 3 Test", "Robot 4 Test", "Robot 5 Test", "Robot 6 Test"};
+		String[]listRobot = {"Robot Model Test", "Robot Model 2 Test", "Robot Model 3 Test", "Robot Model 4 Test",
+				"Robot Model 5 Test", "Robot Model 6 Test", "Robot Model 7 Test", "Robot Model 8 Test", "Robot Model 9 Test", 
+				"Robot Model 10 Test", "Robot Model 11 Test", "Robot Model 12 Test", "Robot Model 13 Test", "Robot Model 14 Test", 
+				"Robot Model 15 Test", "Robot Model 16 Test", "Robot Model 17 Test", "Robot Model 18 Test", "Robot Model 19 Test", 
+				"Robot Model 20 Test", "Robot Model 21 Test", "Robot Model 22 Test", "Robot Model 23 Test", "Robot Model 24 Test"};
 		this.listRobotType = new JList(listRobot);
-		JScrollPane scrollPane = new JScrollPane(this.listRobotType);
-		this.listRobotType.setVisibleRowCount(3);
-		
+		this.listRobotType.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+		this.listRobotType.setLayoutOrientation(JList.VERTICAL);
+
+		this.scrollPaneList = new JScrollPane(this.listRobotType);
 		this.setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
 		this.add(this.panelControlButton);
-		this.add(this.listRobotType);
-		
+		this.add(this.scrollPaneList);
 	}
 }

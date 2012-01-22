@@ -4,10 +4,12 @@
 package IHM;
 
 import java.awt.BorderLayout;
+import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 
+import javax.swing.Box;
 import javax.swing.BoxLayout;
 import javax.swing.JFrame;
 import javax.swing.JMenu;
@@ -34,7 +36,7 @@ public class MainWindow extends JFrame implements ActionListener {
 		east.add(simulationView);
 		robotModelView = new RobotModelView();
 		east.add(robotModelView);
-		mapView = new MapView();
+		mapView = new MapView(10, 10);
 		add(mapView, BorderLayout.CENTER);
 		eventsView = new EventsView();
 		add(eventsView, BorderLayout.SOUTH);
@@ -101,10 +103,10 @@ public class MainWindow extends JFrame implements ActionListener {
 		run.setActionCommand("Run");
 		run.addActionListener(this);
 		simulation.add(run);
-		JMenuItem stop = new JMenuItem("Arrêter");
+		JMenuItem stop = new JMenuItem("ArrÃ©ter");
 		stop.setMnemonic('a');
 		stop.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_S, ActionEvent.CTRL_MASK));
-		stop.getAccessibleContext().setAccessibleDescription("Arrête la simulation");
+		stop.getAccessibleContext().setAccessibleDescription("ArrÃ©te la simulation");
 		stop.setActionCommand("Stop");
 		stop.addActionListener(this);
 		simulation.add(stop);

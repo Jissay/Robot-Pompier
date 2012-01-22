@@ -19,6 +19,15 @@ public class Cell {
 	private ETerrainType _terrainType;
 	
 	private Robot _robot;
+	
+	public Cell() {
+		this(0, 0);
+	}
+	
+	public Cell(int x, int y) {
+		_x = x;
+		_y = y;
+	}
 
 	/* ******************* */
 	/* GETTERS AND SETTERS */
@@ -32,11 +41,11 @@ public class Cell {
 		_map = map;
 	}
 
-	public int getIsOnFire() {
+	public int isOnFire() {
 		return _isOnFire;
 	}
 
-	public void setIsOnFire(int isOnFire) {
+	public void setOnFire(int isOnFire) {
 		_isOnFire = isOnFire;
 	}
 

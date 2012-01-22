@@ -23,13 +23,4 @@ public class Astar extends Algorithm {
 	public Astar() {
 		
 	}
-	
-	@Override
-	public ArrayList<Cell> findBestWay(Map map, Robot robot, Cell cell) {
-		
-		// Parcourir la map pour ajouter les poids des cellules
-		
-	
-		return null;
-	}
 }

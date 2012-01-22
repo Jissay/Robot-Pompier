@@ -3,22 +3,30 @@
  */
 package Controller;
 
-/** 
- * <!-- begin-UML-doc -->
- * <!-- end-UML-doc -->
- * @author Marc
- * @generated "UML vers Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
- */
-public class MapController {
-	/** 
-	 * <!-- begin-UML-doc -->
-	 * <!-- end-UML-doc -->
-	 * @generated "UML vers Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
-	 */
-	public void refresh() {
-		// begin-user-code
-		// TODO Module de remplacement de méthode auto-généré
+import IHM.MapView;
+import Model.Map;
 
-		// end-user-code
+public class MapController {
+	private MapView	_view;
+	private Map		_model;
+	
+	public MapView getView() {
+		return _view;
+	}
+	
+	public void setView(MapView view) {
+		_view = view;
+	}
+	
+	public Map getModel() {
+		return _model;
+	}
+	
+	public void setModel(Map model) {
+		_model = model;
+	}
+	
+	public void refresh() {
+		_view.refresh();
 	}
 }

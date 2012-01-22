@@ -41,11 +41,11 @@ public class Cell {
 		_map = map;
 	}
 
-	public int getIsOnFire() {
+	public int isOnFire() {
 		return _isOnFire;
 	}
 
-	public void setIsOnFire(int isOnFire) {
+	public void setOnFire(int isOnFire) {
 		_isOnFire = isOnFire;
 	}
 

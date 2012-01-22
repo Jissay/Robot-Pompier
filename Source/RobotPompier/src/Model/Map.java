@@ -53,7 +53,7 @@ public class Map {
 	
 	private void addRandomFires() {
 		// A MODIFIER
-		_cells.get(5).get(5).setIsOnFire(3);
+		_cells.get(5).get(5).setOnFire(3);
 	}
 	
 	/* ------------------- */

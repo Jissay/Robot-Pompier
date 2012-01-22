@@ -7,6 +7,7 @@ import java.awt.BorderLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
+import java.util.ArrayList;
 
 import javax.swing.BoxLayout;
 import javax.swing.JFrame;
@@ -16,14 +17,18 @@ import javax.swing.JMenuItem;
 import javax.swing.JPanel;
 import javax.swing.KeyStroke;
 
+import Model.Cell;
+import Model.Map;
+import Model.Robot;
+
 public class MainWindow extends JFrame implements ActionListener {
-	
+
 	private static final long serialVersionUID = 1L;
 	private RobotModelView robotModelView;
 	private EventsView eventsView;
 	private MapView mapView;
 	private SimulationView simulationView;
-	
+
 	public MainWindow() {
 		setTitle("Fire Disaster Simulator");
 		getContentPane().setLayout(new BorderLayout());
@@ -73,7 +78,7 @@ public class MainWindow extends JFrame implements ActionListener {
 	public void setEventsView(EventsView eventsView) {
 		this.eventsView = eventsView;
 	}
-	
+
 	private void createMenuBar() {
 		JMenuBar bar = new JMenuBar();
 		
@@ -121,13 +126,108 @@ public class MainWindow extends JFrame implements ActionListener {
 		if (arg0.getActionCommand().equals("Quit"))
 			System.exit(0);
 		else if (arg0.getActionCommand().equals("Run")) {
-			getSimulationView().startTimer();
+			// getSimulationView().startTimer(); Commenté pour prototype
+			new Thread(new Runnable() {
+				public void run() {
+					int valueTimer = 1000;
+					while (valueTimer <= 5000) {
+						try{
+							//do what you want to do before sleeping
+							Thread.currentThread().sleep(1000);//sleep for 1000 ms
+							//do what you want to do after sleeptig
+						} catch(InterruptedException ie){
+							//If this thread was intrrupted by nother thread
+							ie.printStackTrace();
+						}
+						refresh(valueTimer);
+						valueTimer += 1000;
+					}
+				}
+			}).start();
 		} else if (arg0.getActionCommand().equals("Stop")) {
 			getSimulationView().stopTimer();
 		}
 		else if (arg0.getActionCommand().equals("Propos"))
 		{
 			new AboutDialog();
+		}
+	}
+
+	/** Code prototype **/
+
+	public void refresh(int value) {
+		System.out.println(value);
+		if (value == 1000) {
+			Map map = mapView.getMapController().getModel();
+			int r = 0;
+			int c = 0;
+			for (ArrayList<Cell> v: map.getCell()) {
+				for (Cell cell: v) {
+					if (r == 3) {
+						if (c == 1) {
+							cell.setRobot(null);
+						} else if (c == 2) {
+							cell.setRobot(new Robot());
+							break;
+						}
+					}
+					c++;
+				}
+				if (c == 2 && r == 3)
+					break;
+				c = 0;
+				r++;
+			}
+			simulationView.getTimerLabel().setText(String.valueOf(value));
+			mapView.refresh();
+		} else if (value == 2000) {
+			Map map = mapView.getMapController().getModel();
+			int r = 0;
+			int c = 0;
+			for (ArrayList<Cell> v: map.getCell()) {
+				for (Cell cell: v) {
+					if (r == 3) {
+						if (c == 2)
+							cell.setRobot(null);
+						else if (c == 3) {
+							cell.setRobot(new Robot());
+							break;
+						}
+					}
+					c++;
+				}
+				if (c == 3 && r == 3)
+					break;
+				c = 0;
+				r++;
+			}
+			simulationView.getTimerLabel().setText(String.valueOf(value));
+			mapView.refresh();
+		} else if (value == 3000) {
+			// Pee on fire !! \o/ GOBE GOBE GOBE !
+			simulationView.getTimerLabel().setText(String.valueOf(value));
+		} else if (value == 4000) {
+			// Pee on fire !! \o/ GOBE GOBE GOBE !
+			simulationView.getTimerLabel().setText(String.valueOf(value));
+		} else if (value == 5000) {
+			Map map = mapView.getMapController().getModel();
+			int r = 0;
+			int c = 0;
+			for (ArrayList<Cell> v: map.getCell()) {
+				for (Cell cell: v) {
+					if (r == 3 && c == 4) {
+						cell.setOnFire(0);
+						break;
+					}
+					c++;
+				}
+				if (c == 4 && r == 3)
+					break;
+				c = 0;
+				r++;
+			}
+			simulationView.getTimerLabel().setText(String.valueOf(value));
+			mapView.refresh();
 		}
 	}
 }

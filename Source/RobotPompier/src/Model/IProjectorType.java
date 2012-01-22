@@ -1,7 +1,7 @@
 package Model;
 
 public interface IProjectorType {
-	public float flow = 0;
-	public float weight = 0;
-	public int range = 0;
+	float flow = 0;
+	float weight = 0;
+	int range = 0;
 }

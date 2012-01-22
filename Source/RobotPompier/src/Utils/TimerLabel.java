@@ -5,6 +5,8 @@ import java.awt.event.ActionListener;
 import javax.swing.JLabel;
 import javax.swing.Timer;
 
+import IHM.MainWindow;
+
 public class TimerLabel extends JLabel
 {
 private static final long serialVersionUID = 1L;

@@ -22,7 +22,7 @@ public class Main {
 		w.setVisible(true);
 
 		/** Code prototype **/
-		w.getMapView().refresh();
+		w.getMapView().protoRefresh();
 		/********************/
 		
 		// Test algo move forward

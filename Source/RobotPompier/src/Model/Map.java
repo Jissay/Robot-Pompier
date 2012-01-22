@@ -25,25 +25,25 @@ public class Map {
 	}
 	
 	/**
-	 * MŽthode gŽnŽrant une map alŽatoire, dans l'attribut _cells.
+	 * Mï¿½thode gï¿½nï¿½rant une map alï¿½atoire, dans l'attribut _cells.
 	 */
 	private void generateMapArrayLists() {
 		// Create Lists
 		_cells = new ArrayList<ArrayList<Cell>>();
 		
 		for (int i = 0; i < _longueur; i++) {
-			// Creation de la liste contenant les cases, d'un nombre Žgal ˆ la largueur de la map,
-			// pour chaque unitŽ de longueur
+			// Creation de la liste contenant les cases, d'un nombre ï¿½gal ï¿½ la largueur de la map,
+			// pour chaque unitï¿½ de longueur
 			ArrayList<Cell> cellsContainer = new ArrayList<Cell>();
 			
-			// Parcours de la nouvelle liste pour ajouter des cellles jusqu'ˆ la largeur donnŽe
+			// Parcours de la nouvelle liste pour ajouter des cellles jusqu'ï¿½ la largeur donnï¿½e
 			for (int j = 0; j < _largeur; j++) {
 				Cell c = new Cell();
 				
 				// Set terrain par defaut
 				c.setTerrainType(ETerrainType.Herbe);
-				c.setX(i); // DŽfinit l'emplacement de la liste contenant la cellule dans l'ArrayList<ArrayList<Cell>>
-				c.setY(j); // DŽfinit l'emplacement de la cellule dans l'ArrayList<Cell>
+				c.setX(i); // Dï¿½finit l'emplacement de la liste contenant la cellule dans l'ArrayList<ArrayList<Cell>>
+				c.setY(j); // Dï¿½finit l'emplacement de la cellule dans l'ArrayList<Cell>
 				
 				cellsContainer.add(c);
 			}
@@ -83,6 +83,4 @@ public class Map {
 	public void setManager(Manager manager) {
 		_manager = manager;
 	}
-
-	
 }

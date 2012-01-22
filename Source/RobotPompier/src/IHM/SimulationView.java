@@ -7,21 +7,30 @@ import javax.swing.BoxLayout;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
+import Utils.TimerLabel;
+
 
 public class SimulationView extends JPanel {
 	private static final long serialVersionUID = 1L;
-	private JPanel timerPanel;
-	private JLabel timer;
+	private TimerLabel labelTimer;
+	private JPanel panelTimer;
 	public SimulationView() {
-		this.setSize(50, 100);
+		labelTimer = new TimerLabel(0);
 		this.setLayout(new BoxLayout(this, BoxLayout.Y_AXIS ));
 		this.add(new JLabel("Statistiques"));
-		showTimer();
+		panelTimer = new JPanel();
+		panelTimer.add(new JLabel("Temps écoulé depuis le début de la simulation :"));
 	}
 	
-	public void showTimer()
+	public void startTimer()
 	{
-		timerPanel = new JPanel();
-		this.add(timerPanel);
+		labelTimer.startTimerLabel();
+		panelTimer.add(labelTimer);
+		this.add(panelTimer);
+	}
+	
+	public void stopTimer()
+	{
+		labelTimer.stopTimerLabel();
 	}
 }

@@ -4,12 +4,10 @@
 package IHM;
 
 import java.awt.BorderLayout;
-import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 
-import javax.swing.Box;
 import javax.swing.BoxLayout;
 import javax.swing.JFrame;
 import javax.swing.JMenu;
@@ -45,51 +43,35 @@ public class MainWindow extends JFrame implements ActionListener {
 	}
 
 	public MapView getMapView() {
-		// begin-user-code
 		return mapView;
-		// end-user-code
 	}
 
 	public void setMapView(MapView mapView) {
-		// begin-user-code
 		this.mapView = mapView;
-		// end-user-code
 	}
 
 	public SimulationView getSimulationView() {
-		// begin-user-code
 		return simulationView;
-		// end-user-code
 	}
 
 	public void setSimulationView(SimulationView simulationView) {
-		// begin-user-code
 		this.simulationView = simulationView;
-		// end-user-code
 	}
 
 	public RobotModelView getRobotModelView() {
-		// begin-user-code
 		return robotModelView;
-		// end-user-code
 	}
 
 	public void setRobotModelView(RobotModelView robotModelView) {
-		// begin-user-code
 		this.robotModelView = robotModelView;
-		// end-user-code
 	}
 
 	public EventsView getEventsView() {
-		// begin-user-code
 		return eventsView;
-		// end-user-code
 	}
 
 	public void setEventsView(EventsView eventsView) {
-		// begin-user-code
 		this.eventsView = eventsView;
-		// end-user-code
 	}
 	
 	private void createMenuBar() {
@@ -127,9 +109,9 @@ public class MainWindow extends JFrame implements ActionListener {
 		if (arg0.getActionCommand().equals("Quit"))
 			System.exit(0);
 		else if (arg0.getActionCommand().equals("Run")) {
-			// TODO
+			getSimulationView().startTimer();
 		} else if (arg0.getActionCommand().equals("Stop")) {
-			// TODO
+			getSimulationView().stopTimer();
 		}
 	}
 }

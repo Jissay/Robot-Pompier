@@ -3,6 +3,7 @@
  */
 package IHM;
 
+import javax.swing.BoxLayout;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
@@ -12,22 +13,20 @@ import Utils.TimerLabel;
 public class SimulationView extends JPanel {
 	private static final long serialVersionUID = 1L;
 	private TimerLabel labelTimer;
+	private JPanel panelTimer;
 	public SimulationView() {
 		labelTimer = new TimerLabel(0);
-		//this.setLayout(new BoxLayout(this, BoxLayout.Y_AXIS ));
+		this.setLayout(new BoxLayout(this, BoxLayout.Y_AXIS ));
 		this.add(new JLabel("Statistiques"));
-		//showTimer();
+		panelTimer = new JPanel();
+		panelTimer.add(new JLabel("Temps écoulé depuis le début de la simulation :"));
 	}
-	
-//	public static SimulationController getSimulationController()
-//	{
-//		return SimulationController;
-//	}
 	
 	public void startTimer()
 	{
 		labelTimer.startTimerLabel();
-		this.add(labelTimer);
+		panelTimer.add(labelTimer);
+		this.add(panelTimer);
 	}
 	
 	public void stopTimer()

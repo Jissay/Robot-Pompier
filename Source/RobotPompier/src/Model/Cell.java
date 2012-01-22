@@ -19,6 +19,15 @@ public class Cell {
 	private ETerrainType _terrainType;
 	
 	private Robot _robot;
+	
+	public Cell() {
+		this(0, 0);
+	}
+	
+	public Cell(int x, int y) {
+		_x = x;
+		_y = y;
+	}
 
 	/* ******************* */
 	/* GETTERS AND SETTERS */

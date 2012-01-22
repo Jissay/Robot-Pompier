@@ -4,12 +4,10 @@
 package IHM;
 
 import java.awt.BorderLayout;
-import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 
-import javax.swing.Box;
 import javax.swing.BoxLayout;
 import javax.swing.JFrame;
 import javax.swing.JMenu;
@@ -127,7 +125,7 @@ public class MainWindow extends JFrame implements ActionListener {
 		if (arg0.getActionCommand().equals("Quit"))
 			System.exit(0);
 		else if (arg0.getActionCommand().equals("Run")) {
-			// TODO
+			//TODO
 		} else if (arg0.getActionCommand().equals("Stop")) {
 			// TODO
 		}

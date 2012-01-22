@@ -6,6 +6,8 @@ package IHM;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
+import Utils.TimerLabel;
+
 
 public class SimulationView extends JPanel {
 	private static final long serialVersionUID = 1L;
@@ -15,8 +17,14 @@ public class SimulationView extends JPanel {
 		//showTimer();
 	}
 	
+//	public static SimulationController getSimulationController()
+//	{
+//		return SimulationController;
+//	}
+	
 	public void showTimer()
 	{
-		//TODO
+			JLabel labelTimer = new TimerLabel(0);
+			this.add(labelTimer);
 	}
 }

@@ -1,173 +1,102 @@
-/**
- * 
- */
 package Model;
 
-/** 
- * <!-- begin-UML-doc -->
- * <!-- end-UML-doc -->
- * @author Marc
- * @generated "UML vers Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
- */
 public class Robot {
-	/** 
-	 * <!-- begin-UML-doc -->
-	 * <!-- end-UML-doc -->
-	 * @generated "UML vers Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
-	 */
-	private EOrientation eOrientation;
+	public static final int WATER_WEIGHT_FACTOR = 1;
+	
+	private Cell _cell;
+	private Cell _destination;
+	private EOrientation _orientation;
+	private float _waterQuantity;
+	private RobotType _robotType;
+	private Manager _manager;
+	private boolean _isFree;
 
-	/** 
-	 * @return eOrientation
-	 * @generated "UML vers Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
-	 */
-	public EOrientation geteOrientation() {
-		// begin-user-code
-		return eOrientation;
-		// end-user-code
+	public Robot() {
+		
+	}
+	
+	public void go(Cell destination) {
+		_destination = destination;
+		_isFree = false;
 	}
 
-	/** 
-	 * @param eOrientation eOrientation à définir
-	 * @generated "UML vers Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
+	/**
+	 * \todo Dï¿½cider tu type de retour vers le simulateur
 	 */
-	public void seteOrientation(EOrientation eOrientation) {
-		// begin-user-code
-		this.eOrientation = eOrientation;
-		// end-user-code
+	public void work() {
+		/*if (isAtRange())
+			// Excintionner la cellule
+		else
+		*/	
 	}
 
-	/** 
-	 * <!-- begin-UML-doc -->
-	 * <!-- end-UML-doc -->
-	 * @generated "UML vers Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
-	 */
-	private Cell cell;
-
-	/** 
-	 * @return cell
-	 * @generated "UML vers Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
-	 */
-	public Cell getCell() {
-		// begin-user-code
-		return cell;
-		// end-user-code
-	}
-
-	/** 
-	 * @param cell cell à définir
-	 * @generated "UML vers Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
-	 */
-	public void setCell(Cell cell) {
-		// begin-user-code
-		this.cell = cell;
-		// end-user-code
-	}
-
-	/** 
-	 * <!-- begin-UML-doc -->
-	 * <!-- end-UML-doc -->
-	 * @generated "UML vers Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
-	 */
-	private float waterQuantity;
-
-	/** 
-	 * @return waterQuantity
-	 * @generated "UML vers Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
-	 */
-	public float getWaterQuantity() {
-		// begin-user-code
-		return waterQuantity;
-		// end-user-code
-	}
-
-	/** 
-	 * @param waterQuantity waterQuantity à définir
-	 * @generated "UML vers Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
-	 */
-	public void setWaterQuantity(float waterQuantity) {
-		// begin-user-code
-		this.waterQuantity = waterQuantity;
-		// end-user-code
-	}
-
-	/** 
-	 * <!-- begin-UML-doc -->
-	 * <!-- end-UML-doc -->
-	 * @generated "UML vers Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
-	 */
-	private Manager manager;
-
-	/** 
-	 * @return manager
-	 * @generated "UML vers Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
-	 */
-	public Manager getManager() {
-		// begin-user-code
-		return manager;
-		// end-user-code
-	}
-
-	/** 
-	 * @param manager manager à définir
-	 * @generated "UML vers Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
-	 */
-	public void setManager(Manager manager) {
-		// begin-user-code
-		this.manager = manager;
-		// end-user-code
-	}
-
-	/** 
-	 * <!-- begin-UML-doc -->
-	 * <!-- end-UML-doc -->
-	 * @generated "UML vers Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
-	 */
-	private RobotType robotType;
-
-	/** 
-	 * @return robotType
-	 * @generated "UML vers Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
-	 */
-	public RobotType getRobotType() {
-		// begin-user-code
-		return robotType;
-		// end-user-code
-	}
-
-	/** 
-	 * @param robotType robotType à définir
-	 * @generated "UML vers Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
-	 */
-	public void setRobotType(RobotType robotType) {
-		// begin-user-code
-		this.robotType = robotType;
-		// end-user-code
-	}
-
-	/** 
-	 * <!-- begin-UML-doc -->
-	 * <!-- end-UML-doc -->
-	 * @return
-	 * @generated "UML vers Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
-	 */
-	public boolean isFree() {
-		// begin-user-code
-		// TODO Module de remplacement de méthode auto-généré
+	private boolean isAtRange() {
 		return false;
-		// end-user-code
 	}
 
-	/** 
-	 * <!-- begin-UML-doc -->
-	 * <!-- end-UML-doc -->
-	 * @return
-	 * @generated "UML vers Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
-	 */
+	public int computeDistance(Cell destination) {
+		// Let's do it the simple way !
+		int distance = 0;
+		 
+		distance += (destination.getX() < _cell.getX()) ? _cell.getX() - destination.getX() : destination.getX() - _cell.getX();
+		distance += (destination.getY() < _cell.getY()) ? _cell.getY() - destination.getY() : destination.getY() - _cell.getY();
+
+		return distance;
+	} 
+
+	public boolean isFree() {
+		return _isFree;
+	}
+	
 	public float getWeight() {
-		// begin-user-code
-		// TODO Module de remplacement de méthode auto-généré
-		return 0;
-		// end-user-code
+		float weight = 0;
+		
+		weight += _robotType.getProjectorType().getWeight();
+		weight += _robotType.getMoveType().getWeight();
+		weight += _waterQuantity * WATER_WEIGHT_FACTOR;
+		
+		return weight;
+	}
+	
+	/** Getters & Setters **/
+	
+	public EOrientation getOrientation() {
+		return _orientation;
+	}
+
+	public void setOrientation(EOrientation orientation) {
+		_orientation = orientation;
+	}
+
+	public Cell getCell() {
+		return cell;
+	}
+
+	public void setCell(Cell cell) {
+		_cell = cell;
+	}
+
+	public float getWaterQuantity() {
+		return _waterQuantity;
+	}
+
+	public void setWaterQuantity(float waterQuantity) {
+		_waterQuantity = waterQuantity;
+	}
+
+	public Manager getManager() {
+		return _manager;
+	}
+
+	public void setManager(Manager manager) {
+		_manager = manager;
+	}
+
+	public RobotType getRobotType() {
+		return _robotType;
+	}
+
+	public void setRobotType(RobotType robotType) {
+		_robotType = robotType;
 	}
 }

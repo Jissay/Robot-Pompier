@@ -15,6 +15,7 @@ import javax.swing.JPanel;
 import Controller.MapController;
 import Model.Cell;
 import Model.Map;
+import Model.Robot;
 
 public class MapView extends JPanel {
 	private static final long serialVersionUID = -7235920432526423014L;
@@ -49,14 +50,31 @@ public class MapView extends JPanel {
 		int c = 0;
 		for (ArrayList<Cell> v: map.getCell()) {
 			for (Cell cell: v) {
+				/** Code prototype **/
+				if (r == 3) {
+					if (c == 1) {
+						System.out.println("=+>" + r + " " + c);
+						cell.setRobot(new Robot());
+					} else if (c == 4) {
+						System.out.println("=+>" + r + " " + c);
+						cell.setOnFire(2);
+					}
+				} else if (r == 6)
+					if (c == 2) {
+						System.out.println("=+>" + r + " " + c);
+						cell.setRobot(new Robot());
+					}
+				/********************/
 				updateLabel(cell, r, c);
 				c++;
 			}
+			c = 0;
 			r++;
 		}
 	}
 	
 	private void updateLabel(Cell c, int row, int col) {
+		System.out.println("=+>" + row + " " + col);
 		if (c.isOnFire() > 0) {
 			_map.elementAt(row).elementAt(col).setText("F");
 			_map.elementAt(row).elementAt(col).setForeground(Color.red);
@@ -66,5 +84,6 @@ public class MapView extends JPanel {
 		} else {
 			_map.elementAt(row).elementAt(col).setText("");
 		}
+		_map.elementAt(row).elementAt(col).updateUI();
 	}
 }

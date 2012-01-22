@@ -16,5 +16,14 @@ public class Main {
 		ctrl.setModel(map);
 		ctrl.setView(w.getMapView());
 		w.setVisible(true);
+		
+		// Test algo move forward
+		Map map = new Map(10,10);
+		Robot robot = new Robot();
+		robot.setCell(new Cell(8, 5));
+		Cell cellToReach = new Cell(1,1);
+		ArrayList<Cell> test = Algorithm.findBestWay(map, robot, cellToReach);
+
+		System.out.println(test.toString());
 	}
 }

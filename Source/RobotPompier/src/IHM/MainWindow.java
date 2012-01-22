@@ -130,7 +130,7 @@ public class MainWindow extends JFrame implements ActionListener {
 			new Thread(new Runnable() {
 				public void run() {
 					int valueTimer = 1000;
-					while (valueTimer <= 5000) {
+					while (valueTimer <= 6000) {
 						try{
 							//do what you want to do before sleeping
 							Thread.currentThread().sleep(1000);//sleep for 1000 ms
@@ -191,12 +191,14 @@ public class MainWindow extends JFrame implements ActionListener {
 							cell.setRobot(null);
 						else if (c == 3) {
 							cell.setRobot(new Robot());
-							break;
 						}
+					} else if (r == 8 && c == 2) {
+						cell.setOnFire(2);
+						break;
 					}
 					c++;
 				}
-				if (c == 3 && r == 3)
+				if (c == 8 && r == 2)
 					break;
 				c = 0;
 				r++;
@@ -204,11 +206,28 @@ public class MainWindow extends JFrame implements ActionListener {
 			simulationView.getTimerLabel().setText(String.valueOf(value));
 			mapView.refresh();
 		} else if (value == 3000) {
-			// Pee on fire !! \o/ GOBE GOBE GOBE !
+			Map map = mapView.getMapController().getModel();
+			int r = 0;
+			int c = 0;
+			for (ArrayList<Cell> v: map.getCell()) {
+				for (Cell cell: v) {
+					if (r == 6 && c == 2)
+						cell.setRobot(null);
+					else if (r == 7 && c == 2) {
+						cell.setRobot(new Robot());
+						break;
+					}
+					c++;
+				}
+				if (c == 7 && r == 2)
+					break;
+				c = 0;
+				r++;
+			}
 			simulationView.getTimerLabel().setText(String.valueOf(value));
+			mapView.refresh();
 		} else if (value == 4000) {
-			// Pee on fire !! \o/ GOBE GOBE GOBE !
-			simulationView.getTimerLabel().setText(String.valueOf(value));
+			// Pee on fire !! GOBE GOBE GOBE 
 		} else if (value == 5000) {
 			Map map = mapView.getMapController().getModel();
 			int r = 0;
@@ -222,6 +241,25 @@ public class MainWindow extends JFrame implements ActionListener {
 					c++;
 				}
 				if (c == 4 && r == 3)
+					break;
+				c = 0;
+				r++;
+			}
+			simulationView.getTimerLabel().setText(String.valueOf(value));
+			mapView.refresh();
+		} else if (value == 6000) {
+			Map map = mapView.getMapController().getModel();
+			int r = 0;
+			int c = 0;
+			for (ArrayList<Cell> v: map.getCell()) {
+				for (Cell cell: v) {
+					if (r == 8 && c == 2) {
+						cell.setOnFire(0);
+						break;
+					}
+					c++;
+				}
+				if (c == 8 && r == 2)
 					break;
 				c = 0;
 				r++;

@@ -1,15 +1,7 @@
-/**
- * 
- */
 package Model;
 
 import java.util.ArrayList;
 
-/**
- * 
- * @author Jissay
- *
- */
 public class Map {
 	
 	private int _largeur;
@@ -24,9 +16,6 @@ public class Map {
 		generateMapArrayLists();
 	}
 	
-	/**
-	 * M�thode g�n�rant une map al�atoire, dans l'attribut _cells.
-	 */
 	private void generateMapArrayLists() {
 		// Create Lists
 		_cells = new ArrayList<ArrayList<Cell>>();

@@ -1,6 +1,3 @@
-/**
- * 
- */
 package IHM;
 
 import java.awt.BorderLayout;
@@ -111,6 +108,8 @@ public class MainWindow extends JFrame implements ActionListener {
 		simulation.add(quit);
 		
 		JMenuItem about = new JMenuItem("A propos");
+		about.setMnemonic('p');
+		about.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_P, ActionEvent.CTRL_MASK));
 		about.getAccessibleContext().setAccessibleDescription("Affiche les informations concernant le logiciel");
 		about.setActionCommand("Propos");
 		about.addActionListener(this);

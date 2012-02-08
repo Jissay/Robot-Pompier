@@ -1,18 +1,9 @@
-/**
- * 
- */
 package IHM;
 
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 
-/** 
- * <!-- begin-UML-doc -->
- * <!-- end-UML-doc -->
- * @author Marc
- * @generated "UML vers Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
- */
 public class AboutDialog extends JOptionPane{
 	private static final long serialVersionUID = 1L;
 	JLabel aboutInformations;
@@ -20,6 +11,12 @@ public class AboutDialog extends JOptionPane{
 	public AboutDialog()
 	{
 		this.logoFDS = new ImageIcon("images/fds2_Logo.png");
-		this.showMessageDialog(null,"<html><font size=\"11\"><b>Fire Disaster Simulator</b></font></html>","information",JOptionPane.INFORMATION_MESSAGE,this.logoFDS);
+		AboutDialog.showMessageDialog(null,"<html><font size=\"6\">" +
+				"<p>Fire Disaster Simulator</p></font>" +
+				"<font size=\"5\"><p><ul><li>Nicolas Buffon</li>" +
+				"<li>Marc Plano-Lesay</li>" +
+				"<li>Jean-Christophe Ricard</li>" +
+				"<li>Adrien Vetillart</li></ul></p></font>" +
+				"</html>","information",JOptionPane.INFORMATION_MESSAGE,this.logoFDS);
 	}
 }

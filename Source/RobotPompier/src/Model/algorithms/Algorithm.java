@@ -1,6 +1,3 @@
-/**
- * 
- */
 package Model.algorithms;
 
 import java.util.ArrayList;
@@ -9,10 +6,6 @@ import Model.Cell;
 import Model.Map;
 import Model.Robot;
 
-/** 
- *
- * @author Marc
- */
 public abstract class Algorithm {
 	/** 
 	 * 

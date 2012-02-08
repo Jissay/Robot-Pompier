@@ -1,6 +1,3 @@
-/**
- * 
- */
 package IHM;
 
 import javax.swing.BoxLayout;

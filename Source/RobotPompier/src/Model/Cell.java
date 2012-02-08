@@ -1,13 +1,5 @@
-/**
- * 
- */
 package Model;
 
-/**
- * 
- * @author Jissay
- *
- */
 public class Cell {
 	
 	private Map _map;

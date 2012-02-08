@@ -20,9 +20,6 @@ public class Robot {
 		_isFree = false;
 	}
 
-	/**
-	 * \todo D�cider tu type de retour vers le simulateur
-	 */
 	public void work() {
 		/*if (isAtRange())
 			// Excintionner la cellule

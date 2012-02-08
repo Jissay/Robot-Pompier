@@ -1,7 +1,5 @@
 package Model;
 
-import java.util.Set;
-
 import Model.algorithms.Algorithm;
 
 public class RobotType {

@@ -30,7 +30,7 @@ public class Map {
 				Cell c = new Cell();
 				
 				// Set terrain par defaut
-				c.setTerrainType(ETerrainType.Herbe);
+				c.setTerrainType(ETerrainType.GRASS);
 				c.setX(i); // D�finit l'emplacement de la liste contenant la cellule dans l'ArrayList<ArrayList<Cell>>
 				c.setY(j); // D�finit l'emplacement de la cellule dans l'ArrayList<Cell>
 				

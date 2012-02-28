@@ -18,28 +18,15 @@ public class SimulationView extends JPanel {
 		this.add(new JLabel("Statistiques"));
 		panelTimer = new JPanel();
 		panelTimer.add(new JLabel("Temps écoulé depuis le début de la simulation :"));
-		
-		/** Code prototype **/
-		panelTimer.add(labelTimer);
-		this.add(panelTimer);
-		/********************/
 	}
 	
-	public void startTimer()
-	{
+	public void startTimer() {
 		labelTimer.startTimerLabel();
 		panelTimer.add(labelTimer);
 		this.add(panelTimer);
 	}
 	
-	public void stopTimer()
-	{
+	public void stopTimer() {
 		labelTimer.stopTimerLabel();
 	}
-	
-	/** Code prototype **/
-	public TimerLabel getTimerLabel() {
-		return labelTimer;
-	}
-	/********************/
 }

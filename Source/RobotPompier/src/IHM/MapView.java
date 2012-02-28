@@ -59,32 +59,6 @@ public class MapView extends JPanel {
 		}
 	}
 	
-	/** Code prototype **/
-	public void protoRefresh() {
-		Map map = _ctrl.getModel();
-		int r = 0;
-		int c = 0;
-		for (ArrayList<Cell> v: map.getCell()) {
-			for (Cell cell: v) {
-				/** Code prototype **/
-				if (r == 3) {
-					if (c == 1)
-						cell.setRobot(new Robot());
-					else if (c == 4)
-						cell.setOnFire(2);
-				} else if (r == 6)
-					if (c == 2)
-						cell.setRobot(new Robot());
-				/********************/
-				updateLabel(cell, r, c);
-				c++;
-			}
-			c = 0;
-			r++;
-		}
-	}
-	/*******************/
-	
 	private void updateLabel(Cell c, int row, int col) {
 		System.out.println("=+>" + row + " " + col);
 		if (c.isOnFire() > 0) {

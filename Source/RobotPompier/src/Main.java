@@ -20,10 +20,6 @@ public class Main {
 		ctrl.setModel(map);
 		ctrl.setView(w.getMapView());
 		w.setVisible(true);
-
-		/** Code prototype **/
-		w.getMapView().protoRefresh();
-		/********************/
 		
 		// Test algo move forward
 		Robot robot = new Robot();

@@ -7,6 +7,7 @@ public class Cell {
 	private int _isOnFire;
 	private int _x;
 	private int _y;
+	private float _height;
 	
 	private ETerrainType _terrainType;
 	
@@ -39,6 +40,10 @@ public class Cell {
 
 	public void setOnFire(int isOnFire) {
 		_isOnFire = isOnFire;
+	}
+	
+	public float getHeight() {
+		return _height;
 	}
 
 	public int getX() {

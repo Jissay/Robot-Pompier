@@ -118,27 +118,11 @@ public class MainWindow extends JFrame implements ActionListener {
 	public void actionPerformed(ActionEvent arg0) {
 		if (arg0.getActionCommand().equals("Quit"))
 			System.exit(0);
-		else if (arg0.getActionCommand().equals("Run")) {
+		else if (arg0.getActionCommand().equals("Run"))
 			getSimulationView().startTimer();
-			new Thread(new Runnable() {
-				public void run() {
-					int valueTimer = 1000;
-					while (valueTimer <= 6000) {
-						try{
-							//do what you want to do before sleeping
-							Thread.currentThread().sleep(1000);//sleep for 1000 ms
-							//do what you want to do after sleeptig
-						} catch(InterruptedException ie){
-							//If this thread was intrrupted by nother thread
-							ie.printStackTrace();
-						}
-						valueTimer += 1000;
-					}
-				}
-			}).start();
-		} else if (arg0.getActionCommand().equals("Stop")) {
+		else if (arg0.getActionCommand().equals("Stop"))
 			getSimulationView().stopTimer();
-		} else if (arg0.getActionCommand().equals("Propos"))
+		else if (arg0.getActionCommand().equals("Propos"))
 			new AboutDialog();
 	}
 }

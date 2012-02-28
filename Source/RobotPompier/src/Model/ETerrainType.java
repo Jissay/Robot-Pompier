@@ -7,5 +7,6 @@ public enum ETerrainType {
 	FOREST,
 	ROCK,
 	SWAMP,
+	SAND,
 	AIR
 }

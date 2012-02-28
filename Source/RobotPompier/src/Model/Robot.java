@@ -1,5 +1,7 @@
 package Model;
 
+import Model.robot.type.RobotType;
+
 public class Robot {
 	public static final int WATER_WEIGHT_FACTOR = 1;
 	
@@ -48,8 +50,8 @@ public class Robot {
 	public float getWeight() {
 		float weight = 0;
 		
-		weight += _robotType.getProjectorType().weight;
-		weight += _robotType.getMoveType().weight;
+		weight += _robotType.getProjectorType().getWeight();
+		weight += _robotType.getMoveType().getWeight();
 		weight += _waterQuantity * WATER_WEIGHT_FACTOR;
 		
 		return weight;

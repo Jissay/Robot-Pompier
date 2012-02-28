@@ -2,6 +2,8 @@ package Model;
 
 import java.util.Set;
 
+import Model.robot.type.RobotType;
+
 
 public class Simulation {
 	private Map map;

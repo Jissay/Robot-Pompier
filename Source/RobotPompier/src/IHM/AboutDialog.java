@@ -13,7 +13,7 @@ public class AboutDialog extends JOptionPane{
 		this.logoFDS = new ImageIcon("images/fds2_Logo.png");
 		AboutDialog.showMessageDialog(null,"<html><font size=\"6\">" +
 				"<p>Fire Disaster Simulator</p></font>" +
-				"<font size=\"5\"><p><ul><li>Nicolas Buffon</li>" +
+				"<font size=\"4\"><p><ul><li>Nicolas Buffon</li>" +
 				"<li>Marc Plano-Lesay</li>" +
 				"<li>Jean-Christophe Ricard</li>" +
 				"<li>Adrien Vetillart</li></ul></p></font>" +

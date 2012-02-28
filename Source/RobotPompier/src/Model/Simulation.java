@@ -1,11 +1,12 @@
 package Model;
 
+import java.util.Observable;
 import java.util.Set;
 
 import Model.robot.type.RobotType;
 
 
-public class Simulation {
+public class Simulation extends Observable{
 	private Map map;
 
 	public Map getMap() {

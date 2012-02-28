@@ -1,8 +1,10 @@
 package Model;
 
+import java.util.Observable;
+
 import Model.robot.type.RobotType;
 
-public class Robot {
+public class Robot extends Observable {
 	public static final int WATER_WEIGHT_FACTOR = 1;
 	
 	private Cell _cell;

@@ -1,0 +1,590 @@
+[
+	[
+		{
+			"type": "swamp",
+			"height": 0
+		},
+		{
+			"type": "swamp",
+			"height": 0
+		},
+		{
+			"type": "swamp",
+			"height": 0
+		},
+		{
+			"type": "swamp",
+			"height": 0
+		},
+		{
+			"type": "swamp",
+			"height": 0
+		},
+		{
+			"type": "swamp",
+			"height": 0
+		},
+		{
+			"type": "swamp",
+			"height": 0
+		},
+		{
+			"type": "swamp",
+			"height": 0
+		},
+		{
+			"type": "swamp",
+			"height": 0
+		},
+		{
+			"type": "swamp",
+			"height": 0
+		}
+	],
+	[
+		{
+			"type": "swamp",
+			"height": 0
+		},
+		{
+			"type": "swamp",
+			"height": 0
+		},
+		{
+			"type": "sand",
+			"height": 2
+		},
+		{
+			"type": "sand",
+			"height": 2
+		},
+		{
+			"type": "swamp",
+			"height": 0
+		},
+		{
+			"type": "swamp",
+			"height": 0
+		},
+		{
+			"type": "sand",
+			"height": 2
+		},
+		{
+			"type": "sand",
+			"height": 2
+		},
+		{
+			"type": "swamp",
+			"height": 0
+		},
+		{
+			"type": "swamp",
+			"height": 0
+		}
+	],
+	[
+		{
+			"type": "swamp",
+			"height": 0
+		},
+		{
+			"type": "sand",
+			"height": 2
+		},
+		{
+			"type": "sand",
+			"height": 3
+		},
+		{
+			"type": "sand",
+			"height": 3
+		},
+		{
+			"type": "sand",
+			"height": 2
+		},
+		{
+			"type": "sand",
+			"height": 2
+		},
+		{
+			"type": "sand",
+			"height": 3
+		},
+		{
+			"type": "sand",
+			"height": 3
+		},
+		{
+			"type": "sand",
+			"height": 2
+		},
+		{
+			"type": "swamp",
+			"height": 0
+		}
+	],
+	[
+		{
+			"type": "swamp",
+			"height": 0
+		},
+		{
+			"type": "sand",
+			"height": 2
+		},
+		{
+			"type": "sand",
+			"height": 3
+		},
+		{
+			"type": "sand",
+			"height": 3
+		},
+		{
+			"type": "sand",
+			"height": 2
+		},
+		{
+			"type": "sand",
+			"height": 2
+		},
+		{
+			"type": "sand",
+			"height": 3
+		},
+		{
+			"type": "sand",
+			"height": 3
+		},
+		{
+			"type": "sand",
+			"height": 2
+		},
+		{
+			"type": "swamp",
+			"height": 0
+		}
+	],
+	[
+		{
+			"type": "swamp",
+			"height": 0
+		},
+		{
+			"type": "swamp",
+			"height": 0
+		},
+		{
+			"type": "sand",
+			"height": 2
+		},
+		{
+			"type": "sand",
+			"height": 2
+		},
+		{
+			"type": "sand",
+			"height": 1
+		},
+		{
+			"type": "sand",
+			"height": 1
+		},
+		{
+			"type": "sand",
+			"height": 2
+		},
+		{
+			"type": "sand",
+			"height": 2
+		},
+		{
+			"type": "swamp",
+			"height": 0
+		},
+		{
+			"type": "swamp",
+			"height": 0
+		}
+	],
+	[
+		{
+			"type": "swamp",
+			"height": 0
+		},
+		{
+			"type": "swamp",
+			"height": 0
+		},
+		{
+			"type": "swamp",
+			"height": 0
+		},
+		{
+			"type": "sand",
+			"height": 1
+		},
+		{
+			"type": "sand",
+			"height": 1
+		},
+		{
+			"type": "sand",
+			"height": 1
+		},
+		{
+			"type": "sand",
+			"height": 1
+		},
+		{
+			"type": "swamp",
+			"height": 0
+		},
+		{
+			"type": "swamp",
+			"height": 0
+		},
+		{
+			"type": "swamp",
+			"height": 0
+		}
+	],
+	[
+		{
+			"type": "swamp",
+			"height": 0
+		},
+		{
+			"type": "swamp",
+			"height": 0
+		},
+		{
+			"type": "swamp",
+			"height": 0
+		},
+		{
+			"type": "sand",
+			"height": 1
+		},
+		{
+			"type": "sand",
+			"height": 1
+		},
+		{
+			"type": "sand",
+			"height": 1
+		},
+		{
+			"type": "sand",
+			"height": 1
+		},
+		{
+			"type": "swamp",
+			"height": 0
+		},
+		{
+			"type": "swamp",
+			"height": 0
+		},
+		{
+			"type": "swamp",
+			"height": 0
+		}
+	],
+	[
+		{
+			"type": "swamp",
+			"height": 0
+		},
+		{
+			"type": "swamp",
+			"height": 0
+		},
+		{
+			"type": "swamp",
+			"height": 0
+		},
+		{
+			"type": "sand",
+			"height": 1
+		},
+		{
+			"type": "sand",
+			"height": 1
+		},
+		{
+			"type": "sand",
+			"height": 1
+		},
+		{
+			"type": "sand",
+			"height": 1
+		},
+		{
+			"type": "swamp",
+			"height": 0
+		},
+		{
+			"type": "swamp",
+			"height": 0
+		},
+		{
+			"type": "swamp",
+			"height": 0
+		}
+	],
+	[
+		{
+			"type": "swamp",
+			"height": 0
+		},
+		{
+			"type": "swamp",
+			"height": 0
+		},
+		{
+			"type": "swamp",
+			"height": 0
+		},
+		{
+			"type": "sand",
+			"height": 1
+		},
+		{
+			"type": "sand",
+			"height": 1
+		},
+		{
+			"type": "sand",
+			"height": 1
+		},
+		{
+			"type": "sand",
+			"height": 1
+		},
+		{
+			"type": "swamp",
+			"height": 0
+		},
+		{
+			"type": "swamp",
+			"height": 0
+		},
+		{
+			"type": "swamp",
+			"height": 0
+		}
+	],
+	[
+		{
+			"type": "swamp",
+			"height": 0
+		},
+		{
+			"type": "swamp",
+			"height": 0
+		},
+		{
+			"type": "swamp",
+			"height": 0
+		},
+		{
+			"type": "sand",
+			"height": 1
+		},
+		{
+			"type": "sand",
+			"height": 1
+		},
+		{
+			"type": "sand",
+			"height": 1
+		},
+		{
+			"type": "sand",
+			"height": 1
+		},
+		{
+			"type": "swamp",
+			"height": 0
+		},
+		{
+			"type": "swamp",
+			"height": 0
+		},
+		{
+			"type": "swamp",
+			"height": 0
+		}
+	],
+	[
+		{
+			"type": "swamp",
+			"height": 0
+		},
+		{
+			"type": "swamp",
+			"height": 0
+		},
+		{
+			"type": "rock",
+			"height": 1
+		},
+		{
+			"type": "rock",
+			"height": 2
+		},
+		{
+			"type": "rock",
+			"height": 2
+		},
+		{
+			"type": "rock",
+			"height": 2
+		},
+		{
+			"type": "rock",
+			"height": 2
+		},
+		{
+			"type": "rock",
+			"height": 1
+		},
+		{
+			"type": "swamp",
+			"height": 0
+		},
+		{
+			"type": "swamp",
+			"height": 0
+		}
+	],
+	[
+		{
+			"type": "swamp",
+			"height": 0
+		},
+		{
+			"type": "swamp",
+			"height": 0
+		},
+		{
+			"type": "swamp",
+			"height": 0
+		},
+		{
+			"type": "rock",
+			"height": 1
+		},
+		{
+			"type": "rock",
+			"height": 2
+		},
+		{
+			"type": "rock",
+			"height": 2
+		},
+		{
+			"type": "rock",
+			"height": 1
+		},
+		{
+			"type": "swamp",
+			"height": 0
+		},
+		{
+			"type": "swamp",
+			"height": 0
+		},
+		{
+			"type": "swamp",
+			"height": 0
+		}
+	],
+	[
+		{
+			"type": "swamp",
+			"height": 0
+		},
+		{
+			"type": "swamp",
+			"height": 0
+		},
+		{
+			"type": "swamp",
+			"height": 0
+		},
+		{
+			"type": "swamp",
+			"height": 0
+		},
+		{
+			"type": "rock",
+			"height": 1
+		},
+		{
+			"type": "rock",
+			"height": 1
+		},
+		{
+			"type": "swamp",
+			"height": 0
+		},
+		{
+			"type": "swamp",
+			"height": 0
+		},
+		{
+			"type": "swamp",
+			"height": 0
+		},
+		{
+			"type": "swamp",
+			"height": 0
+		}
+	],
+	[
+		{
+			"type": "swamp",
+			"height": 0
+		},
+		{
+			"type": "swamp",
+			"height": 0
+		},
+		{
+			"type": "swamp",
+			"height": 0
+		},
+		{
+			"type": "swamp",
+			"height": 0
+		},
+		{
+			"type": "swamp",
+			"height": 0
+		},
+		{
+			"type": "swamp",
+			"height": 0
+		},
+		{
+			"type": "swamp",
+			"height": 0
+		},
+		{
+			"type": "swamp",
+			"height": 0
+		},
+		{
+			"type": "swamp",
+			"height": 0
+		},
+		{
+			"type": "swamp",
+			"height": 0
+		}
+	]
+]

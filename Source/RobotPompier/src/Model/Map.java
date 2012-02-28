@@ -21,18 +21,18 @@ public class Map {
 		_cells = new ArrayList<ArrayList<Cell>>();
 		
 		for (int i = 0; i < _longueur; i++) {
-			// Creation de la liste contenant les cases, d'un nombre �gal � la largueur de la map,
-			// pour chaque unit� de longueur
+			// Creation de la liste contenant les cases, d'un nombre égal à la largueur de la map,
+			// pour chaque unité de longueur
 			ArrayList<Cell> cellsContainer = new ArrayList<Cell>();
 			
-			// Parcours de la nouvelle liste pour ajouter des cellles jusqu'� la largeur donn�e
+			// Parcours de la nouvelle liste pour ajouter des cellles jusqu'à la largeur donnée
 			for (int j = 0; j < _largeur; j++) {
 				Cell c = new Cell();
 				
 				// Set terrain par defaut
 				c.setTerrainType(ETerrainType.GRASS);
-				c.setX(i); // D�finit l'emplacement de la liste contenant la cellule dans l'ArrayList<ArrayList<Cell>>
-				c.setY(j); // D�finit l'emplacement de la cellule dans l'ArrayList<Cell>
+				c.setX(i); // Définit l'emplacement de la liste contenant la cellule dans l'ArrayList<ArrayList<Cell>>
+				c.setY(j); // Définit l'emplacement de la cellule dans l'ArrayList<Cell>
 				
 				cellsContainer.add(c);
 			}
@@ -41,7 +41,7 @@ public class Map {
 	}
 	
 	private void addRandomFires() {
-		// A MODIFIER
+		// À MODIFIER
 		_cells.get(5).get(5).setOnFire(3);
 	}
 	

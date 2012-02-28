@@ -1,19 +1,11 @@
 package Model.robot.type;
 
+import Model.algorithms.Algorithm;
+
 public class RobotTypeFactory {
 	
 	// Factory, creates instances of the robot type
-	public RobotType newInstance(String moveType, String projectorType) {
-		RobotType robotType = new RobotType(null, null, null, 0);
-		return robotType;
-	}
-	
-	public MoveType createMoveType(String nom) {
-		MoveType moveType = new MoveType();
-		return null;
-	}
-
-	public ProjectorType createProjectorType(String nom) {
-		return null;
+	public RobotType newInstance(MoveType move_t, ProjectorType projector_t, Algorithm algorithm, float waterCapacity) {
+		return new RobotType(projector_t, move_t, algorithm, waterCapacity);
 	}
 }

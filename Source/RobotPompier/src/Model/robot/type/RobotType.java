@@ -4,6 +4,7 @@ import Model.algorithms.Algorithm;
 
 public class RobotType {
 	
+	private String _name;
 	private ProjectorType _projectorType;
 	private MoveType _moveType;
 	private Algorithm _algorithm;
@@ -17,10 +18,19 @@ public class RobotType {
 	}
 	
 	/* GETTERS AND SETTERS */
+
+	public String get_name() {
+		return _name;
+	}
+
+	public void set_name(String _name) {
+		this._name = _name;
+	}	
+	
 	public ProjectorType getProjectorType() {
 		return _projectorType;
 	}
-
+	
 	public void setProjectorType(ProjectorType projectorType) {
 		_projectorType = projectorType;
 	}

@@ -2,8 +2,14 @@ package Model;
 
 public class RobotTypeFactory {
 
-	private RobotType robotModel;
-
+	private RobotType robotModel; // Model used 
+	
+	// Factory, creates instances of the robot type
+	public RobotType newInstance(String moveType, String projectorType) {
+		RobotType robotType = new RobotType();
+		return robotType;
+	}
+	
 	public RobotType getRobotModel() {
 		return robotModel;
 	}
@@ -16,7 +22,7 @@ public class RobotTypeFactory {
 		return null;
 	}
 
-	public IProjectorType createProjectorType(Object Stringnom) {
+	public IProjectorType createProjectorType(String nom) {
 		return null;
 	}
 }

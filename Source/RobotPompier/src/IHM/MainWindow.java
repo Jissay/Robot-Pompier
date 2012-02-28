@@ -20,7 +20,7 @@ public class MainWindow extends JFrame implements ActionListener {
 	private MapView mapView;
 	private SimulationView simulationView;
 
-	public MainWindow() {
+	public MainWindow(int width, int height) {
 		setTitle("Fire Disaster Simulator");
 		getContentPane().setLayout(new BorderLayout());
 		JPanel east = new JPanel();
@@ -30,7 +30,7 @@ public class MainWindow extends JFrame implements ActionListener {
 		east.add(simulationView);
 		robotModelView = new RobotModelView();
 		east.add(robotModelView);
-		mapView = new MapView(10, 10);
+		mapView = new MapView(width, height);
 		add(mapView, BorderLayout.CENTER);
 		eventsView = new EventsView();
 		add(eventsView, BorderLayout.SOUTH);

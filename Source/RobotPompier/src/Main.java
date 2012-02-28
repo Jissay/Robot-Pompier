@@ -57,12 +57,12 @@ public class Main {
 		} catch (JSONException e) {
 			e.printStackTrace();
 		}
-		System.out.println("Map size : " + map.getLargeur() + " - " + map.getLongueur());
-		MainWindow w = new MainWindow();
+		
+		MainWindow w = new MainWindow(map.getLargeur(), map.getLongueur());
 		w.setExtendedState(w.getExtendedState() | Frame.MAXIMIZED_BOTH);
 		w.setSize(java.awt.Toolkit.getDefaultToolkit().getScreenSize());
-		w.getMapView().setController(ctrl);
 		ctrl.setModel(map);
+		w.getMapView().setController(ctrl);
 		ctrl.setView(w.getMapView());
 		w.setVisible(true);
 		

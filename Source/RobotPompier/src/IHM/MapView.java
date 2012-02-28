@@ -12,29 +12,21 @@ import javax.swing.JPanel;
 import Controller.MapController;
 import Model.Cell;
 import Model.Map;
-import Model.Robot;
 
 public class MapView extends JPanel {
 	private static final long serialVersionUID = -7235920432526423014L;
 	private Vector<Vector<JLabel>>	_map;
 	private MapController			_ctrl;
+	private int						_width;
+	private int						_height;
 	
 	MapView(int width, int height) {
+		_width = width;
+		_height = height;
 		setLayout(new GridLayout(width, height));
 		_map = new Vector<Vector<JLabel>>();
-		for (int i = 0; i < width; ++i) {
+		for (int i = 0; i < width; ++i)
 			_map.addElement(new Vector<JLabel>());
-		}
-		for (int i = 0; i < width; ++i) {
-			for (int j = 0; j < height; ++j) {
-				JLabel lab = new JLabel();
-				lab.setBackground(Color.green);
-				lab.setOpaque(true);
-				lab.setBorder(BorderFactory.createLineBorder(Color.black));
-				add(lab, i, j);
-				_map.elementAt(i).add(j, lab);
-			}
-		}
 	}
 	
 	public MapController getMapController() {
@@ -43,6 +35,41 @@ public class MapView extends JPanel {
 	
 	public void setController(MapController ctrl) {
 		_ctrl = ctrl;
+		ArrayList<ArrayList<Cell>> cells = _ctrl.getModel().getCell();
+		for (int i = 0; i < _width; ++i) {
+			for (int j = 0; j < _height; ++j) {
+				JLabel lab = new JLabel();
+				switch (cells.get(j).get(i).getTerrainType()) {
+				case GRASS:
+					lab.setBackground(Color.green);
+					break;
+				case SNOW:
+					lab.setBackground(Color.white);
+					break;
+				case WATER:
+					lab.setBackground(Color.blue);
+					break;
+				case FOREST:
+					lab.setBackground(Color.green.darker().darker());
+					break;
+				case ROCK:
+					lab.setBackground(Color.pink.darker());
+					break;
+				case SWAMP:
+					lab.setBackground(Color.green.darker());
+					break;
+				case SAND:
+					lab.setBackground(Color.yellow.brighter().brighter());
+					break;
+				case AIR:
+					lab.setBackground(Color.white);
+					break;
+				}
+				lab.setOpaque(true);
+				add(lab, i, j);
+				_map.elementAt(i).add(j, lab);
+			}
+		}
 	}
 	
 	public void refresh() {

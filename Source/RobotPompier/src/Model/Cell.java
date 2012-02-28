@@ -1,5 +1,7 @@
 package Model;
 
+import org.json.JSONObject;
+
 public class Cell {
 	
 	private Map _map;
@@ -7,19 +9,51 @@ public class Cell {
 	private int _isOnFire;
 	private int _x;
 	private int _y;
-	private float _height;
+	private double _height;
 	
 	private ETerrainType _terrainType;
 	
 	private Robot _robot;
 	
+	//TODO: remove
 	public Cell() {
-		this(0, 0);
+		this(0, 0, 0);
 	}
 	
-	public Cell(int x, int y) {
+	//TODO: remove
+	public Cell(int x, int y, double height) {
 		_x = x;
 		_y = y;
+		_height = height;
+		_terrainType = ETerrainType.GRASS;
+		_isOnFire = 0;
+	}
+	
+	public Cell(int x, int y, JSONObject json) {
+		_x = x;
+		_y = y;
+		_isOnFire = 0;
+		_height = json.optDouble("height", 0);
+		String terrainType = json.optString("type", "grass");
+		
+		if (terrainType.equals("grass"))
+			_terrainType = ETerrainType.GRASS;
+		else if (terrainType.equals("snow"))
+			_terrainType = ETerrainType.SNOW;
+		else if (terrainType.equals("water"))
+			_terrainType = ETerrainType.WATER;
+		else if (terrainType.equals("forest"))
+			_terrainType = ETerrainType.FOREST;
+		else if (terrainType.equals("rock"))
+			_terrainType = ETerrainType.ROCK;
+		else if (terrainType.equals("swamp"))
+			_terrainType = ETerrainType.SWAMP;
+		else if (terrainType.equals("sand"))
+			_terrainType = ETerrainType.SAND;
+		else if (terrainType.equals("air"))
+			_terrainType = ETerrainType.AIR;
+		else
+			_terrainType = ETerrainType.GRASS;
 	}
 
 	/* ******************* */
@@ -42,7 +76,7 @@ public class Cell {
 		_isOnFire = isOnFire;
 	}
 	
-	public float getHeight() {
+	public double getHeight() {
 		return _height;
 	}
 

@@ -37,8 +37,8 @@ public class Main {
 		
 		// Test algo move forward
 		Robot robot = new Robot();
-		robot.setCell(new Cell(8, 5));
-		Cell cellToReach = new Cell(1,1);
+		robot.setCell(new Cell(8, 5, 0));
+		Cell cellToReach = new Cell(1,1, 0);
 		ArrayList<Cell> test = Algorithm.findBestWay(map, robot, cellToReach);
 
 		System.out.println(test.toString());

@@ -65,7 +65,7 @@ public abstract class Algorithm {
 			}
 			
 			// Add current cell in the list that contains cells ran by the algorithm
-			path.add(new Cell(x_currentCell, y_currentCell));
+			path.add(new Cell(x_currentCell, y_currentCell, 0));
 		}
 		
 		return path;

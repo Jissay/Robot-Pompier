@@ -15,40 +15,38 @@ public abstract class Algorithm {
 	 * @return ArrayList<Cell> - List of Cell to reach in order to follow the path found
 	 */
 	public static ArrayList<Cell> findBestWay(Map map, Robot robot, Cell cellToReach) {
+		// Cells ran by the algorithm
 		ArrayList<Cell> path = new ArrayList<Cell>();
 		
 		// Prototype Algorithm
-		Cell startCell = robot.getCell();
+		Cell startCell = robot.getCell(); // Cell where the robot is
 		int x_startCell = startCell.getX();
 		int y_startCell = startCell.getY();
 		
-		int x_toReach = cellToReach.getX();
-		int y_toReach = cellToReach.getY();
+		int x_toReach = cellToReach.getX(); // x of the cell to reach
+		int y_toReach = cellToReach.getY(); // y of the cell to reach
 		
+		// coord of the current cell (while moving)
 		int x_currentCell = x_startCell, y_currentCell = y_startCell;
 		
+		// Set if difference between start coord and final coord are positive or negative
 		boolean xDiffPositive, yDiffPositive;
+		int xDiff = x_toReach - x_startCell;
+		if (xDiff > 0) { xDiffPositive = true; } else { xDiffPositive = false; };
 		
-		if (x_toReach - x_startCell > 0) {
-			xDiffPositive = true;
-		} else {
-			xDiffPositive = false;
-		}
+		int yDiff = y_toReach - y_startCell;
+		if (yDiff > 0) { yDiffPositive = true; } else { yDiffPositive = false; };
 		
-		if (y_toReach - y_startCell > 0) {
-			yDiffPositive = true;
-		} else {
-			yDiffPositive = false;
-		}
-		
+		// Straight path
 		while (x_currentCell != x_toReach || y_currentCell != y_toReach) {
-			boolean xOk = false;
-			boolean yOk = false;
+			boolean xOk = false; // True when x_toReach have been reached
+			boolean yOk = false; // True when y_toReach have been reached
 			
-			// Look if one of the coords is right
+			// Check if x or y have been reached
 			if (x_currentCell == x_toReach) { xOk = true; }
 			if (y_currentCell == y_toReach) { yOk = true; }
 		
+			// Move to next x
 			if (!xOk) {
 				if (xDiffPositive) {
 					x_currentCell++;
@@ -57,6 +55,7 @@ public abstract class Algorithm {
 				}
 			}
 			
+			// Move to next y
 			if (!yOk) {
 				if (yDiffPositive) {
 					y_currentCell++;
@@ -65,6 +64,7 @@ public abstract class Algorithm {
 				}
 			}
 			
+			// Add current cell in the list that contains cells ran by the algorithm
 			path.add(new Cell(x_currentCell, y_currentCell));
 		}
 		

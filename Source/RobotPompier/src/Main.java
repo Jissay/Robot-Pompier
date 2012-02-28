@@ -1,4 +1,8 @@
 import java.awt.Frame;
+import java.io.BufferedReader;
+import java.io.FileInputStream;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.util.ArrayList;
 
 import Controller.MapController;
@@ -10,6 +14,9 @@ import Model.algorithms.Algorithm;
 
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
+
+import org.json.JSONArray;
+import org.json.JSONException;
 
 public class Main {
 	public static void main(String[] args) {
@@ -25,8 +32,32 @@ public class Main {
 			e.printStackTrace();
 		}
 		
+		// Lecture de la carte
+		String mapFile = "";
+		
+		//lecture du fichier texte	
+		try {
+			InputStream ips = new FileInputStream("res/maps/sample1.map"); 
+			InputStreamReader ipsr = new InputStreamReader(ips);
+			BufferedReader br = new BufferedReader(ipsr);
+			String line;
+			while ((line = br.readLine()) != null) {
+				mapFile += line+"\n";
+			}
+			br.close(); 
+		}		
+		catch (Exception e){
+			System.out.println(e.toString());
+		}
+		
 		MapController ctrl = new MapController();
-		Map map = new Map(10, 10);
+		Map map = null;
+		try {
+			map = new Map(new JSONArray(mapFile));
+		} catch (JSONException e) {
+			e.printStackTrace();
+		}
+		System.out.println("Map size : " + map.getLargeur() + " - " + map.getLongueur());
 		MainWindow w = new MainWindow();
 		w.setExtendedState(w.getExtendedState() | Frame.MAXIMIZED_BOTH);
 		w.setSize(java.awt.Toolkit.getDefaultToolkit().getScreenSize());

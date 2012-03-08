@@ -1,11 +1,19 @@
 package IHM;
 
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
+
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
+import javax.swing.JComponent;
 import javax.swing.JList;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.ListSelectionModel;
+import javax.swing.TransferHandler;
+
+import IHM.DragNDrop.CustomTransferHandler;
 
 public class RobotModelView extends JPanel {
 
@@ -49,9 +57,16 @@ public class RobotModelView extends JPanel {
 		this.setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
 		this.add(this.panelControlButton);
 		this.add(this.scrollPaneList);
-	}
-	
-	public String getSelectedRowText() {
-		return (String) listRobotType.getSelectedValue();
+		
+		// Drag n' drop
+		final CustomTransferHandler cth = new CustomTransferHandler("text");
+		setTransferHandler(cth);
+		MouseListener mouseListener = new MouseAdapter() {
+			public void mousePressed(MouseEvent event) {
+				JComponent jc = (JComponent)event.getSource();
+				cth.exportAsDrag(jc, event, TransferHandler.COPY);
+			}
+		};
+		listRobotType.addMouseListener(mouseListener);
 	}
 }

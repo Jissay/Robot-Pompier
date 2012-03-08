@@ -7,6 +7,7 @@ import java.awt.event.InputEvent;
 import java.io.IOException;
 
 import javax.swing.JComponent;
+import javax.swing.JList;
 import javax.swing.TransferHandler;
 
 import IHM.RobotModelView;
@@ -26,10 +27,12 @@ private CustomTransferable _data = new CustomTransferable("Nothing");
 	@Override
 	public void exportAsDrag(JComponent component, InputEvent inputEvent, int action) {
 		super.exportAsDrag(component, inputEvent, action);
-		if (component instanceof RobotModelView)
-			_data.setValue(((RobotModelView)component).getSelectedRowText());
+		if (component instanceof JList)
+			_data.setValue((String) ((JList)component).getSelectedValue());
 		else
 			_data.setValue("I dragged someting ...");
+		
+		System.out.println(_data);
 	}
 	
 	@Override
@@ -66,5 +69,9 @@ private CustomTransferable _data = new CustomTransferable("Nothing");
 			return false;
 		}
 		
+		@Override
+		public String toString() {
+			return _value;
+		}
 	}
 }

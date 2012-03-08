@@ -23,6 +23,10 @@ public class CellDropTarget extends DropTarget {
 		setComponent(component);
 	}
 	
+	public CellDropTarget() {
+		super();
+	}
+
 	@Override
 	public void dragEnter(DropTargetDragEvent event) {
 		Component component = getComponent();

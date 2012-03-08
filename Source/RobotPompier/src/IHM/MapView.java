@@ -8,6 +8,7 @@ import java.util.Vector;
 import javax.swing.JPanel;
 
 import Controller.MapController;
+import IHM.DragNDrop.CellDropTarget;
 import Model.Cell;
 import Model.Map;
 import Observer.AMapObserver;
@@ -41,6 +42,7 @@ public class MapView extends AMapObserver{
 		for (int i = 0; i < _width; ++i) {
 			for (int j = 0; j < _height; ++j) {
 				CellView lab = new CellView(i, j);
+				lab.setDropTarget(new CellDropTarget());
 				switch (cells.get(j).get(i).getTerrainType()) {
 				case GRASS:
 					lab.setBackground(Color.green);

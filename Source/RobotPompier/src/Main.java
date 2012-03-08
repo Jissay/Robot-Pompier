@@ -42,7 +42,7 @@ public class Main {
 			System.exit(1);
 		}
 		
-		//lecture du fichier texte	
+		// Lecture du fichier texte	
 		try {
 			InputStream ips = new FileInputStream(fileChooser.getSelectedFile().getAbsolutePath()); 
 			InputStreamReader ipsr = new InputStreamReader(ips);

@@ -85,7 +85,7 @@ public class MainWindow extends JFrame implements ActionListener {
 		run.setActionCommand("Run");
 		run.addActionListener(this);
 		simulation.add(run);
-		JMenuItem stop = new JMenuItem("Arréter");
+		JMenuItem stop = new JMenuItem("Arrêter");
 		stop.setMnemonic('a');
 		stop.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_S, ActionEvent.CTRL_MASK));
 		stop.getAccessibleContext().setAccessibleDescription("Arréte la simulation");

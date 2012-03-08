@@ -5,7 +5,6 @@ import java.awt.GridLayout;
 import java.util.ArrayList;
 import java.util.Vector;
 
-import javax.swing.BorderFactory;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
@@ -16,7 +15,6 @@ import Model.Map;
 public class MapView extends JPanel {
 	private static final long serialVersionUID = -7235920432526423014L;
 	private Vector<Vector<JLabel>>	_map;
-	private MapController			_ctrl;
 	private int						_width;
 	private int						_height;
 	
@@ -29,13 +27,8 @@ public class MapView extends JPanel {
 			_map.addElement(new Vector<JLabel>());
 	}
 	
-	public MapController getMapController() {
-		return _ctrl;
-	}
-	
-	public void setController(MapController ctrl) {
-		_ctrl = ctrl;
-		ArrayList<ArrayList<Cell>> cells = _ctrl.getModel().getCell();
+	public void setController() {
+		ArrayList<ArrayList<Cell>> cells = MapController.getInstance().getModel().getCell();
 		for (int i = 0; i < _width; ++i) {
 			for (int j = 0; j < _height; ++j) {
 				JLabel lab = new JLabel();
@@ -73,7 +66,7 @@ public class MapView extends JPanel {
 	}
 	
 	public void refresh() {
-		Map map = _ctrl.getModel();
+		Map map = MapController.getInstance().getModel();
 		int r = 0;
 		int c = 0;
 		for (ArrayList<Cell> v: map.getCell()) {

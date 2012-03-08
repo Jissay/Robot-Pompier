@@ -4,13 +4,24 @@ import java.awt.BorderLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
+import java.io.BufferedReader;
+import java.io.FileInputStream;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+
 import javax.swing.BoxLayout;
+import javax.swing.JFileChooser;
 import javax.swing.JFrame;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JPanel;
 import javax.swing.KeyStroke;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+
+import Controller.MapController;
 
 public class MainWindow extends JFrame implements ActionListener {
 
@@ -88,9 +99,17 @@ public class MainWindow extends JFrame implements ActionListener {
 		JMenuItem stop = new JMenuItem("Arrêter");
 		stop.setMnemonic('a');
 		stop.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_S, ActionEvent.CTRL_MASK));
-		stop.getAccessibleContext().setAccessibleDescription("Arréte la simulation");
+		stop.getAccessibleContext().setAccessibleDescription("Arrête la simulation");
 		stop.setActionCommand("Stop");
 		stop.addActionListener(this);
+		simulation.add(stop);
+		simulation.addSeparator();
+		JMenuItem charger = new JMenuItem("Charger une carte");
+		charger.setMnemonic('a');
+		charger.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_O, ActionEvent.CTRL_MASK));
+		charger.getAccessibleContext().setAccessibleDescription("Charge une carte");
+		charger.setActionCommand("LoadMap");
+		charger.addActionListener(this);
 		simulation.add(stop);
 		simulation.addSeparator();
 		JMenuItem quit = new JMenuItem("Quitter");
@@ -122,7 +141,35 @@ public class MainWindow extends JFrame implements ActionListener {
 			getSimulationView().startTimer();
 		else if (arg0.getActionCommand().equals("Stop"))
 			getSimulationView().stopTimer();
+		else if (arg0.getActionCommand().equals("LoadMap"))
+			try {
+				loadMap();
+			} catch (JSONException e) {
+				e.printStackTrace();
+			}
 		else if (arg0.getActionCommand().equals("Propos"))
 			new AboutDialog();
+	}
+	
+	private void loadMap() throws JSONException {
+		JFileChooser fileChooser = new JFileChooser();
+		int retour = fileChooser.showOpenDialog(null);
+		if (retour == JFileChooser.APPROVE_OPTION) {
+			String mapFile = "";
+			try {
+				InputStream ips = new FileInputStream(fileChooser.getSelectedFile().getAbsolutePath()); 
+				InputStreamReader ipsr = new InputStreamReader(ips);
+				BufferedReader br = new BufferedReader(ipsr);
+				String line;
+				while ((line = br.readLine()) != null) {
+					mapFile += line+"\n";
+				}
+				br.close(); 
+			}		
+			catch (Exception e){
+				System.out.println(e.toString());
+			}
+			MapController.getInstance().load(new JSONArray(mapFile));
+		}
 	}
 }

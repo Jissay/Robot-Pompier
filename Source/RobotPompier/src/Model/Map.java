@@ -1,7 +1,6 @@
 package Model;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -13,7 +12,17 @@ public class Map {
 	private ArrayList<ArrayList<Cell>> _cells;
 	private Manager _manager;
 	
+	public Map() {
+		_largeur = 0;
+		_longueur = 0;
+		_cells = new ArrayList<ArrayList<Cell>>();
+	}
+	
 	public Map(JSONArray map) throws JSONException {
+		setData(map);
+	}
+	
+	public void setData(JSONArray map) throws JSONException {
 		_largeur = 0;
 		_longueur = 0;
 		_cells = new ArrayList<ArrayList<Cell>>();
@@ -27,11 +36,6 @@ public class Map {
 				cellsContainer.add(new Cell(i, j, row.getJSONObject(j)));
 			_cells.add(cellsContainer);
 		}
-	}
-	
-	private void addRandomFires() {
-		// À MODIFIER
-		_cells.get(5).get(5).setOnFire(3);
 	}
 	
 	/* ------------------- */

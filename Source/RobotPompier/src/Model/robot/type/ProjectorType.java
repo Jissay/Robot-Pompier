@@ -63,4 +63,8 @@ public class ProjectorType {
 	public void setWeight(float weight) {
 		_weight = weight;
 	}
+
+	public String getName() {
+		return _name;
+	}
 }

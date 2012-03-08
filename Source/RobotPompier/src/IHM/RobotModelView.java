@@ -15,12 +15,14 @@ import javax.swing.TransferHandler;
 
 import IHM.DragNDrop.CustomTransferHandler;
 
-public class RobotModelView extends JPanel {
+import IHM.listeners.OpenAddRobotTypeListener;
+
+public class RobotModelView extends JPanel{
 
 	private static final long serialVersionUID = 1L;
 	private JPanel panelControlButton;
 	private JList listRobotType;
-	private JButton buttonAddRobotTYpe;
+	private JButton buttonAddRobotType;
 	private JButton buttonModifyRobotType;
 	private JButton buttonDeleteTypeRobot;
 	private JScrollPane scrollPaneList;
@@ -31,14 +33,16 @@ public class RobotModelView extends JPanel {
 		this.panelControlButton = new JPanel();
 		
 		// button used to add a new robot type
-		this.buttonAddRobotTYpe = new JButton("Ajouter");
+		this.buttonAddRobotType = new JButton("Ajouter");
+		this.buttonAddRobotType.addActionListener(new OpenAddRobotTypeListener());
+		
 		// button used to modify a robot type
 		this.buttonModifyRobotType = new JButton("Modifier");
 		// button used to delete a robot type
 		this.buttonDeleteTypeRobot = new JButton("Supprimer");
 		
 		// add all buttons to panelControlButton
-		this.panelControlButton.add(this.buttonAddRobotTYpe);
+		this.panelControlButton.add(this.buttonAddRobotType);
 		this.panelControlButton.add(this.buttonModifyRobotType);
 		this.panelControlButton.add(this.buttonDeleteTypeRobot);
 		

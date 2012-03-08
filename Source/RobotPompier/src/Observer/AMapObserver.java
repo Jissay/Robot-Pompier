@@ -3,21 +3,19 @@ package Observer;
 import java.util.Observable;
 import java.util.Observer;
 
-import Controller.MapController;
-import IHM.MapView;
-import Model.Cell;
-import Model.Simulation;
+import Model.Map;
 
-public class AMapObserver implements Observer {
+public abstract class AMapObserver implements Observer {
 
+	protected abstract void mapLoaded();
+	
 	@Override
 	public void update(Observable o, Object arg) {
-		if (o instanceof Simulation)
-		{
-			Simulation simulation = (Simulation) o;
-			if (arg instanceof Cell)
-			{
-				Cell cell = (Cell) arg;
+		if (o instanceof Map) {
+			if (arg instanceof String) {
+				String param = (String) arg;
+				if ("LoadMap".equals(param))
+					mapLoaded();
 			}
 		}
 	}

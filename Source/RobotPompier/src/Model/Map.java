@@ -38,6 +38,7 @@ public class Map extends Observable {
 				cellsContainer.add(new Cell(i, j, row.getJSONObject(j)));
 			_cells.add(cellsContainer);
 		}
+		notifyObservers("LoadMap");
 	}
 	
 	public boolean isCellBusy(int x, int y) {

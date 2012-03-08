@@ -60,9 +60,15 @@ public class MapView extends AMapObserver{
 			_map.elementAt(row).elementAt(col).setText("<html><font size=\"12\">R</font></html>");
 			_map.elementAt(row).elementAt(col).setForeground(Color.blue);
 		} else {
-			_map.elementAt(row).elementAt(col).setText("");
+			try {
+				_map.elementAt(row).elementAt(col).setText("");
+			} catch(ArrayIndexOutOfBoundsException e) {
+			}
 		}
-		_map.elementAt(row).elementAt(col).updateUI();
+		try {
+			_map.elementAt(row).elementAt(col).updateUI();
+		} catch(ArrayIndexOutOfBoundsException e) {
+		}
 	}
 	
 	@Override
@@ -70,9 +76,9 @@ public class MapView extends AMapObserver{
 		_width = MapController.getInstance().getModel().getLargeur();
 		_height = MapController.getInstance().getModel().getLongueur();
 		_mainPanel.setLayout(new GridLayout(_width, _height));
-		_map = new Vector<Vector<JLabel>>();
+		_map = new Vector<Vector<CellView>>();
 		for (int i = 0; i < _width; ++i)
-			_map.addElement(new Vector<JLabel>());
+			_map.addElement(new Vector<CellView>());
 		
 		ArrayList<ArrayList<Cell>> cells = MapController.getInstance().getModel().getCell();
 		for (int i = 0; i < _width; ++i) {

@@ -4,6 +4,8 @@ import Model.ETerrainType;
 
 public class MoveType {
 	
+	/* STATIC VALUES */
+	
 	public static int MOVE_TYPE_1 = 1;
 	public static int MOVE_TYPE_2 = 2;
 	
@@ -12,6 +14,8 @@ public class MoveType {
 	
 	private static final String MOVE_TYPE_2_NAME = "Ventouses";
 	private static final float MOVE_TYPE_2_WEIGHT = 1.0f;
+	
+	/* ATTRIBUTES */
 	
 	private String _name = "No Name";
 	private float _weight = 0.0f;

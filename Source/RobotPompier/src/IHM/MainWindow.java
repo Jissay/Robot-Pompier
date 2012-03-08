@@ -42,7 +42,7 @@ public class MainWindow extends JFrame implements ActionListener {
 		robotModelView = new RobotModelView();
 		east.add(robotModelView);
 		mapView = new MapView(width, height);
-		add(mapView.get_mainPanel(), BorderLayout.CENTER);
+		add(mapView.getMainPanel(), BorderLayout.CENTER);
 		eventsView = new EventsView();
 		add(eventsView.getEventsPanel(), BorderLayout.SOUTH);
 		createMenuBar();

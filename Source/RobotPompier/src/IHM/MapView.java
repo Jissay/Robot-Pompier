@@ -15,16 +15,16 @@ import Observer.AMapObserver;
 
 public class MapView extends AMapObserver{
 	private Vector<Vector<CellView>>	_map;
-	private int						_width;
-	private int						_height;
-	private JPanel 					_mainPanel;
+	private int							_width;
+	private int							_height;
+	private JPanel 						_mainPanel;
 	
-	public JPanel get_mainPanel() {
+	public JPanel getMainPanel() {
 		return _mainPanel;
 	}
 
-	public void set_mainPanel(JPanel _mainPanel) {
-		this._mainPanel = _mainPanel;
+	public void setMainPanel(JPanel mainPanel) {
+		_mainPanel = mainPanel;
 	}
 
 	MapView(int width, int height) {

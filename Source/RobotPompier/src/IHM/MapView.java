@@ -37,7 +37,43 @@ public class MapView extends AMapObserver{
 			_map.addElement(new Vector<CellView>());
 	}
 	
-	public void setController() {
+	public void refresh() {
+		Map map = MapController.getInstance().getModel();
+		int r = 0;
+		int c = 0;
+		for (ArrayList<Cell> v: map.getCell()) {
+			for (Cell cell: v) {
+				updateLabel(cell, r, c);
+				c++;
+			}
+			c = 0;
+			r++;
+		}
+	}
+	
+	private void updateLabel(Cell c, int row, int col) {
+		System.out.println("=+>" + row + " " + col);
+		if (c.isOnFire() > 0) {
+			_map.elementAt(row).elementAt(col).setText("<html><font size=\"12\">F</font></html>");
+			_map.elementAt(row).elementAt(col).setForeground(Color.red);
+		} else if (c.getRobot() != null) {
+			_map.elementAt(row).elementAt(col).setText("<html><font size=\"12\">R</font></html>");
+			_map.elementAt(row).elementAt(col).setForeground(Color.blue);
+		} else {
+			_map.elementAt(row).elementAt(col).setText("");
+		}
+		_map.elementAt(row).elementAt(col).updateUI();
+	}
+	
+	@Override
+	protected void mapLoaded() {
+		_width = MapController.getInstance().getModel().getLargeur();
+		_height = MapController.getInstance().getModel().getLongueur();
+		_mainPanel.setLayout(new GridLayout(_width, _height));
+		_map = new Vector<Vector<JLabel>>();
+		for (int i = 0; i < _width; ++i)
+			_map.addElement(new Vector<JLabel>());
+		
 		ArrayList<ArrayList<Cell>> cells = MapController.getInstance().getModel().getCell();
 		for (int i = 0; i < _width; ++i) {
 			for (int j = 0; j < _height; ++j) {
@@ -74,38 +110,6 @@ public class MapView extends AMapObserver{
 				_map.elementAt(i).add(j, lab);
 			}
 		}
-	}
-	
-	public void refresh() {
-		Map map = MapController.getInstance().getModel();
-		int r = 0;
-		int c = 0;
-		for (ArrayList<Cell> v: map.getCell()) {
-			for (Cell cell: v) {
-				updateLabel(cell, r, c);
-				c++;
-			}
-			c = 0;
-			r++;
-		}
-	}
-	
-	private void updateLabel(Cell c, int row, int col) {
-		System.out.println("=+>" + row + " " + col);
-		if (c.isOnFire() > 0) {
-			_map.elementAt(row).elementAt(col).setText("<html><font size=\"12\">F</font></html>");
-			_map.elementAt(row).elementAt(col).setForeground(Color.red);
-		} else if (c.getRobot() != null) {
-			_map.elementAt(row).elementAt(col).setText("<html><font size=\"12\">R</font></html>");
-			_map.elementAt(row).elementAt(col).setForeground(Color.blue);
-		} else {
-			_map.elementAt(row).elementAt(col).setText("");
-		}
-		_map.elementAt(row).elementAt(col).updateUI();
-	}
-	
-	@Override
-	protected void mapLoaded() {
-		System.out.println("test");
+		refresh();
 	}
 }

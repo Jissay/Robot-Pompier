@@ -5,16 +5,16 @@ import java.awt.GridLayout;
 import java.util.ArrayList;
 import java.util.Vector;
 
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 import Controller.MapController;
-import IHM.DragNDrop.CellDropTarget;
 import Model.Cell;
 import Model.Map;
 import Observer.AMapObserver;
 
 public class MapView extends AMapObserver{
-	private Vector<Vector<CellView>>	_map;
+	private Vector<Vector<JLabel>>	_map;
 	private int							_width;
 	private int							_height;
 	private JPanel 						_mainPanel;
@@ -31,7 +31,7 @@ public class MapView extends AMapObserver{
 		_mainPanel = new JPanel();
 		_width = 0;
 		_height = 0;
-		_map = new Vector<Vector<CellView>>();
+		_map = new Vector<Vector<JLabel>>();
 	}
 	
 	public void refresh() {
@@ -67,15 +67,14 @@ public class MapView extends AMapObserver{
 		_width = MapController.getInstance().getModel().getLongueur();
 		_height = MapController.getInstance().getModel().getLargeur();
 		_mainPanel.setLayout(new GridLayout(_width, _height));
-		_map = new Vector<Vector<CellView>>();
+		_map = new Vector<Vector<JLabel>>();
 		for (int i = 0; i < _width; ++i)
-			_map.addElement(new Vector<CellView>());
+			_map.addElement(new Vector<JLabel>());
 		
 		ArrayList<ArrayList<Cell>> cells = MapController.getInstance().getModel().getCell();
 		for (int i = 0; i < _width; ++i) {
 			for (int j = 0; j < _height; ++j) {
-				CellView lab = new CellView(i, j);
-				lab.setDropTarget(new CellDropTarget());
+				JLabel lab = new JLabel();
 				switch (cells.get(i).get(j).getTerrainType()) {
 				case GRASS:
 					lab.setBackground(Color.green);

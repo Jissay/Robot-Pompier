@@ -7,7 +7,7 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.ListSelectionModel;
 
-public class RobotModelView extends JPanel{
+public class RobotModelView extends JPanel {
 
 	private static final long serialVersionUID = 1L;
 	private JPanel panelControlButton;
@@ -49,5 +49,9 @@ public class RobotModelView extends JPanel{
 		this.setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
 		this.add(this.panelControlButton);
 		this.add(this.scrollPaneList);
+	}
+	
+	public String getSelectedRowText() {
+		return (String) listRobotType.getSelectedValue();
 	}
 }

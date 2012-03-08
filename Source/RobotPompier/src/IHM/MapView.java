@@ -5,7 +5,6 @@ import java.awt.GridLayout;
 import java.util.ArrayList;
 import java.util.Vector;
 
-import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 import Controller.MapController;
@@ -14,7 +13,7 @@ import Model.Map;
 import Observer.AMapObserver;
 
 public class MapView extends AMapObserver{
-	private Vector<Vector<JLabel>>	_map;
+	private Vector<Vector<CellView>>	_map;
 	private int						_width;
 	private int						_height;
 	private JPanel 					_mainPanel;
@@ -32,16 +31,16 @@ public class MapView extends AMapObserver{
 		_width = width;
 		_height = height;
 		_mainPanel.setLayout(new GridLayout(width, height));
-		_map = new Vector<Vector<JLabel>>();
+		_map = new Vector<Vector<CellView>>();
 		for (int i = 0; i < width; ++i)
-			_map.addElement(new Vector<JLabel>());
+			_map.addElement(new Vector<CellView>());
 	}
 	
 	public void setController() {
 		ArrayList<ArrayList<Cell>> cells = MapController.getInstance().getModel().getCell();
 		for (int i = 0; i < _width; ++i) {
 			for (int j = 0; j < _height; ++j) {
-				JLabel lab = new JLabel();
+				CellView lab = new CellView(i, j);
 				switch (cells.get(j).get(i).getTerrainType()) {
 				case GRASS:
 					lab.setBackground(Color.green);

@@ -12,9 +12,8 @@ public class MapController {
 	private static MapController	_instance;
 	
     public static MapController getInstance() {
-        if (null == _instance) {
+        if (null == _instance)
             _instance = new MapController();
-        }
         return _instance;
     }
     
@@ -42,5 +41,13 @@ public class MapController {
 	
 	public void refresh() {
 		_view.refresh();
+	}
+	
+	public boolean isCellBusy(int x, int y) {
+		return _model.isCellBusy(x, y);
+	}
+	
+	public void setRobotAt(int x, int y) {
+		_model.setRobotAt(x, y);
 	}
 }

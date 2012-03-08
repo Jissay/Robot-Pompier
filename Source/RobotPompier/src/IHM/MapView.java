@@ -27,14 +27,11 @@ public class MapView extends AMapObserver{
 		_mainPanel = mainPanel;
 	}
 
-	MapView(int width, int height) {
+	MapView() {
 		_mainPanel = new JPanel();
-		_width = width;
-		_height = height;
-		_mainPanel.setLayout(new GridLayout(width, height));
+		_width = 0;
+		_height = 0;
 		_map = new Vector<Vector<CellView>>();
-		for (int i = 0; i < width; ++i)
-			_map.addElement(new Vector<CellView>());
 	}
 	
 	public void refresh() {
@@ -67,8 +64,8 @@ public class MapView extends AMapObserver{
 	
 	@Override
 	protected void mapLoaded() {
-		_width = MapController.getInstance().getModel().getLargeur();
-		_height = MapController.getInstance().getModel().getLongueur();
+		_width = MapController.getInstance().getModel().getLongueur();
+		_height = MapController.getInstance().getModel().getLargeur();
 		_mainPanel.setLayout(new GridLayout(_width, _height));
 		_map = new Vector<Vector<CellView>>();
 		for (int i = 0; i < _width; ++i)
@@ -79,7 +76,7 @@ public class MapView extends AMapObserver{
 			for (int j = 0; j < _height; ++j) {
 				CellView lab = new CellView(i, j);
 				lab.setDropTarget(new CellDropTarget());
-				switch (cells.get(j).get(i).getTerrainType()) {
+				switch (cells.get(i).get(j).getTerrainType()) {
 				case GRASS:
 					lab.setBackground(Color.green);
 					break;

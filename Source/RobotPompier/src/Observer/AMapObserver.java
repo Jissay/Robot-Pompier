@@ -14,9 +14,8 @@ public abstract class AMapObserver implements Observer {
 		if (o instanceof Map) {
 			if (arg instanceof String) {
 				String param = (String) arg;
-				if (param == "LoadMap") {
+				if ("LoadMap".equals(param))
 					mapLoaded();
-				}
 			}
 		}
 	}

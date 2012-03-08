@@ -105,6 +105,6 @@ public class MapView extends AMapObserver{
 	
 	@Override
 	protected void mapLoaded() {
-		
+		System.out.println("test");
 	}
 }

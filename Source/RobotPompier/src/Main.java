@@ -33,6 +33,8 @@ public class Main {
 		MapController.getInstance().setModel(map);
 		MapController.getInstance().setView(w.getMapView());
 		w.setVisible(true);
+		map.addObserver(w.getMapView());
+		map.addObserver(w.getEventsView());
 		
 		// Test algo move forward
 		Robot robot = new Robot();

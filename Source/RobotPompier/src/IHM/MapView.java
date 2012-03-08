@@ -60,15 +60,9 @@ public class MapView extends AMapObserver{
 			_map.elementAt(row).elementAt(col).setText("<html><font size=\"12\">R</font></html>");
 			_map.elementAt(row).elementAt(col).setForeground(Color.blue);
 		} else {
-			try {
-				_map.elementAt(row).elementAt(col).setText("");
-			} catch(ArrayIndexOutOfBoundsException e) {
-			}
+			_map.elementAt(row).elementAt(col).setText("");
 		}
-		try {
-			_map.elementAt(row).elementAt(col).updateUI();
-		} catch(ArrayIndexOutOfBoundsException e) {
-		}
+		_map.elementAt(row).elementAt(col).updateUI();
 	}
 	
 	@Override

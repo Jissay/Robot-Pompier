@@ -12,6 +12,7 @@ import Model.Map;
 import Model.Robot;
 import Model.algorithms.Algorithm;
 
+import javax.swing.JFileChooser;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
 
@@ -35,9 +36,15 @@ public class Main {
 		// Lecture de la carte
 		String mapFile = "";
 		
+		JFileChooser fileChooser = new JFileChooser();
+		int retour = fileChooser.showOpenDialog(null);
+		if (retour != JFileChooser.APPROVE_OPTION) {
+			System.exit(1);
+		}
+		
 		//lecture du fichier texte	
 		try {
-			InputStream ips = new FileInputStream("res/maps/sample1.map"); 
+			InputStream ips = new FileInputStream(fileChooser.getSelectedFile().getAbsolutePath()); 
 			InputStreamReader ipsr = new InputStreamReader(ips);
 			BufferedReader br = new BufferedReader(ipsr);
 			String line;

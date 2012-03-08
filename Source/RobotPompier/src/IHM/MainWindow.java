@@ -110,7 +110,7 @@ public class MainWindow extends JFrame implements ActionListener {
 		charger.getAccessibleContext().setAccessibleDescription("Charge une carte");
 		charger.setActionCommand("LoadMap");
 		charger.addActionListener(this);
-		simulation.add(stop);
+		simulation.add(charger);
 		simulation.addSeparator();
 		JMenuItem quit = new JMenuItem("Quitter");
 		quit.setMnemonic('q');

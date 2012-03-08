@@ -27,7 +27,7 @@ public class Main {
 		
 		Map map = new Map();
 		
-		MainWindow w = new MainWindow(map.getLargeur(), map.getLongueur());
+		MainWindow w = new MainWindow(1, 1);
 		w.setExtendedState(w.getExtendedState() | Frame.MAXIMIZED_BOTH);
 		w.setSize(java.awt.Toolkit.getDefaultToolkit().getScreenSize());
 		MapController.getInstance().setModel(map);

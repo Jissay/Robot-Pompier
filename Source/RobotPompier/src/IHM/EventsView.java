@@ -17,4 +17,9 @@ public class EventsView extends AMapObserver {
 		eventsPanel = new JPanel();
 		eventsPanel.add(new JLabel("EventsView"));
 	}
+	
+	@Override
+	protected void mapLoaded() {
+		
+	}
 }

@@ -102,4 +102,9 @@ public class MapView extends AMapObserver{
 		}
 		_map.elementAt(row).elementAt(col).updateUI();
 	}
+	
+	@Override
+	protected void mapLoaded() {
+		
+	}
 }

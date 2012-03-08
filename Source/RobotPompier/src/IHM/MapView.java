@@ -11,17 +11,27 @@ import javax.swing.JPanel;
 import Controller.MapController;
 import Model.Cell;
 import Model.Map;
+import Observer.AMapObserver;
 
-public class MapView extends JPanel {
-	private static final long serialVersionUID = -7235920432526423014L;
+public class MapView extends AMapObserver{
 	private Vector<Vector<JLabel>>	_map;
 	private int						_width;
 	private int						_height;
+	private JPanel 					_mainPanel;
 	
+	public JPanel get_mainPanel() {
+		return _mainPanel;
+	}
+
+	public void set_mainPanel(JPanel _mainPanel) {
+		this._mainPanel = _mainPanel;
+	}
+
 	MapView(int width, int height) {
+		_mainPanel = new JPanel();
 		_width = width;
 		_height = height;
-		setLayout(new GridLayout(width, height));
+		_mainPanel.setLayout(new GridLayout(width, height));
 		_map = new Vector<Vector<JLabel>>();
 		for (int i = 0; i < width; ++i)
 			_map.addElement(new Vector<JLabel>());
@@ -59,7 +69,7 @@ public class MapView extends JPanel {
 					break;
 				}
 				lab.setOpaque(true);
-				add(lab, i, j);
+				_mainPanel.add(lab, i, j);
 				_map.elementAt(i).add(j, lab);
 			}
 		}

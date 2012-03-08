@@ -3,10 +3,18 @@ package IHM;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-public class EventsView extends JPanel {
-	private static final long serialVersionUID = 281442043495642538L;
+import Observer.AMapObserver;
 
+public class EventsView extends AMapObserver {
+	private JPanel eventsPanel;
+	public JPanel getEventsPanel() {
+		return eventsPanel;
+	}
+	public void setEventsPanel(JPanel eventsPanel) {
+		this.eventsPanel = eventsPanel;
+	}
 	EventsView() {
-		add(new JLabel("EventsView"));
+		eventsPanel = new JPanel();
+		eventsPanel.add(new JLabel("EventsView"));
 	}
 }

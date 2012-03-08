@@ -1,11 +1,13 @@
 package Model;
 
 import java.util.ArrayList;
+import java.util.Observable;
+
 
 import org.json.JSONArray;
 import org.json.JSONException;
 
-public class Map {
+public class Map extends Observable {
 	
 	private int _largeur;
 	private int _longueur;

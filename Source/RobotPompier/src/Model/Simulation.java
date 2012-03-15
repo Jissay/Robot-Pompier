@@ -31,9 +31,16 @@ public class Simulation extends Observable{
 	
 	public Simulation() {
 		_robotModel = new HashSet<RobotType>();
+		
 		_listAlgorithms = new HashSet<Algorithm>();
+		
 		_listMoveTypes = new HashSet<MoveType>();
+		_listMoveTypes.add(new MoveType(1));
+		_listMoveTypes.add(new MoveType(2));
+		
 		_listProjectorTypes = new HashSet<ProjectorType>();
+		_listProjectorTypes.add(new ProjectorType(1));
+		_listProjectorTypes.add(new ProjectorType(2));
 		
 	}
 	

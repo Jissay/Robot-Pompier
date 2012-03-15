@@ -28,6 +28,7 @@ public class Map extends Observable {
 		_largeur = 0;
 		_longueur = 0;
 		_cells = new ArrayList<ArrayList<Cell>>();
+		setChanged();
 		notifyObservers("MapLoading");
 		
 		_longueur = map.length();
@@ -42,6 +43,7 @@ public class Map extends Observable {
 				_cells.add(cellsContainer);
 			}
 		} catch (JSONException e) {
+			setChanged();
 			notifyObservers("MapLoadingFailed");
 			e.printStackTrace();
 		}

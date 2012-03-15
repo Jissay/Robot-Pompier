@@ -118,4 +118,16 @@ public class MapView extends AMapObserver{
 		}
 		refresh();
 	}
+
+	@Override
+	protected void mapSetRobot() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	protected void mapSetFire() {
+		// TODO Auto-generated method stub
+		
+	}
 }

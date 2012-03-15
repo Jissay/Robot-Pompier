@@ -38,10 +38,10 @@ public class MainWindow extends JFrame implements ActionListener {
 		east.setLayout(new BoxLayout(east, BoxLayout.PAGE_AXIS));
 		add(east, BorderLayout.EAST);
 		simulationView = new SimulationView();
-		east.add(simulationView);
+		east.add(simulationView.getSimulationPanel());
 		robotModelView = new RobotModelView();
-		east.add(robotModelView);
 		mapView = new MapView();
+		east.add(robotModelView.getRobotModelPanel());
 		add(mapView.getMainPanel(), BorderLayout.CENTER);
 		eventsView = new EventsView();
 		add(eventsView.getEventsPanel(), BorderLayout.SOUTH);

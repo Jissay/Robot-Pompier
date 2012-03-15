@@ -1,5 +1,6 @@
 package Model;
 
+import java.util.HashSet;
 import java.util.Observable;
 import java.util.Set;
 
@@ -28,6 +29,14 @@ public class Simulation extends Observable{
 	
 	/* GETTERS AND SETTERS */
 	
+	public Simulation() {
+		_robotModel = new HashSet<RobotType>();
+		_listAlgorithms = new HashSet<Algorithm>();
+		_listMoveTypes = new HashSet<MoveType>();
+		_listProjectorTypes = new HashSet<ProjectorType>();
+		
+	}
+	
 	public Map getMap() {
 		return _map;
 	}
@@ -38,6 +47,13 @@ public class Simulation extends Observable{
 
 	public Set<RobotType> getRobotModel() {
 		return _robotModel;
+	}
+	
+	public RobotType getRobotTypeFromName(String name) {
+		for (RobotType type : _robotModel)
+			if (name.equals(type.getName()))
+				return type;
+		return null;
 	}
 
 	public void setRobotModel(Set<RobotType> robotModel) {
@@ -52,7 +68,7 @@ public class Simulation extends Observable{
 		_manager = manager;
 	}
 
-	public Set<Algorithm> get_listAlgorithms() {
+	public Set<Algorithm> getListAlgorithms() {
 		return _listAlgorithms;
 	}
 

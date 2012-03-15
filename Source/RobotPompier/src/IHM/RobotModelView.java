@@ -19,25 +19,36 @@ import IHM.DragNDrop.CustomTransferHandler;
 import IHM.listeners.OpenAddRobotTypeListener;
 import Model.Simulation;
 
-public class RobotModelView extends JPanel{
+import Observer.ARobotTypeObserver;
 
-	private static final long serialVersionUID = 1L;
+public class RobotModelView extends ARobotTypeObserver{
+
 	private JPanel panelControlButton;
-	private JList listRobotType;
 	private JButton buttonAddRobotType;
+	private JList listRobotType;
+	private JButton buttonAddRobotTYpe;
 	private JButton buttonModifyRobotType;
 	private JButton buttonDeleteTypeRobot;
 	private JScrollPane scrollPaneList;
+	private JPanel robotModelPanel;
 	
+	public JPanel getRobotModelPanel() {
+		return robotModelPanel;
+	}
+
+	public void setRobotModelPanel(JPanel robotModelPanel) {
+		this.robotModelPanel = robotModelPanel;
+	}
+
 	public RobotModelView()
 	{
+		robotModelPanel = new JPanel();
 		// panel used to create, modify or delete a robot type
 		this.panelControlButton = new JPanel();
 		
 		// button used to add a new robot type
-		Simulation simulation = MapController.getInstance().getModel().getManager().getSimulation();
 		this.buttonAddRobotType = new JButton("Ajouter");
-		this.buttonAddRobotType.addActionListener(new OpenAddRobotTypeListener(new RobotTypeController(simulation)));
+		this.buttonAddRobotType.addActionListener(new OpenAddRobotTypeListener(new RobotTypeController()));
 		
 		// button used to modify a robot type
 		this.buttonModifyRobotType = new JButton("Modifier");
@@ -60,13 +71,13 @@ public class RobotModelView extends JPanel{
 		this.listRobotType.setLayoutOrientation(JList.VERTICAL);
 
 		this.scrollPaneList = new JScrollPane(this.listRobotType);
-		this.setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
-		this.add(this.panelControlButton);
-		this.add(this.scrollPaneList);
+		robotModelPanel.setLayout(new BoxLayout(getRobotModelPanel(), BoxLayout.Y_AXIS));
+		robotModelPanel.add(this.panelControlButton);
+		robotModelPanel.add(this.scrollPaneList);
 		
 		// Drag n' drop
 		final CustomTransferHandler cth = new CustomTransferHandler("text");
-		setTransferHandler(cth);
+		//setTransferHandler(cth);
 		MouseListener mouseListener = new MouseAdapter() {
 			public void mousePressed(MouseEvent event) {
 				JComponent jc = (JComponent)event.getSource();
@@ -74,5 +85,6 @@ public class RobotModelView extends JPanel{
 			}
 		};
 		listRobotType.addMouseListener(mouseListener);
+		listRobotType.setDragEnabled(true);
 	}
 }

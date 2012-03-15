@@ -156,14 +156,14 @@ public class RobotDetailDialog extends JFrame {
 		this.pack();
 	}
 
-	/* GETTERS AND SETTERS */
-	
-	public int getType() {
+
+	public int get_type() {
 		return _type;
 	}
 
-	public void setType(int type) {
-		_type = type;
+
+	public void set_type(int _type) {
+		this._type = _type;
 	}
 
 	public JPanel getNorthPanel() {

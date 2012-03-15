@@ -1,6 +1,7 @@
 package Model;
 
 import java.util.ArrayList;
+import java.util.Hashtable;
 import java.util.Observable;
 
 
@@ -28,11 +29,13 @@ public class Map extends Observable {
 	}
 	
 	public void setData(JSONArray map) {
+		Hashtable<String, Object> hashTableForObservers = new Hashtable<String, Object>();
 		_largeur = 0;
 		_longueur = 0;
 		_cells = new ArrayList<ArrayList<Cell>>();
 		setChanged();
-		notifyObservers("MapLoading");
+		hashTableForObservers.put("type","MapLoading");
+		notifyObservers(hashTableForObservers);
 		
 		_longueur = map.length();
 		try {
@@ -47,11 +50,13 @@ public class Map extends Observable {
 			}
 		} catch (JSONException e) {
 			setChanged();
-			notifyObservers("MapLoadingFailed");
+			hashTableForObservers.put("type", "MapLoadingFailed");
+			notifyObservers(hashTableForObservers);
 			e.printStackTrace();
 		}
 		setChanged();
-		notifyObservers("MapLoaded");
+		hashTableForObservers.put("type","MapLoaded");
+		notifyObservers(hashTableForObservers);
 	}
 	
 	public boolean isCellBusy(int x, int y) {

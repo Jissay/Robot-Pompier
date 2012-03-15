@@ -123,8 +123,8 @@ public class MapView extends AMapObserver{
 	}
 
 	@Override
-	protected void mapSetRobot() {
-		// TODO Auto-generated method stub
+	protected void mapSetRobot(int x, int y, String url) {
+		
 		
 	}
 

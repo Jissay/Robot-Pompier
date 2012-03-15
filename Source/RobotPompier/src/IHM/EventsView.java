@@ -53,8 +53,8 @@ public class EventsView extends AMapObserver {
 		textArea.append("Chargement de la map effectué\n");
 	}
 	@Override
-	protected void mapSetRobot() {
-		textArea.append("Ajout d'un nouveau robot à la map\n");
+	protected void mapSetRobot(int x, int y, String url) {
+		textArea.append("Ajout d'un nouveau robot aux coordonnées (" + x + "; " + y + ")\n");
 	}
 	@Override
 	protected void mapSetFire() {

@@ -13,9 +13,11 @@ import javax.swing.JScrollPane;
 import javax.swing.ListSelectionModel;
 import javax.swing.TransferHandler;
 
+import Controller.MapController;
+import Controller.RobotTypeController;
 import IHM.DragNDrop.CustomTransferHandler;
-
 import IHM.listeners.OpenAddRobotTypeListener;
+import Model.Simulation;
 
 public class RobotModelView extends JPanel{
 
@@ -33,8 +35,9 @@ public class RobotModelView extends JPanel{
 		this.panelControlButton = new JPanel();
 		
 		// button used to add a new robot type
+		Simulation simulation = MapController.getInstance().getModel().getManager().getSimulation();
 		this.buttonAddRobotType = new JButton("Ajouter");
-		this.buttonAddRobotType.addActionListener(new OpenAddRobotTypeListener());
+		this.buttonAddRobotType.addActionListener(new OpenAddRobotTypeListener(new RobotTypeController(simulation)));
 		
 		// button used to modify a robot type
 		this.buttonModifyRobotType = new JButton("Modifier");
@@ -45,7 +48,6 @@ public class RobotModelView extends JPanel{
 		this.panelControlButton.add(this.buttonAddRobotType);
 		this.panelControlButton.add(this.buttonModifyRobotType);
 		this.panelControlButton.add(this.buttonDeleteTypeRobot);
-		
 		
 		// list used to show all the robot types : we use an array
 		String[]listRobot = {"Robot Model Test", "Robot Model 2 Test", "Robot Model 3 Test", "Robot Model 4 Test",

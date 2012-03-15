@@ -8,8 +8,12 @@ import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JSlider;
 import javax.swing.JTextField;
 
+import Controller.RobotTypeController;
+import IHM.listeners.AddRobotTypeListener;
+import IHM.listeners.CancelAddRobotTypeListener;
 import Model.robot.type.RobotType;
 
 public class RobotDetailDialog extends JFrame {
@@ -25,6 +29,7 @@ public class RobotDetailDialog extends JFrame {
 	/* ATTRIBUTES */
 	
 	private int _type;
+	private RobotTypeController _robotTypeController;
 	
 	/* IHM COMPONENTS */
 	private JPanel _northPanel; // Panel with title
@@ -42,7 +47,8 @@ public class RobotDetailDialog extends JFrame {
 	private JLabel _moveType_label;
 	
 	private JTextField _typeName;
-	private JTextField _waterCapacity;
+	
+	private JSlider _waterCapacity;
 	
 	private JComboBox _algorithm;
 	private JComboBox _projectorType;
@@ -54,10 +60,10 @@ public class RobotDetailDialog extends JFrame {
 	
 	
 	/* CONSTRUCTORS */
-	public RobotDetailDialog(int type, RobotType rt) {
+	public RobotDetailDialog(int type, RobotType robotType, RobotTypeController robotTypeController) {
 		super();
 		_type = type;
-		
+		_robotTypeController = robotTypeController;
 		// Construct north panel, with title
 		_northPanel = new JPanel();
 		
@@ -82,7 +88,14 @@ public class RobotDetailDialog extends JFrame {
 		
 		// Text fields
 		_typeName = new JTextField();
-		_waterCapacity = new JTextField();
+		
+		// Slider
+		_waterCapacity = new JSlider(RobotType.MINIMUM_WATER_CAPACITY, RobotType.MAXIMUM_WATER_CAPACITY);
+		_waterCapacity.setMajorTickSpacing(5);
+		_waterCapacity.setMinorTickSpacing(1);
+		_waterCapacity.setPaintTicks(true);
+		_waterCapacity.setPaintLabels(true);
+		_waterCapacity.setPaintTrack(true);
 		
 		// Combo boxes
 		String[] algorithms = {"A-star", "Pathfinder", "Test"};
@@ -93,6 +106,24 @@ public class RobotDetailDialog extends JFrame {
 		
 		String[] moveTypes = {"Chenilles", "Ventouses"};
 		_moveType = new JComboBox(moveTypes);
+		
+		// If MODIFYING or SHOWING a robot type 
+		if (type != ADD_ROBOT_TYPE_DIALOG) {
+			_typeName.setText(robotType.getName());
+			_waterCapacity.setValue(Math.round(robotType.getWaterCapacity()));
+			_algorithm.setSelectedItem(robotType.getAlgorithm().getName());
+			_projectorType.setSelectedItem(robotType.getProjectorType().getName());
+			_moveType.setSelectedItem(robotType.getMoveType().getName());
+		}
+		
+		// If SHOWING a robot type
+		if (type == SHOW_ROBOT_TYPE_DIALOG) {
+			_typeName.setEditable(false);
+			_waterCapacity.setEnabled(false);
+			_algorithm.setEnabled(false);
+			_moveType.setEnabled(false);
+			_projectorType.setEnabled(false);
+		}
 				
 		_centralPanel.add(_typeName_label);
 		_centralPanel.add(_typeName);
@@ -109,7 +140,10 @@ public class RobotDetailDialog extends JFrame {
 		_southPanel = new JPanel(new GridLayout(1,2));
 		
 		_addRobotType_button = new JButton("Ajouter");
+		_addRobotType_button.addActionListener(new AddRobotTypeListener(this));
+		
 		_cancelAddRobotType_button = new JButton("Annuler");
+		_cancelAddRobotType_button.addActionListener(new CancelAddRobotTypeListener(this));
 		
 		_southPanel.add(_cancelAddRobotType_button);
 		_southPanel.add(_addRobotType_button);
@@ -118,6 +152,8 @@ public class RobotDetailDialog extends JFrame {
 		this.add(_northPanel, BorderLayout.NORTH);
 		this.add(_centralPanel, BorderLayout.CENTER);
 		this.add(_southPanel, BorderLayout.SOUTH);
+		
+		this.pack();
 	}
 
 	/* GETTERS AND SETTERS */
@@ -128,5 +164,141 @@ public class RobotDetailDialog extends JFrame {
 
 	public void setType(int type) {
 		_type = type;
+	}
+
+	public JPanel getNorthPanel() {
+		return _northPanel;
+	}
+
+	public void setNorthPanel(JPanel northPanel) {
+		_northPanel = northPanel;
+	}
+
+	public JPanel getCentralPanel() {
+		return _centralPanel;
+	}
+
+	public void setCentralPanel(JPanel centralPanel) {
+		_centralPanel = centralPanel;
+	}
+
+	public JPanel getSouthPanel() {
+		return _southPanel;
+	}
+
+	public void setSouthPanel(JPanel southPanel) {
+		_southPanel = southPanel;
+	}
+
+	public JLabel getTitleLabel() {
+		return _title;
+	}
+
+	public void setTitle(JLabel title) {
+		_title = title;
+	}
+
+	public JLabel getTypeName_label() {
+		return _typeName_label;
+	}
+
+	public void setTypeName_label(JLabel typeName_label) {
+		_typeName_label = typeName_label;
+	}
+
+	public JLabel getWaterCapacity_label() {
+		return _waterCapacity_label;
+	}
+
+	public void setWaterCapacity_label(JLabel waterCapacity_label) {
+		_waterCapacity_label = waterCapacity_label;
+	}
+
+	public JLabel getAlgorithm_label() {
+		return _algorithm_label;
+	}
+
+	public void setAlgorithm_label(JLabel algorithm_label) {
+		_algorithm_label = algorithm_label;
+	}
+
+	public JLabel getProjectorType_label() {
+		return _projectorType_label;
+	}
+
+	public void setProjectorType_label(JLabel projectorType_label) {
+		_projectorType_label = projectorType_label;
+	}
+
+	public JLabel getMoveType_label() {
+		return _moveType_label;
+	}
+
+	public void setMoveType_label(JLabel moveType_label) {
+		_moveType_label = moveType_label;
+	}
+
+	public JTextField getTypeName() {
+		return _typeName;
+	}
+
+	public void setTypeName(JTextField typeName) {
+		_typeName = typeName;
+	}
+
+	public JSlider getWaterCapacity() {
+		return _waterCapacity;
+	}
+
+	public void setWaterCapacity(JSlider waterCapacity) {
+		_waterCapacity = waterCapacity;
+	}
+
+	public JComboBox getAlgorithm() {
+		return _algorithm;
+	}
+
+	public void setAlgorithm(JComboBox algorithm) {
+		_algorithm = algorithm;
+	}
+
+	public JComboBox getProjectorType() {
+		return _projectorType;
+	}
+
+	public void setProjectorType(JComboBox projectorType) {
+		_projectorType = projectorType;
+	}
+
+	public JComboBox getMoveType() {
+		return _moveType;
+	}
+
+	public void setMoveType(JComboBox moveType) {
+		_moveType = moveType;
+	}
+
+	public JButton getAddRobotType_button() {
+		return _addRobotType_button;
+	}
+
+	public void setAddRobotType_button(JButton addRobotType_button) {
+		_addRobotType_button = addRobotType_button;
+	}
+
+	public JButton getCancelAddRobotType_button() {
+		return _cancelAddRobotType_button;
+	}
+
+	public void setCancelAddRobotType_button(JButton cancelAddRobotType_button) {
+		_cancelAddRobotType_button = cancelAddRobotType_button;
+	}
+
+	public RobotTypeController get_robotTypeController() {
+		return _robotTypeController;
+	}
+
+	public void set_robotTypeController(RobotTypeController _robotTypeController) {
+		this._robotTypeController = _robotTypeController;
 	}
 }

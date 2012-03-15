@@ -39,10 +39,10 @@ public class CellDropTarget extends DropTarget {
 			JLabel cell = (JLabel)component;
 			_previousForegroundColor = cell.getForeground();
 			
-			if (MapController.getInstance().isCellBusy(_x, _y))
+			/*if (MapController.getInstance().isCellBusy(_x, _y))
 				cell.setForeground(Color.red);
 			else
-				cell.setForeground(Color.green);
+				cell.setForeground(Color.green);*/
 		}
 		System.out.println("Drag enter !");
 	}

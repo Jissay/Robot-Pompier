@@ -74,7 +74,7 @@ public class Map extends Observable {
 		cell.setRobot(robot);
 		Hashtable<String, Object> args = new Hashtable<String, Object>();
 		args.put("type", "SetRobot");
-		args.put("url", "/res/unknown-tux-robot-1708.png");
+		args.put("url", "/images/unknown-tux-robot-1708.png");
 		args.put("x", x);
 		args.put("y", y);
 		setChanged();

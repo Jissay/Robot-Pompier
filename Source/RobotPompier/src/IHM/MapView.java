@@ -2,9 +2,12 @@ package IHM;
 
 import java.awt.Color;
 import java.awt.GridLayout;
+import java.awt.Image;
+import java.awt.image.BufferedImage;
 import java.util.ArrayList;
 import java.util.Vector;
 
+import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
@@ -124,8 +127,10 @@ public class MapView extends AMapObserver{
 
 	@Override
 	protected void mapSetRobot(int x, int y, String url) {
-		
-		
+		JLabel cell = _map.get(x).get(y);
+		ImageIcon image = new ImageIcon(Class.class.getResource(url));
+		image.setImage(image.getImage().getScaledInstance(cell.getWidth(), cell.getHeight(), Image.SCALE_DEFAULT));
+		cell.setIcon(image);
 	}
 
 	@Override

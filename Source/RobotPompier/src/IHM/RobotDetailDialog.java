@@ -2,6 +2,7 @@ package IHM;
 
 import java.awt.BorderLayout;
 import java.awt.GridLayout;
+import java.util.ArrayList;
 
 import javax.swing.JButton;
 import javax.swing.JComboBox;
@@ -12,8 +13,12 @@ import javax.swing.JSlider;
 import javax.swing.JTextField;
 
 import Controller.RobotTypeController;
+import Controller.SimulationController;
 import IHM.listeners.AddRobotTypeListener;
 import IHM.listeners.CancelAddRobotTypeListener;
+import Model.algorithms.Algorithm;
+import Model.robot.type.MoveType;
+import Model.robot.type.ProjectorType;
 import Model.robot.type.RobotType;
 
 public class RobotDetailDialog extends JFrame {
@@ -98,14 +103,23 @@ public class RobotDetailDialog extends JFrame {
 		_waterCapacity.setPaintTrack(true);
 		
 		// Combo boxes
-		String[] algorithms = {"A-star", "Pathfinder", "Test"};
-		_algorithm = new JComboBox(algorithms);
+		ArrayList<String> algorithms = new ArrayList<String>();
+		for (Algorithm al : SimulationController.getInstance().getSimulation().getListAlgorithms()) {
+			algorithms.add(al.getName());
+		}
+		_algorithm = new JComboBox(algorithms.toArray());
 		
-		String[] projectorTypes = {"Lance à eau", "Arrosoir", "Extincteur", "Arrosage à pompe"};
-		_projectorType = new JComboBox(projectorTypes);
+		ArrayList<String> projectorTypes = new ArrayList<String>();
+		for (ProjectorType pj : SimulationController.getInstance().getSimulation().getListProjectorTypes()) {
+			projectorTypes.add(pj.getName());
+		}
+		_projectorType = new JComboBox(projectorTypes.toArray());
 		
-		String[] moveTypes = {"Chenilles", "Ventouses"};
-		_moveType = new JComboBox(moveTypes);
+		ArrayList<String> moveTypes = new ArrayList<String>();
+		for (MoveType mv : SimulationController.getInstance().getSimulation().getListMoveTypes()) {
+			moveTypes.add(mv.getName());
+		}
+		_moveType = new JComboBox(moveTypes.toArray());
 		
 		// If MODIFYING or SHOWING a robot type 
 		if (type != ADD_ROBOT_TYPE_DIALOG) {
@@ -139,9 +153,13 @@ public class RobotDetailDialog extends JFrame {
 		// Construct south panel with add buttons
 		_southPanel = new JPanel(new GridLayout(1,2));
 		
-		_addRobotType_button = new JButton("Ajouter");
-		_addRobotType_button.addActionListener(new AddRobotTypeListener(this));
-		
+		if (type == ADD_ROBOT_TYPE_DIALOG) {
+			_addRobotType_button = new JButton("Ajouter");
+			_addRobotType_button.addActionListener(new AddRobotTypeListener(this));
+		} else if (type == MODIFY_ROBOT_TYPE_DIALOG) {
+			_addRobotType_button = new JButton("Modifier");
+			_addRobotType_button.addActionListener(new AddRobotTypeListener(this));
+		}
 		_cancelAddRobotType_button = new JButton("Annuler");
 		_cancelAddRobotType_button.addActionListener(new CancelAddRobotTypeListener(this));
 		

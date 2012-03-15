@@ -49,4 +49,15 @@ public class RobotTypeController {
 		
 		return true;
 	}
+	
+	public boolean modifyRobotType(String initialTypeName, String typeName, float waterCapacity, String algorithm, String projector_t, String move_t) {
+		for (RobotType rt : SimulationController.getInstance().getSimulation().getRobotModel()) {
+			if (rt.getName().equals(initialTypeName)) {
+				SimulationController.getInstance().getSimulation().getRobotModel().remove(rt);
+				break;
+			}
+		}
+		
+		return addRobotType(typeName, waterCapacity, algorithm, projector_t, move_t);
+	}
 }

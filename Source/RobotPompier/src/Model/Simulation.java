@@ -5,9 +5,12 @@ import java.util.Observable;
 import java.util.Set;
 
 import Model.algorithms.Algorithm;
+import Model.algorithms.Astar;
+import Model.algorithms.Dijkstra;
 import Model.robot.type.MoveType;
 import Model.robot.type.ProjectorType;
 import Model.robot.type.RobotType;
+import Model.robot.type.RobotTypeFactory;
 
 
 public class Simulation extends Observable{
@@ -30,9 +33,10 @@ public class Simulation extends Observable{
 	/* GETTERS AND SETTERS */
 	
 	public Simulation() {
-		_robotModel = new HashSet<RobotType>();
 		
 		_listAlgorithms = new HashSet<Algorithm>();
+		_listAlgorithms.add(new Astar());
+		_listAlgorithms.add(new Dijkstra());
 		
 		_listMoveTypes = new HashSet<MoveType>();
 		_listMoveTypes.add(new MoveType(1));
@@ -41,6 +45,11 @@ public class Simulation extends Observable{
 		_listProjectorTypes = new HashSet<ProjectorType>();
 		_listProjectorTypes.add(new ProjectorType(1));
 		_listProjectorTypes.add(new ProjectorType(2));
+		
+		_robotModel = new HashSet<RobotType>();
+		RobotTypeFactory rbtf = new RobotTypeFactory();
+		_robotModel.add(rbtf.newInstance("Defaut 1", new MoveType(1), new ProjectorType(1), new Astar(), 15));
+		_robotModel.add(rbtf.newInstance("Defaut 2", new MoveType(2), new ProjectorType(2), new Dijkstra(), 20));
 		
 	}
 	

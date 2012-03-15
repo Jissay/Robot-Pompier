@@ -21,6 +21,6 @@ public class Astar extends Algorithm {
 	 */
 	
 	public Astar() {
-		
+		this.setName("Astar");
 	}
 }

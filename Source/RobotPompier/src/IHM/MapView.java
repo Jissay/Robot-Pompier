@@ -14,7 +14,7 @@ import Model.Map;
 import Observer.AMapObserver;
 
 public class MapView extends AMapObserver{
-	private Vector<Vector<JLabel>>	_map;
+	private Vector<Vector<JLabel>>		_map;
 	private int							_width;
 	private int							_height;
 	private JPanel 						_mainPanel;

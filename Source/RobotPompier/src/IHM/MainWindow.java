@@ -36,15 +36,15 @@ public class MainWindow extends JFrame implements ActionListener {
 		getContentPane().setLayout(new BorderLayout());
 		JPanel east = new JPanel();
 		east.setLayout(new BoxLayout(east, BoxLayout.PAGE_AXIS));
-		add(east, BorderLayout.EAST);
+		getContentPane().add(east, BorderLayout.EAST);
 		simulationView = new SimulationView();
 		east.add(simulationView);
 		robotModelView = new RobotModelView();
 		east.add(robotModelView);
 		mapView = new MapView();
-		add(mapView.getMainPanel(), BorderLayout.CENTER);
+		getContentPane().add(mapView.getMainPanel(), BorderLayout.CENTER);
 		eventsView = new EventsView();
-		add(eventsView.getEventsPanel(), BorderLayout.SOUTH);
+		getContentPane().add(eventsView.getEventsPanel(), BorderLayout.SOUTH);
 		createMenuBar();
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	}

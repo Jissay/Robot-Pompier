@@ -63,6 +63,16 @@ public class MapView extends AMapObserver{
 	}
 	
 	@Override
+	protected void mapLoading() {
+		
+	}
+	
+	@Override
+	protected void mapLoadingFailed() {
+		
+	}
+	
+	@Override
 	protected void mapLoaded() {
 		_width = MapController.getInstance().getModel().getLongueur();
 		_height = MapController.getInstance().getModel().getLargeur();

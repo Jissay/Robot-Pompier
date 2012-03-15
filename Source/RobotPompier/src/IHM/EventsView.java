@@ -19,6 +19,16 @@ public class EventsView extends AMapObserver {
 	}
 	
 	@Override
+	protected void mapLoading() {
+		
+	}
+	
+	@Override
+	protected void mapLoadingFailed() {
+		
+	}
+	
+	@Override
 	protected void mapLoaded() {
 		
 	}

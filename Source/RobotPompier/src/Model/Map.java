@@ -24,22 +24,29 @@ public class Map extends Observable {
 		setData(map);
 	}
 	
-	public void setData(JSONArray map) throws JSONException {
+	public void setData(JSONArray map) {
 		_largeur = 0;
 		_longueur = 0;
 		_cells = new ArrayList<ArrayList<Cell>>();
+		notifyObservers("MapLoading");
 		
 		_longueur = map.length();
-		for (int i = 0; i < _longueur; i++) {
-			ArrayList<Cell> cellsContainer = new ArrayList<Cell>();
-			JSONArray row = map.getJSONArray(i);
-			_largeur = row.length();
-			for (int j = 0; j < _largeur; j++)
-				cellsContainer.add(new Cell(i, j, row.getJSONObject(j)));
-			_cells.add(cellsContainer);
+		try {
+			for (int i = 0; i < _longueur; i++) {
+				ArrayList<Cell> cellsContainer = new ArrayList<Cell>();
+				JSONArray row;
+					row = map.getJSONArray(i);
+				_largeur = row.length();
+				for (int j = 0; j < _largeur; j++)
+					cellsContainer.add(new Cell(i, j, row.getJSONObject(j)));
+				_cells.add(cellsContainer);
+			}
+		} catch (JSONException e) {
+			notifyObservers("MapLoadingFailed");
+			e.printStackTrace();
 		}
 		setChanged();
-		notifyObservers("LoadMap");
+		notifyObservers("MapLoaded");
 	}
 	
 	public boolean isCellBusy(int x, int y) {

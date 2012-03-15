@@ -13,9 +13,11 @@ import javax.swing.JScrollPane;
 import javax.swing.ListSelectionModel;
 import javax.swing.TransferHandler;
 
+import Controller.MapController;
+import Controller.RobotTypeController;
 import IHM.DragNDrop.CustomTransferHandler;
-
 import IHM.listeners.OpenAddRobotTypeListener;
+import Model.Simulation;
 
 import Observer.ARobotTypeObserver;
 
@@ -23,7 +25,7 @@ public class RobotModelView extends ARobotTypeObserver{
 
 	private JPanel panelControlButton;
 	private JButton buttonAddRobotType;
-	private JList<String> listRobotType;
+	private JList listRobotType;
 	private JButton buttonAddRobotTYpe;
 	private JButton buttonModifyRobotType;
 	private JButton buttonDeleteTypeRobot;
@@ -46,7 +48,7 @@ public class RobotModelView extends ARobotTypeObserver{
 		
 		// button used to add a new robot type
 		this.buttonAddRobotType = new JButton("Ajouter");
-		this.buttonAddRobotType.addActionListener(new OpenAddRobotTypeListener());
+		this.buttonAddRobotType.addActionListener(new OpenAddRobotTypeListener(new RobotTypeController()));
 		
 		// button used to modify a robot type
 		this.buttonModifyRobotType = new JButton("Modifier");
@@ -64,7 +66,7 @@ public class RobotModelView extends ARobotTypeObserver{
 				"Robot Model 10 Test", "Robot Model 11 Test", "Robot Model 12 Test", "Robot Model 13 Test", "Robot Model 14 Test", 
 				"Robot Model 15 Test", "Robot Model 16 Test", "Robot Model 17 Test", "Robot Model 18 Test", "Robot Model 19 Test", 
 				"Robot Model 20 Test", "Robot Model 21 Test", "Robot Model 22 Test", "Robot Model 23 Test", "Robot Model 24 Test"};
-		this.listRobotType = new JList<String>(listRobot);
+		this.listRobotType = new JList(listRobot);
 		this.listRobotType.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 		this.listRobotType.setLayoutOrientation(JList.VERTICAL);
 
@@ -83,5 +85,6 @@ public class RobotModelView extends ARobotTypeObserver{
 			}
 		};
 		listRobotType.addMouseListener(mouseListener);
+		listRobotType.setDragEnabled(true);
 	}
 }

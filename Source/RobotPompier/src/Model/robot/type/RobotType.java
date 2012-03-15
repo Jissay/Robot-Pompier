@@ -4,13 +4,17 @@ import Model.algorithms.Algorithm;
 
 public class RobotType {
 	
+	public static int MINIMUM_WATER_CAPACITY = 0;
+	public static int MAXIMUM_WATER_CAPACITY = 30;
+	
 	private String _name;
 	private ProjectorType _projectorType;
 	private MoveType _moveType;
 	private Algorithm _algorithm;
 	private float _waterCapacity;
 
-	protected RobotType(ProjectorType projectorType, MoveType moveType, Algorithm algorithm, float waterCapacity) {
+	protected RobotType(String name, ProjectorType projectorType, MoveType moveType, Algorithm algorithm, float waterCapacity) {
+		_name = name;
 		_projectorType = projectorType;
 		_moveType = moveType;
 		_algorithm = algorithm;
@@ -19,12 +23,12 @@ public class RobotType {
 	
 	/* GETTERS AND SETTERS */
 
-	public String get_name() {
+	public String getName() {
 		return _name;
 	}
 
-	public void set_name(String _name) {
-		this._name = _name;
+	public void setName(String name) {
+		_name = name;
 	}	
 	
 	public ProjectorType getProjectorType() {

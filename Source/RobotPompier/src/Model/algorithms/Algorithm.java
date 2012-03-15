@@ -7,6 +7,9 @@ import Model.Map;
 import Model.Robot;
 
 public abstract class Algorithm {
+	
+	private String _name;
+	
 	/** 
 	 * 
 	 * @param Map map - Actual map to run
@@ -69,5 +72,15 @@ public abstract class Algorithm {
 		}
 		
 		return path;
+	}
+	
+	/* GETTERS AND SETTERS */
+	
+	public String getName() {
+		return _name;
+	}
+	
+	public void setName(String name) {
+		_name = name;
 	}
 }

@@ -1,42 +1,94 @@
 package Model;
 
+import java.util.HashSet;
 import java.util.Observable;
 import java.util.Set;
 
+import Model.algorithms.Algorithm;
+import Model.robot.type.MoveType;
+import Model.robot.type.ProjectorType;
 import Model.robot.type.RobotType;
 
 
 public class Simulation extends Observable{
-	private Map map;
+	
+	/* ATTRIBUTES */
+	
+	private Map _map;
+	private Manager _manager;
+	
+	private Set<RobotType> _robotModel;
+	private Set<Algorithm> _listAlgorithms;
+	private Set<MoveType> _listMoveTypes;
+	private Set<ProjectorType> _listProjectorTypes;
 
+	/* METHODS */
+	
+	public void moveRobot() {
+	}
+	
+	/* GETTERS AND SETTERS */
+	
+	public Simulation() {
+		_robotModel = new HashSet<RobotType>();
+		_listAlgorithms = new HashSet<Algorithm>();
+		_listMoveTypes = new HashSet<MoveType>();
+		_listProjectorTypes = new HashSet<ProjectorType>();
+		
+	}
+	
 	public Map getMap() {
-		return map;
+		return _map;
 	}
 
 	public void setMap(Map map) {
-		this.map = map;
+		_map = map;
 	}
 
-	private Set<RobotType> robotModel;
-
 	public Set<RobotType> getRobotModel() {
-		return robotModel;
+		return _robotModel;
+	}
+	
+	public RobotType getRobotTypeFromName(String name) {
+		for (RobotType type : _robotModel)
+			if (name.equals(type.getName()))
+				return type;
+		return null;
 	}
 
 	public void setRobotModel(Set<RobotType> robotModel) {
-		this.robotModel = robotModel;
+		_robotModel = robotModel;
 	}
 
-	private Manager manager;
-
 	public Manager getManager() {
-		return manager;
+		return _manager;
 	}
 
 	public void setManager(Manager manager) {
-		this.manager = manager;
+		_manager = manager;
 	}
 
-	public void moveRobot() {
+	public Set<Algorithm> getListAlgorithms() {
+		return _listAlgorithms;
+	}
+
+	public void setListAlgorithms(Set<Algorithm> listAlgorithms) {
+		_listAlgorithms = listAlgorithms;
+	}
+
+	public Set<MoveType> getListMoveTypes() {
+		return _listMoveTypes;
+	}
+
+	public void setListMoveTypes(Set<MoveType> listMoveTypes) {
+		_listMoveTypes = listMoveTypes;
+	}
+
+	public Set<ProjectorType> getListProjectorTypes() {
+		return _listProjectorTypes;
+	}
+
+	public void setListProjectorTypes(Set<ProjectorType> listProjectorTypes) {
+		_listProjectorTypes = listProjectorTypes;
 	}
 }

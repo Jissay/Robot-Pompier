@@ -47,7 +47,7 @@ public class MapController {
 		return _model.isCellBusy(x, y);
 	}
 	
-	public void setRobotAt(int x, int y) {
-		_model.setRobotAt(x, y);
+	public void setRobotAt(int x, int y, String robotTypeName) {
+		_model.setRobotAt(x, y, robotTypeName);
 	}
 }

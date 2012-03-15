@@ -3,34 +3,31 @@ package Model;
 import java.util.Set;
 
 public class Manager {
-	
-	private Simulation simulation;
+	private Set<Robot>	_robot;
+	private Map			_map;
+	private Simulation	_simulation;
 
 	public Simulation getSimulation() {
-		return simulation;
+		return _simulation;
 	}
 
 	public void setSimulation(Simulation simulation) {
-		this.simulation = simulation;
+		_simulation = simulation;
 	}
 
-	private Set<Robot> robot;
-
 	public Set<Robot> getRobot() {
-		return robot;
+		return _robot;
 	}
 
 	public void setRobot(Set<Robot> robot) {
-		this.robot = robot;
+		_robot = robot;
 	}
 
-	private Map map;
-
 	public Map getMap() {
-		return map;
+		return _map;
 	}
 
 	public void setMap(Map map) {
-		this.map = map;
+		_map = map;
 	}
 }

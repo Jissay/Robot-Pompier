@@ -7,6 +7,9 @@ import java.util.Observable;
 import org.json.JSONArray;
 import org.json.JSONException;
 
+import Controller.SimulationController;
+import Model.robot.type.RobotType;
+
 public class Map extends Observable {
 	
 	private int _largeur;
@@ -57,9 +60,13 @@ public class Map extends Observable {
 	}
 	
 	//TODO: définir comment on récupère le type de robot
-	public void setRobotAt(int x, int y) {
+	public void setRobotAt(int x, int y, String robotTypeName) {
 		Cell cell = _cells.get(x).get(y);
-		// Instancier le nouveau robot
+		RobotType type = SimulationController.getInstance().getRobotTypeFromName(robotTypeName);
+		Robot robot = new Robot();
+		if (type != null)
+			robot.setRobotType(type);
+		cell.setRobot(robot);
 	}
 	
 	/* ------------------- */

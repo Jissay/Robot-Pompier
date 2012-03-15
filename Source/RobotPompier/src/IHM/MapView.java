@@ -9,6 +9,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 import Controller.MapController;
+import IHM.DragNDrop.CellDropTarget;
 import Model.Cell;
 import Model.Map;
 import Observer.AMapObserver;
@@ -46,6 +47,7 @@ public class MapView extends AMapObserver{
 			c = 0;
 			r++;
 		}
+		_mainPanel.updateUI();
 	}
 	
 	private void updateLabel(Cell c, int row, int col) {
@@ -59,7 +61,7 @@ public class MapView extends AMapObserver{
 		} else {
 			_map.elementAt(row).elementAt(col).setText("");
 		}
-		_map.elementAt(row).elementAt(col).updateUI();
+		//_map.elementAt(row).elementAt(col).updateUI();
 	}
 	
 	@Override
@@ -85,6 +87,7 @@ public class MapView extends AMapObserver{
 		for (int i = 0; i < _width; ++i) {
 			for (int j = 0; j < _height; ++j) {
 				JLabel lab = new JLabel();
+				lab.setDropTarget(new CellDropTarget(i, j));
 				switch (cells.get(i).get(j).getTerrainType()) {
 				case GRASS:
 					lab.setBackground(Color.green);

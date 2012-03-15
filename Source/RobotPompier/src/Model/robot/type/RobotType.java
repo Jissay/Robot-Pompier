@@ -19,11 +19,11 @@ public class RobotType {
 	
 	/* GETTERS AND SETTERS */
 
-	public String get_name() {
+	public String getName() {
 		return _name;
 	}
 
-	public void set_name(String _name) {
+	public void setName(String _name) {
 		this._name = _name;
 	}	
 	

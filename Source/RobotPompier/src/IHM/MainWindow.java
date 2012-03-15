@@ -34,15 +34,17 @@ public class MainWindow extends JFrame implements ActionListener {
 	public MainWindow(int width, int height) {
 		setTitle("Fire Disaster Simulator");
 		getContentPane().setLayout(new BorderLayout());
+		
 		JPanel east = new JPanel();
 		east.setLayout(new BoxLayout(east, BoxLayout.PAGE_AXIS));
 		getContentPane().add(east, BorderLayout.EAST);
 		simulationView = new SimulationView();
-		east.add(simulationView);
+		east.add(simulationView.getSimulationPanel());
+		
 		robotModelView = new RobotModelView();
 		mapView = new MapView();
 		getContentPane().add(mapView.getMainPanel(), BorderLayout.CENTER);
-		east.add(robotModelView);
+		east.add(robotModelView.getRobotModelPanel());
 		eventsView = new EventsView();
 		getContentPane().add(eventsView.getEventsPanel(), BorderLayout.SOUTH);
 		createMenuBar();

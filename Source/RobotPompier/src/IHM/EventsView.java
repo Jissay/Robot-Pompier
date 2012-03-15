@@ -57,7 +57,7 @@ public class EventsView extends AMapObserver {
 		textArea.append("Ajout d'un nouveau robot aux coordonnées (" + x + "; " + y + ")\n");
 	}
 	@Override
-	protected void mapSetFire() {
-		textArea.append("Ajout d'un nouveau feu à la map\n");
+	protected void mapSetFire(int x, int y, int fireLevel) {
+		textArea.append("Feu aux coordonnées (" + x + "; " + y + ") : " + fireLevel + "\n");
 	}
 }

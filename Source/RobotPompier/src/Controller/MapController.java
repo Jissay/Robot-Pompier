@@ -50,4 +50,12 @@ public class MapController {
 	public void setRobotAt(int x, int y, String robotTypeName) {
 		_model.setRobotAt(x, y, robotTypeName);
 	}
+	
+	public void setOnFireAt(int x, int y, int onFire) {
+		_model.setOnFireAt(x, y, onFire);
+	}
+	
+	public int getCellFireLevel(int x, int y) {
+		return _model.getCell().get(x).get(y).isOnFire();
+	}
 }

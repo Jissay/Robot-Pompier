@@ -107,7 +107,7 @@
     <string>Enregistrer &amp;sous…</string>
    </property>
    <property name="shortcut">
-    <string>Ctrl+Shift+S, Ctrl+S</string>
+    <string>Ctrl+Shift+S</string>
    </property>
   </action>
   <action name="action_Quitter">

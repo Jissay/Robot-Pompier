@@ -3,6 +3,7 @@ package IHM;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.util.Set;
 
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
@@ -13,12 +14,12 @@ import javax.swing.JScrollPane;
 import javax.swing.ListSelectionModel;
 import javax.swing.TransferHandler;
 
-import Controller.MapController;
 import Controller.RobotTypeController;
+import Controller.SimulationController;
 import IHM.DragNDrop.CustomTransferHandler;
 import IHM.listeners.OpenAddRobotTypeListener;
-import Model.Simulation;
-
+import IHM.listeners.OpenModifyRobotTypeListener;
+import Model.robot.type.RobotType;
 import Observer.ARobotTypeObserver;
 
 public class RobotModelView extends ARobotTypeObserver{
@@ -40,6 +41,10 @@ public class RobotModelView extends ARobotTypeObserver{
 		this.robotModelPanel = robotModelPanel;
 	}
 
+	public JList getListRobotType() {
+		return this.listRobotType;
+	}
+	
 	public RobotModelView()
 	{
 		robotModelPanel = new JPanel();
@@ -52,6 +57,8 @@ public class RobotModelView extends ARobotTypeObserver{
 		
 		// button used to modify a robot type
 		this.buttonModifyRobotType = new JButton("Modifier");
+		this.buttonModifyRobotType.addActionListener(new OpenModifyRobotTypeListener(new RobotTypeController(), this));
+		
 		// button used to delete a robot type
 		this.buttonDeleteTypeRobot = new JButton("Supprimer");
 		
@@ -61,11 +68,15 @@ public class RobotModelView extends ARobotTypeObserver{
 		this.panelControlButton.add(this.buttonDeleteTypeRobot);
 		
 		// list used to show all the robot types : we use an array
-		String[]listRobot = {"Robot Model Test", "Robot Model 2 Test", "Robot Model 3 Test", "Robot Model 4 Test",
-				"Robot Model 5 Test", "Robot Model 6 Test", "Robot Model 7 Test", "Robot Model 8 Test", "Robot Model 9 Test", 
-				"Robot Model 10 Test", "Robot Model 11 Test", "Robot Model 12 Test", "Robot Model 13 Test", "Robot Model 14 Test", 
-				"Robot Model 15 Test", "Robot Model 16 Test", "Robot Model 17 Test", "Robot Model 18 Test", "Robot Model 19 Test", 
-				"Robot Model 20 Test", "Robot Model 21 Test", "Robot Model 22 Test", "Robot Model 23 Test", "Robot Model 24 Test"};
+		Set<RobotType> robotTypes = SimulationController.getInstance().getSimulation().getRobotModel();
+		
+		String[]listRobot = new String[robotTypes.size()];
+		int i = 0;
+		for (RobotType rt : robotTypes) {
+			listRobot[i] = rt.getName();
+			i++;
+		}
+		
 		this.listRobotType = new JList(listRobot);
 		this.listRobotType.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 		this.listRobotType.setLayoutOrientation(JList.VERTICAL);

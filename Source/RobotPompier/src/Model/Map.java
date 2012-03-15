@@ -81,6 +81,20 @@ public class Map extends Observable {
 		notifyObservers(args);
 	}
 	
+	public void setOnFireAt(int x, int y, int fireLevel) {
+		Cell cell = _cells.get(x).get(y);
+		if (cell.isOnFire() != fireLevel) {
+			cell.setOnFire(fireLevel);
+			Hashtable<String, Object> args = new Hashtable<String, Object>();
+			args.put("type", "SetFire");
+			args.put("x", x);
+			args.put("y", y);
+			args.put("fireLevel", fireLevel);
+			setChanged();
+			notifyObservers(args);
+		}
+	}
+	
 	/* ------------------- */
 	/* GETTERS AND SETTERS */
 	/* ------------------- */

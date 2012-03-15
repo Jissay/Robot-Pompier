@@ -13,6 +13,7 @@ import javax.swing.JPanel;
 
 import Controller.MapController;
 import IHM.DragNDrop.CellDropTarget;
+import IHM.listeners.CellClickListener;
 import Model.Cell;
 import Model.Map;
 import Observer.AMapObserver;
@@ -91,6 +92,7 @@ public class MapView extends AMapObserver{
 			for (int j = 0; j < _height; ++j) {
 				JLabel lab = new JLabel();
 				lab.setDropTarget(new CellDropTarget(i, j));
+				lab.addMouseListener(new CellClickListener(i, j));
 				switch (cells.get(i).get(j).getTerrainType()) {
 				case GRASS:
 					lab.setBackground(Color.green);
@@ -134,7 +136,7 @@ public class MapView extends AMapObserver{
 	}
 
 	@Override
-	protected void mapSetFire() {
+	protected void mapSetFire(int x, int y, int fireLevel) {
 		// TODO Auto-generated method stub
 		
 	}

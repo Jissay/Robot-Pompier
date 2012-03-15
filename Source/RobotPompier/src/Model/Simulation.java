@@ -7,19 +7,26 @@ import java.util.Set;
 import Model.robot.type.RobotType;
 
 
-public class Simulation extends Observable{
-	private Map map;
+public class Simulation extends Observable {
+	private Map					_map;
+	private static Simulation	_instance;
+	
+	public static Simulation getInstance() {
+		if (_instance == null)
+			_instance = new Simulation();
+		return _instance;
+	}
 
-	public Simulation() {
+	private Simulation() {
 		robotModel = new HashSet<RobotType>();
 	}
 	
 	public Map getMap() {
-		return map;
+		return _map;
 	}
 
 	public void setMap(Map map) {
-		this.map = map;
+		this._map = map;
 	}
 
 	private Set<RobotType> robotModel;

@@ -7,3 +7,4 @@ Makefile
 *.pro.user
 moc_*.cpp
 ui_*.h
+bin

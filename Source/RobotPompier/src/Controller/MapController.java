@@ -47,6 +47,14 @@ public class MapController {
 		return _model.isCellBusy(x, y);
 	}
 	
+	public boolean containsRobot(int x, int y) {
+		return _model.getCell().get(x).get(y).getRobot() != null;
+	}
+	
+	public boolean isOnFire(int x, int y) {
+		return _model.getCell().get(x).get(y).isOnFire() > 0;
+	}
+	
 	public void setRobotAt(int x, int y, String robotTypeName) {
 		_model.setRobotAt(x, y, robotTypeName);
 	}
@@ -57,5 +65,13 @@ public class MapController {
 	
 	public int getCellFireLevel(int x, int y) {
 		return _model.getCell().get(x).get(y).isOnFire();
+	}
+	
+	public int getLargeur() {
+		return _model.getLargeur();
+	}
+	
+	public int getLongueur() {
+		return _model.getLongueur();
 	}
 }

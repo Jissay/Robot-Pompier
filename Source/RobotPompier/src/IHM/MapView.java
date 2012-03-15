@@ -3,7 +3,6 @@ package IHM;
 import java.awt.Color;
 import java.awt.GridLayout;
 import java.awt.Image;
-import java.awt.image.BufferedImage;
 import java.util.ArrayList;
 import java.util.Vector;
 
@@ -15,7 +14,6 @@ import Controller.MapController;
 import IHM.DragNDrop.CellDropTarget;
 import IHM.listeners.CellClickListener;
 import Model.Cell;
-import Model.Map;
 import Observer.AMapObserver;
 
 public class MapView extends AMapObserver{
@@ -40,26 +38,22 @@ public class MapView extends AMapObserver{
 	}
 	
 	public void refresh() {
-		Map map = MapController.getInstance().getModel();
-		int r = 0;
-		int c = 0;
-		for (ArrayList<Cell> v: map.getCell()) {
-			for (Cell cell: v) {
-				updateLabel(cell, r, c);
-				c++;
+		MapController ctrl = MapController.getInstance();
+		int r = ctrl.getLongueur();
+		int c = ctrl.getLargeur();
+		for (int i = 0; i < r; ++i) {
+			for (int j = 0; j < c; ++j) {
+				updateLabel(i, j, ctrl.containsRobot(i, j), ctrl.isOnFire(i, j));
 			}
-			c = 0;
-			r++;
 		}
 		_mainPanel.updateUI();
 	}
 	
-	private void updateLabel(Cell c, int row, int col) {
-		System.out.println("=+>" + row + " " + col);
-		if (c.isOnFire() > 0) {
+	private void updateLabel(int row, int col, boolean hasRobot, boolean isOnFire) {
+		if (isOnFire) {
 			_map.elementAt(row).elementAt(col).setText("<html><font size=\"12\">F</font></html>");
 			_map.elementAt(row).elementAt(col).setForeground(Color.red);
-		} else if (c.getRobot() != null) {
+		} else if (hasRobot) {
 			_map.elementAt(row).elementAt(col).setText("<html><font size=\"12\">R</font></html>");
 			_map.elementAt(row).elementAt(col).setForeground(Color.blue);
 		} else {

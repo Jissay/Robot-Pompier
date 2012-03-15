@@ -17,18 +17,30 @@ import IHM.DragNDrop.CustomTransferHandler;
 
 import IHM.listeners.OpenAddRobotTypeListener;
 
-public class RobotModelView extends JPanel{
+import Observer.ARobotTypeObserver;
 
-	private static final long serialVersionUID = 1L;
+public class RobotModelView extends ARobotTypeObserver{
+
 	private JPanel panelControlButton;
-	private JList listRobotType;
 	private JButton buttonAddRobotType;
+	private JList<String> listRobotType;
+	private JButton buttonAddRobotTYpe;
 	private JButton buttonModifyRobotType;
 	private JButton buttonDeleteTypeRobot;
 	private JScrollPane scrollPaneList;
+	private JPanel robotModelPanel;
 	
+	public JPanel getRobotModelPanel() {
+		return robotModelPanel;
+	}
+
+	public void setRobotModelPanel(JPanel robotModelPanel) {
+		this.robotModelPanel = robotModelPanel;
+	}
+
 	public RobotModelView()
 	{
+		robotModelPanel = new JPanel();
 		// panel used to create, modify or delete a robot type
 		this.panelControlButton = new JPanel();
 		
@@ -46,25 +58,24 @@ public class RobotModelView extends JPanel{
 		this.panelControlButton.add(this.buttonModifyRobotType);
 		this.panelControlButton.add(this.buttonDeleteTypeRobot);
 		
-		
 		// list used to show all the robot types : we use an array
 		String[]listRobot = {"Robot Model Test", "Robot Model 2 Test", "Robot Model 3 Test", "Robot Model 4 Test",
 				"Robot Model 5 Test", "Robot Model 6 Test", "Robot Model 7 Test", "Robot Model 8 Test", "Robot Model 9 Test", 
 				"Robot Model 10 Test", "Robot Model 11 Test", "Robot Model 12 Test", "Robot Model 13 Test", "Robot Model 14 Test", 
 				"Robot Model 15 Test", "Robot Model 16 Test", "Robot Model 17 Test", "Robot Model 18 Test", "Robot Model 19 Test", 
 				"Robot Model 20 Test", "Robot Model 21 Test", "Robot Model 22 Test", "Robot Model 23 Test", "Robot Model 24 Test"};
-		this.listRobotType = new JList(listRobot);
+		this.listRobotType = new JList<String>(listRobot);
 		this.listRobotType.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 		this.listRobotType.setLayoutOrientation(JList.VERTICAL);
 
 		this.scrollPaneList = new JScrollPane(this.listRobotType);
-		this.setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
-		this.add(this.panelControlButton);
-		this.add(this.scrollPaneList);
+		robotModelPanel.setLayout(new BoxLayout(getRobotModelPanel(), BoxLayout.Y_AXIS));
+		robotModelPanel.add(this.panelControlButton);
+		robotModelPanel.add(this.scrollPaneList);
 		
 		// Drag n' drop
 		final CustomTransferHandler cth = new CustomTransferHandler("text");
-		setTransferHandler(cth);
+		//setTransferHandler(cth);
 		MouseListener mouseListener = new MouseAdapter() {
 			public void mousePressed(MouseEvent event) {
 				JComponent jc = (JComponent)event.getSource();

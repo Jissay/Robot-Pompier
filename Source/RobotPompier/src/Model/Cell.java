@@ -1,5 +1,7 @@
 package Model;
 
+import java.util.HashMap;
+
 import org.json.JSONObject;
 
 public class Cell {
@@ -112,5 +114,20 @@ public class Cell {
 		_robot = robot;
 	}
 	
-	
+	public HashMap<EOrientation, Cell> getCellulesAdjacentes() {
+		HashMap<EOrientation, Cell> ret = new HashMap<EOrientation, Cell>();
+		if (getX() > 0)
+			ret.put(EOrientation.W, _map.getCell().get(getX() - 1).get(getY()));
+		
+		if (getX() < _map.getLargeur())
+			ret.put(EOrientation.E, _map.getCell().get(getX() + 1).get(getY()));
+
+		if (getY() > 0)
+			ret.put(EOrientation.N, _map.getCell().get(getX()).get(getY() - 1));
+		
+		if (getY() < _map.getLongueur())
+			ret.put(EOrientation.S, _map.getCell().get(getX()).get(getY() + 1));
+		
+		return ret;
+	}
 }

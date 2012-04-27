@@ -17,6 +17,7 @@ public abstract class AMapObserver implements Observer {
 	
 	@Override
 	public void update(Observable o, Object arg) {
+		@SuppressWarnings("unchecked")
 		Hashtable<String, Object> arguments = (Hashtable<String, Object>) arg;
 		if (o instanceof Map) {
 			if (arguments.get("type") instanceof String) {

@@ -17,7 +17,6 @@ public class RobotTypeController {
 	/* PUBLIC METHODS */
 	
 	public boolean addRobotType(String typeName, float waterCapacity, String algorithm, String projector_t, String move_t) {
-		RobotTypeFactory robotTypeFactory = new RobotTypeFactory();
 		Simulation simulation = SimulationController.getInstance().getSimulation();
 		
 		Algorithm al_toPut = null;
@@ -43,7 +42,7 @@ public class RobotTypeController {
 				break;
 			}
 		}
-		RobotType robotType = robotTypeFactory.newInstance(typeName, mv_toPut, pj_toPut, al_toPut, waterCapacity);
+		RobotType robotType = RobotTypeFactory.newInstance(typeName, mv_toPut, pj_toPut, al_toPut, waterCapacity);
 		
 		simulation.getRobotModel().add(robotType);
 		

@@ -1,12 +1,8 @@
 import java.awt.Frame;
-import java.util.ArrayList;
 
 import Controller.MapController;
 import IHM.MainWindow;
-import Model.Cell;
 import Model.Map;
-import Model.Robot;
-import Model.algorithms.Algorithm;
 
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
@@ -35,13 +31,5 @@ public class Main {
 		w.setVisible(true);
 		map.addObserver(w.getMapView());
 		map.addObserver(w.getEventsView());
-		
-		// Test algo move forward
-		Robot robot = new Robot();
-		robot.setCell(new Cell(8, 5, 0));
-		Cell cellToReach = new Cell(1,1, 0);
-		ArrayList<Cell> test = Algorithm.findBestWay(map, robot, cellToReach);
-
-		System.out.println(test.toString());
 	}
 }

@@ -4,11 +4,10 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import IHM.RobotDetailDialog;
-import Model.robot.type.RobotTypeFactory;
 
 public class ModifyRobotTypeListener implements ActionListener {
 
-/* ATTRIBUTES */
+	/* ATTRIBUTES */
 	
 	private RobotDetailDialog _robotDetailsDialog;
 	private String _initialRobotTypeName;
@@ -31,7 +30,8 @@ public class ModifyRobotTypeListener implements ActionListener {
 		String projectorType = _robotDetailsDialog.getProjectorType().getSelectedItem().toString();
 		String moveType = _robotDetailsDialog.getMoveType().getSelectedItem().toString();
 		
-		_robotDetailsDialog.get_robotTypeController().modifyRobotType(_initialRobotTypeName, typeName, waterCapacity, algorithm, projectorType, moveType);
-						
+		_robotDetailsDialog.getRobotTypeController().modifyRobotType(_initialRobotTypeName, typeName, waterCapacity, algorithm, projectorType, moveType);
+		_robotDetailsDialog.setVisible(false);
+		_robotDetailsDialog.getRobotModelView().refreshListOfRobotTypes();				
 	}
 }

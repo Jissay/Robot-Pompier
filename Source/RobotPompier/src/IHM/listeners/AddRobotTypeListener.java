@@ -28,8 +28,9 @@ public class AddRobotTypeListener implements ActionListener {
 		String projectorType = _robotDetailsDialog.getProjectorType().getSelectedItem().toString();
 		String moveType = _robotDetailsDialog.getMoveType().getSelectedItem().toString();
 		
-		_robotDetailsDialog.get_robotTypeController().addRobotType(typeName, waterCapacity, algorithm, projectorType, moveType);
-						
+		_robotDetailsDialog.getRobotTypeController().addRobotType(typeName, waterCapacity, algorithm, projectorType, moveType);
+		_robotDetailsDialog.setVisible(false);
+		_robotDetailsDialog.getRobotModelView().refreshListOfRobotTypes();
 	}
 
 }

@@ -15,7 +15,11 @@ public class MoveType {
 	/* CONSTRUCTOR */
 	// Create Move type with default values of a default type
 	public MoveType(int type) {
-		_type = type;
+		if (type > TYPE_NAMES.length || type > TYPE_WEIGHTS.length) {
+			_type = 0;
+		} else {
+			_type = type;
+		}
 	}
 	
 	/**

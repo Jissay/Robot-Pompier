@@ -39,17 +39,17 @@ public class Simulation extends Observable{
 		_listAlgorithms.add(new Dijkstra());
 		
 		_listMoveTypes = new HashSet<MoveType>();
+		_listMoveTypes.add(new MoveType(0));
 		_listMoveTypes.add(new MoveType(1));
-		_listMoveTypes.add(new MoveType(2));
 		
 		_listProjectorTypes = new HashSet<ProjectorType>();
+		_listProjectorTypes.add(new ProjectorType(0));
 		_listProjectorTypes.add(new ProjectorType(1));
-		_listProjectorTypes.add(new ProjectorType(2));
 		
 		_robotModel = new HashSet<RobotType>();
 		RobotTypeFactory rbtf = new RobotTypeFactory();
-		_robotModel.add(rbtf.newInstance("Defaut 1", new MoveType(1), new ProjectorType(1), new Astar(), 15));
-		_robotModel.add(rbtf.newInstance("Defaut 2", new MoveType(2), new ProjectorType(2), new Dijkstra(), 20));
+		_robotModel.add(rbtf.newInstance("Defaut 1", new MoveType(0), new ProjectorType(0), new Astar(), 15));
+		_robotModel.add(rbtf.newInstance("Defaut 2", new MoveType(1), new ProjectorType(1), new Dijkstra(), 20));
 		
 	}
 	

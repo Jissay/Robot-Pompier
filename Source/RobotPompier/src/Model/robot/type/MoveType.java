@@ -29,7 +29,7 @@ public class MoveType {
 	 * @return
 	 */
 	public float cout(float inclinaison, ETerrainType terrainType) {
-		return 0;
+		return 1.0f;
 	}
 
 	/* GETTERS AND SETTERS */

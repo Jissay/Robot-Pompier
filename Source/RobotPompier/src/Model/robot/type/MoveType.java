@@ -6,63 +6,34 @@ public class MoveType {
 	
 	/* STATIC VALUES */
 	
-	public static int MOVE_TYPE_1 = 1;
-	public static int MOVE_TYPE_2 = 2;
-	
-	private static final String MOVE_TYPE_1_NAME = "Chenilles";
-	private static final float MOVE_TYPE_1_WEIGHT = 2.0f;
-	
-	private static final String MOVE_TYPE_2_NAME = "Ventouses";
-	private static final float MOVE_TYPE_2_WEIGHT = 1.0f;
+	public static final String[]	TYPE_NAMES =	{ "Chenilles",	"Ventouses" };
+	public static final float[]		TYPE_WEIGHTS =	{ 2.0f,			1.0f };
 	
 	/* ATTRIBUTES */
+	private int		_type;
 	
-	private String _name = "No Name";
-	private float _weight = 0.0f;
-	
-	/* CONSTRUCTORS */
-	public MoveType() { 
-		
-	}
-	
-	public MoveType(String name, float weight) {
-		_name = name;
-		_weight = weight;
-	}
-	
+	/* CONSTRUCTOR */
 	// Create Move type with default values of a default type
 	public MoveType(int type) {
-		if (type == MOVE_TYPE_1) {
-			_name = MOVE_TYPE_1_NAME;
-			_weight = MOVE_TYPE_1_WEIGHT;
-		} else if (type == MOVE_TYPE_2) {
-			_name = MOVE_TYPE_2_NAME;
-			_weight = MOVE_TYPE_2_WEIGHT;
-		}
+		_type = type;
 	}
-
 	
-	
-	// ???
-	public float vitesse(float inclinaison, ETerrainType terrainType) {
-		
-		return 0.0f;
+	/**
+	 * Indique le coût de déplacement sur une cellule
+	 * @param inclinaison Unused
+	 * @param terrainType Type de terrain de la cellule à parcourir
+	 * @return
+	 */
+	public float cout(float inclinaison, ETerrainType terrainType) {
+		return 0;
 	}
 
 	/* GETTERS AND SETTERS */
 	public float getWeight() {
-		return _weight;
-	}
-
-	public void setWeight(float weight) {
-		_weight = weight;
+		return TYPE_WEIGHTS[_type];
 	}
 
 	public String getName() {
-		return _name;
-	}
-
-	public void setName(String name) {
-		_name = name;
+		return TYPE_NAMES[_type];
 	}
 }

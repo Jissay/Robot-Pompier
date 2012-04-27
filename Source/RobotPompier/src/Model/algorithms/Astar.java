@@ -45,17 +45,17 @@ public class Astar extends Algorithm {
 		ArrayList<Cell> openset = new ArrayList<Cell>();
 		HashMap<Cell, Cell> cameFrom = new HashMap<Cell, Cell>();
 		HashMap<Cell, Integer> gScore = new HashMap<Cell, Integer>();
-		HashMap<Cell, Integer> hScore = new HashMap<Cell, Integer>();
-		HashMap<Cell, Integer> fScore = new HashMap<Cell, Integer>();
+		HashMap<Cell, Float> hScore = new HashMap<Cell, Float>();
+		HashMap<Cell, Float> fScore = new HashMap<Cell, Float>();
 		
 		openset.add(start);
 		gScore.put(start, 0);
-		hScore.put(start, robot.computeDistance(cellToReach));
+		hScore.put(start, start.distance(cellToReach) * robot.getRobotType().getMoveType().cout(0, cellToReach.getTerrainType()));
 		fScore.put(start, gScore.get(start) + hScore.get(start));
 		
 		while (!openset.isEmpty()) {
 			Cell current = openset.get(0);
-			int minCurrent = fScore.get(current);
+			float minCurrent = fScore.get(current);
 			for (Cell c: openset) {
 				if (fScore.get(c) < minCurrent) {
 					minCurrent = fScore.get(c);
@@ -77,7 +77,7 @@ public class Astar extends Algorithm {
 				
 				if (!openset.contains(c)) {
 					openset.add(c);
-					hScore.put(c, c.distance(cellToReach));
+					hScore.put(c, c.distance(cellToReach) * robot.getRobotType().getMoveType().cout(0, cellToReach.getTerrainType()));
 					tentativeIsBetter = true;
 				} else if (tentativeGScore < gScore.get(c)) {
 					tentativeIsBetter = true;

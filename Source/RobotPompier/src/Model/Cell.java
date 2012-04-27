@@ -1,5 +1,6 @@
 package Model;
 
+import java.util.Collection;
 import java.util.HashMap;
 
 import org.json.JSONObject;
@@ -129,5 +130,18 @@ public class Cell {
 			ret.put(EOrientation.S, _map.getCell().get(getX()).get(getY() + 1));
 		
 		return ret;
+	}
+	
+	public Collection<Cell> getListCellulesAdjacentes() {
+		return getCellulesAdjacentes().values();
+	}
+	
+	public int distance(Cell other) {
+		int distance = 0;
+	 
+		distance += (other.getX() < getX()) ? getX() - other.getX() : other.getX() - getX();
+		distance += (other.getY() < getY()) ? getY() - other.getY() : other.getY() - getY();
+
+		return distance;
 	}
 }

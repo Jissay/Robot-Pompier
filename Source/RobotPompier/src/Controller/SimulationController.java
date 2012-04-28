@@ -28,10 +28,12 @@ public class SimulationController {
 		return _simulation.getRobotTypeFromName(name);
 	}
 	
-	public static void startSimulation() {
+	public void startSimulation() {
+		_simulation.start();
 	}
 
 	public void stopSimulation() {
+		_simulation.stop();
 	}
 	
 	/* GETTERS AND SETTERS */

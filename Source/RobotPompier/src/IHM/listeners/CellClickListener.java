@@ -15,6 +15,9 @@ public class CellClickListener implements MouseListener {
 	
 	@Override
 	public void mouseClicked(MouseEvent e) {
+		if (MapController.getInstance().containsRobot(_x, _y))
+			return;
+		
 		int fireLevel = MapController.getInstance().getCellFireLevel(_x, _y);
 		if (e.getButton() == MouseEvent.BUTTON1)
 			MapController.getInstance().setOnFireAt(_x, _y, fireLevel + 1);

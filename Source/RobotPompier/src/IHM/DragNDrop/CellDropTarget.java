@@ -44,7 +44,6 @@ public class CellDropTarget extends DropTarget {
 			else
 				cell.setForeground(Color.green);*/
 		}
-		System.out.println("Drag enter !");
 	}
 	
 	@Override
@@ -52,7 +51,6 @@ public class CellDropTarget extends DropTarget {
 		Component component = getComponent();
 		if (component instanceof JLabel)
 			((JLabel)component).setForeground(_previousForegroundColor);
-		System.out.println("Drag exit !");
 	}
 	
 	@Override
@@ -63,8 +61,8 @@ public class CellDropTarget extends DropTarget {
 			if (data instanceof String) {
 				Component component = getComponent();
 				if (component instanceof JLabel) {
-					System.out.println("Dropped " + (String)data);
-					MapController.getInstance().setRobotAt(_x, _y, (String)data);
+					if (!MapController.getInstance().isCellBusy(_x, _y))
+						MapController.getInstance().setRobotAt(_x, _y, (String)data);
 				} else
 					System.out.println("Get data but something else went wrong ?");
 			} else

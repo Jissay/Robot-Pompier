@@ -61,7 +61,7 @@ public class Map extends Observable {
 	
 	public boolean isCellBusy(int x, int y) {
 		Cell cell = _cells.get(x).get(y);
-		return (null == cell.getRobot() && cell.isOnFire() == 0);
+		return !(null == cell.getRobot() && cell.isOnFire() == 0);
 	}
 	
 	//TODO: définir comment on récupère le type de robot

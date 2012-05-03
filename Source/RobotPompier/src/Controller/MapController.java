@@ -55,6 +55,10 @@ public class MapController {
 		return _model.getCell().get(x).get(y).getRobot() != null;
 	}
 	
+	public void removeRobotAt(int x, int y) {
+		_model.removeRobot(_model.getCell().get(x).get(y));
+	}
+	
 	public boolean isOnFire(int x, int y) {
 		return _model.getCell().get(x).get(y).isOnFire() > 0;
 	}

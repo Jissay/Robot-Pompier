@@ -124,9 +124,12 @@ public class MapView extends AMapObserver{
 	@Override
 	protected void mapSetRobot(int x, int y, String url) {
 		JLabel cell = _map.get(x).get(y);
-		ImageIcon image = new ImageIcon(Class.class.getResource(url));
-		image.setImage(image.getImage().getScaledInstance(cell.getWidth(), cell.getHeight(), Image.SCALE_DEFAULT));
-		cell.setIcon(image);
+		if (url != null) {
+			ImageIcon image = new ImageIcon(Class.class.getResource(url));
+			image.setImage(image.getImage().getScaledInstance(cell.getWidth(), cell.getHeight(), Image.SCALE_DEFAULT));
+			cell.setIcon(image);
+		} else
+			cell.setIcon(null);
 	}
 
 	@Override

@@ -15,14 +15,17 @@ public class CellClickListener implements MouseListener {
 	
 	@Override
 	public void mouseClicked(MouseEvent e) {
-		if (MapController.getInstance().containsRobot(_x, _y))
-			return;
-		
 		int fireLevel = MapController.getInstance().getCellFireLevel(_x, _y);
-		if (e.getButton() == MouseEvent.BUTTON1)
+		boolean containsRobot = MapController.getInstance().containsRobot(_x, _y);
+		if (e.getButton() == MouseEvent.BUTTON1 && !containsRobot)
 			MapController.getInstance().setOnFireAt(_x, _y, fireLevel + 1);
-		else if (e.getButton() == MouseEvent.BUTTON3 && fireLevel > 0)
-			MapController.getInstance().setOnFireAt(_x, _y, fireLevel - 1);
+		else if (e.getButton() == MouseEvent.BUTTON3) {
+			if (fireLevel > 0)
+				MapController.getInstance().setOnFireAt(_x, _y, fireLevel - 1);
+			else if (containsRobot)
+				MapController.getInstance().removeRobotAt(_x, _y);
+				
+		}
 	}
 
 	@Override

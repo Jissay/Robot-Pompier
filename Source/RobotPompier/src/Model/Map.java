@@ -131,6 +131,12 @@ public class Map extends Observable {
 	public void removeRobot(Cell cell)
 	{
 		cell.setRobot(null);
+		Hashtable<String, Object> args = new Hashtable<String, Object>();
+		args.put("type", "SetRobot");
+		args.put("x", cell.getX());
+		args.put("y", cell.getY());
+		setChanged();
+		notifyObservers(args);
 	}
 	
 	/* ------------------- */

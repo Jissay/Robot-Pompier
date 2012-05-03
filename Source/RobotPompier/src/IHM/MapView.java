@@ -133,7 +133,7 @@ public class MapView extends AMapObserver{
 	}
 
 	@Override
-	protected void mapSetFire(int x, int y, int fireLevel) {
+	protected void mapSetFire(int x, int y, int oldLevel, int fireLevel) {
 		JLabel cell = _map.get(x).get(y);
 		if (fireLevel > 0) {
 			ImageIcon image = new ImageIcon(Class.class.getResource("/images/flamme.png"));

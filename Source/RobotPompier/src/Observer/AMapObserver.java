@@ -13,7 +13,7 @@ public abstract class AMapObserver implements Observer {
 	protected abstract void mapLoaded();
 	protected abstract void mapLoadingFailed();
 	protected abstract void mapSetRobot(int x, int y, String url);
-	protected abstract void mapSetFire(int x, int y, int fireLevel);
+	protected abstract void mapSetFire(int x, int y, int oldLevel, int fireLevel);
 	protected abstract void mapReloading();
 	
 	@Override
@@ -37,8 +37,9 @@ public abstract class AMapObserver implements Observer {
 				} else if ("SetFire".equals(param)) {
 					int x = (Integer)arguments.get("x");
 					int y = (Integer)arguments.get("y");
+					int oldLevel = (Integer)arguments.get("oldLevel");
 					int fireLevel = (Integer) arguments.get("fireLevel");
-					mapSetFire(x, y, fireLevel);
+					mapSetFire(x, y, oldLevel, fireLevel);
 				}
 				else if ("ReloadSimulation".equals(param)){
 					mapReloading();

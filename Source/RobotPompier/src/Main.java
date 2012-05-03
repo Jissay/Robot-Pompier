@@ -31,5 +31,6 @@ public class Main {
 		w.setVisible(true);
 		map.addObserver(w.getMapView());
 		map.addObserver(w.getEventsView());
+		map.addObserver(w.getSimulationView());
 	}
 }

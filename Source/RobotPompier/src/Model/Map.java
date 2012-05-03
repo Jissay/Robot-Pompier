@@ -69,11 +69,9 @@ public class Map extends Observable {
 			{
 				if (cell.isOnFire() != 0)
 				{
-					System.out.println("inFire");
 					removeFire(cell);
 				}
 				else if (isCellBusy(cell)){
-					System.out.println("isBusy");
 					removeRobot(cell);
 				}
 		}

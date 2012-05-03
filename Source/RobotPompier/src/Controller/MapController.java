@@ -28,7 +28,6 @@ public class MapController {
 	}
 	
 	public void reload(){
-		System.out.println("reload du controller");
 		_model.reload();
 	}
 	

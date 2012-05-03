@@ -7,10 +7,15 @@ import java.util.Set;
 import Model.algorithms.Algorithm;
 import Model.algorithms.Astar;
 import Model.algorithms.Dijkstra;
-import Model.robot.type.MoveType;
-import Model.robot.type.ProjectorType;
 import Model.robot.type.RobotType;
 import Model.robot.type.RobotTypeFactory;
+import Model.robot.type.move.Chenilles;
+import Model.robot.type.move.MoveType;
+import Model.robot.type.move.Roues;
+import Model.robot.type.move.Ventouses;
+import Model.robot.type.projector.Jet;
+import Model.robot.type.projector.Lance;
+import Model.robot.type.projector.ProjectorType;
 
 
 public class Simulation extends Observable{
@@ -30,8 +35,6 @@ public class Simulation extends Observable{
 	public void moveRobot() {
 	}
 	
-	/* GETTERS AND SETTERS */
-	
 	public Simulation() {
 		
 		_listAlgorithms = new HashSet<Algorithm>();
@@ -39,19 +42,22 @@ public class Simulation extends Observable{
 		_listAlgorithms.add(new Dijkstra());
 		
 		_listMoveTypes = new HashSet<MoveType>();
-		_listMoveTypes.add(new MoveType(0));
-		_listMoveTypes.add(new MoveType(1));
+		_listMoveTypes.add(new Chenilles());
+		_listMoveTypes.add(new Ventouses());
+		_listMoveTypes.add(new Roues());
 		
 		_listProjectorTypes = new HashSet<ProjectorType>();
-		_listProjectorTypes.add(new ProjectorType(0));
-		_listProjectorTypes.add(new ProjectorType(1));
+		_listProjectorTypes.add(new Lance());
+		_listProjectorTypes.add(new Jet());
 		
 		_robotModel = new HashSet<RobotType>();
 		RobotTypeFactory rbtf = new RobotTypeFactory();
-		_robotModel.add(rbtf.newInstance("Defaut 1", new MoveType(0), new ProjectorType(0), new Astar(), 15));
-		_robotModel.add(rbtf.newInstance("Defaut 2", new MoveType(1), new ProjectorType(1), new Dijkstra(), 20));
+		_robotModel.add(rbtf.newInstance("Defaut 1", new Chenilles(), new Lance(), new Astar(), 15));
+		_robotModel.add(rbtf.newInstance("Defaut 2", new Ventouses(), new Jet(), new Dijkstra(), 20));
 		
 	}
+
+	/* GETTERS AND SETTERS */
 	
 	public Map getMap() {
 		return _map;

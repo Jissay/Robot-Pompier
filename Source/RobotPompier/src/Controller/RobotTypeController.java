@@ -2,10 +2,10 @@ package Controller;
 
 import Model.Simulation;
 import Model.algorithms.Algorithm;
-import Model.robot.type.MoveType;
-import Model.robot.type.ProjectorType;
 import Model.robot.type.RobotType;
 import Model.robot.type.RobotTypeFactory;
+import Model.robot.type.move.MoveType;
+import Model.robot.type.projector.ProjectorType;
 
 public class RobotTypeController {
 

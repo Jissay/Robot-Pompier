@@ -50,7 +50,7 @@ public class Astar extends Algorithm {
 		
 		openset.add(start);
 		gScore.put(start, 0);
-		hScore.put(start, start.distance(cellToReach) * robot.getRobotType().getMoveType().cout(0, cellToReach.getTerrainType()));
+		hScore.put(start, start.distance(cellToReach) * robot.getRobotType().getMoveType().getCost(0, cellToReach.getTerrainType()));
 		fScore.put(start, gScore.get(start) + hScore.get(start));
 		
 		while (!openset.isEmpty()) {
@@ -77,7 +77,7 @@ public class Astar extends Algorithm {
 				
 				if (!openset.contains(c)) {
 					openset.add(c);
-					hScore.put(c, c.distance(cellToReach) * robot.getRobotType().getMoveType().cout(0, cellToReach.getTerrainType()));
+					hScore.put(c, c.distance(cellToReach) * robot.getRobotType().getMoveType().getCost(0, cellToReach.getTerrainType()));
 					tentativeIsBetter = true;
 				} else if (tentativeGScore < gScore.get(c)) {
 					tentativeIsBetter = true;

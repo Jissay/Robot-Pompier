@@ -18,9 +18,9 @@ import IHM.listeners.AddRobotTypeListener;
 import IHM.listeners.CancelAddRobotTypeListener;
 import IHM.listeners.ModifyRobotTypeListener;
 import Model.algorithms.Algorithm;
-import Model.robot.type.MoveType;
-import Model.robot.type.ProjectorType;
 import Model.robot.type.RobotType;
+import Model.robot.type.move.MoveType;
+import Model.robot.type.projector.ProjectorType;
 
 public class RobotDetailDialog extends JFrame {
 

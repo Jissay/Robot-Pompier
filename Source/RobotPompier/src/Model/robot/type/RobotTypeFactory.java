@@ -1,6 +1,8 @@
 package Model.robot.type;
 
 import Model.algorithms.Algorithm;
+import Model.robot.type.move.MoveType;
+import Model.robot.type.projector.ProjectorType;
 
 public class RobotTypeFactory {
 	

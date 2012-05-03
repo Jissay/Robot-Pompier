@@ -140,4 +140,9 @@ public class MapView extends AMapObserver{
 			cell.setIcon(null);
 		
 	}
+
+	@Override
+	protected void mapReloading() {
+		 
+	}
 }

@@ -1,7 +1,9 @@
 package IHM;
 
+import java.awt.Color;
 import java.awt.Dimension;
 
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
@@ -59,5 +61,9 @@ public class EventsView extends AMapObserver {
 	@Override
 	protected void mapSetFire(int x, int y, int fireLevel) {
 		textArea.append("Feu aux coordonnées (" + x + "; " + y + ") : " + fireLevel + "\n");
+	}
+	@Override
+	protected void mapReloading() {
+		textArea.append("Réinitialisation de la carte\n");
 	}
 }

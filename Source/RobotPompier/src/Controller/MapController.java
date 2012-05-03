@@ -27,6 +27,11 @@ public class MapController {
 		_model.setData(data);
 	}
 	
+	public void reload(){
+		System.out.println("reload du controller");
+		_model.reload();
+	}
+	
 	public void setView(MapView view) {
 		_view = view;
 	}

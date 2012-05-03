@@ -23,7 +23,6 @@ import org.json.JSONException;
 
 import Controller.MapController;
 import Controller.SimulationController;
-import Model.Simulation;
 
 public class MainWindow extends JFrame implements ActionListener {
 
@@ -101,6 +100,15 @@ public class MainWindow extends JFrame implements ActionListener {
 		run.addActionListener(this);
 		simulation.add(run);
 		
+		JMenuItem reload = new JMenuItem("Réinitialiser");
+		reload.setMnemonic('r');
+		reload.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_L, ActionEvent.CTRL_MASK));
+		reload.getAccessibleContext().setAccessibleDescription("Réinitialiser la simulation");
+		reload.setActionCommand("Reload");
+		reload.addActionListener(this);
+		simulation.add(reload);
+		simulation.addSeparator();
+		
 		JMenuItem stop = new JMenuItem("Arrêter");
 		stop.setMnemonic('a');
 		stop.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_S, ActionEvent.CTRL_MASK));
@@ -148,6 +156,8 @@ public class MainWindow extends JFrame implements ActionListener {
 			SimulationController.getInstance().startSimulation();
 		else if (arg0.getActionCommand().equals("Stop"))
 			SimulationController.getInstance().stopSimulation();
+		else if (arg0.getActionCommand().equals("Reload"))
+			MapController.getInstance().reload();
 		else if (arg0.getActionCommand().equals("LoadMap"))
 			try {
 				loadMap();

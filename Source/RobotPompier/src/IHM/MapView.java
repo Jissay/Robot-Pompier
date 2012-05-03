@@ -143,6 +143,10 @@ public class MapView extends AMapObserver{
 
 	@Override
 	protected void mapReloading() {
-		 
+		 for (Vector<JLabel> vectorLabel : _map)
+			 for (JLabel label : vectorLabel)
+			 {
+				 label.setIcon(null);
+			 }
 	}
 }

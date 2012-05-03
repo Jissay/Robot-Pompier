@@ -39,7 +39,7 @@ public class Astar extends Algorithm {
 	/**
 	 * @see Algorithm.findBestWay
 	 */
-	public static ArrayList<Cell> findBestWay(Map map, Robot robot, Cell cellToReach) {
+	public ArrayList<Cell> findBestWay(Map map, Robot robot, Cell cellToReach) {
 		Cell start = robot.getCell();
 		ArrayList<Cell> closedset = new ArrayList<Cell>();
 		ArrayList<Cell> openset = new ArrayList<Cell>();

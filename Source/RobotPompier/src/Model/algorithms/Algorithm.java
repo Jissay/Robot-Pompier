@@ -17,7 +17,7 @@ public abstract class Algorithm {
 	 * @param Cell cellToReach - Cell to reach with Pathfinding algorithm
 	 * @return ArrayList<Cell> - List of Cell to reach in order to follow the path found
 	 */
-	public static ArrayList<Cell> findBestWay(Map map, Robot robot, Cell cellToReach) {
+	public ArrayList<Cell> findBestWay(Map map, Robot robot, Cell cellToReach) {
 		// Cells ran by the algorithm
 		ArrayList<Cell> path = new ArrayList<Cell>();
 		

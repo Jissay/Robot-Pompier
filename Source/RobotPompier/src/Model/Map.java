@@ -44,8 +44,11 @@ public class Map extends Observable {
 				JSONArray row;
 					row = map.getJSONArray(i);
 				_largeur = row.length();
-				for (int j = 0; j < _largeur; j++)
-					cellsContainer.add(new Cell(i, j, row.getJSONObject(j)));
+				for (int j = 0; j < _largeur; j++) {
+					Cell tmpCell = new Cell(i, j, row.getJSONObject(j));
+					tmpCell.setMap(this);
+					cellsContainer.add(tmpCell);
+				}
 				_cells.add(cellsContainer);
 			}
 		} catch (JSONException e) {

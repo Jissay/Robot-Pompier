@@ -3,6 +3,7 @@ package Model;
 import java.util.HashSet;
 import java.util.Observable;
 import java.util.Set;
+import java.util.Timer;
 
 import Model.algorithms.Algorithm;
 import Model.algorithms.Astar;
@@ -27,24 +28,28 @@ public class Simulation extends Observable {
 
 	private Set<Robot> _robots;
 
+	private Timer _timer;
 	private SimulationThread _thread = null;
 
 	/* METHODS */
 
 	public void start() {
+		if (isRunning())
+			return;
 		_thread = new SimulationThread(this);
-		_thread.start();
+		_timer.schedule(_thread, 0, 1000);
 	}
 
 	public void stop() {
-		if (_thread != null && _thread.isAlive()) {
-			_thread.halt();
+		if (_thread != null) {
+			_timer.cancel();
+			_timer.purge();
 			_thread = null;
 		}
 	}
 
 	public boolean isRunning() {
-		return _thread != null && _thread.isAlive();
+		return _thread != null;
 	}
 
 
@@ -54,24 +59,27 @@ public class Simulation extends Observable {
 	/* GETTERS AND SETTERS */
 
 	public Simulation() {
-		_manager = new Manager();
+		_manager = new Manager(this);
+		
+		_timer = new Timer();
 		
 		_listAlgorithms = new HashSet<Algorithm>();
 		_listAlgorithms.add(new Astar());
 		_listAlgorithms.add(new Dijkstra());
 
 		_listMoveTypes = new HashSet<MoveType>();
+		_listMoveTypes.add(new MoveType(0));
 		_listMoveTypes.add(new MoveType(1));
 		_listMoveTypes.add(new MoveType(2));
 
 		_listProjectorTypes = new HashSet<ProjectorType>();
+		_listProjectorTypes.add(new ProjectorType(0));
 		_listProjectorTypes.add(new ProjectorType(1));
 		_listProjectorTypes.add(new ProjectorType(2));
 
 		_robotModel = new HashSet<RobotType>();
-		RobotTypeFactory rbtf = new RobotTypeFactory();
-		_robotModel.add(rbtf.newInstance("Defaut 1", new MoveType(1), new ProjectorType(1), new Astar(), 15));
-		_robotModel.add(rbtf.newInstance("Defaut 2", new MoveType(2), new ProjectorType(2), new Dijkstra(), 20));
+		_robotModel.add(RobotTypeFactory.newInstance("Defaut 1", new MoveType(1), new ProjectorType(1), new Astar(), 15));
+		_robotModel.add(RobotTypeFactory.newInstance("Defaut 2", new MoveType(2), new ProjectorType(2), new Dijkstra(), 20));
 
 		_robots = new HashSet<Robot>();
 	}

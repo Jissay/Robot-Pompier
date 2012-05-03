@@ -16,6 +16,7 @@ import Controller.RobotTypeController;
 import Controller.SimulationController;
 import IHM.listeners.AddRobotTypeListener;
 import IHM.listeners.CancelAddRobotTypeListener;
+import IHM.listeners.ModifyRobotTypeListener;
 import Model.algorithms.Algorithm;
 import Model.robot.type.MoveType;
 import Model.robot.type.ProjectorType;
@@ -35,6 +36,7 @@ public class RobotDetailDialog extends JFrame {
 	
 	private int _type;
 	private RobotTypeController _robotTypeController;
+	private RobotModelView _robotModelView;
 	
 	/* IHM COMPONENTS */
 	private JPanel _northPanel; // Panel with title
@@ -65,10 +67,12 @@ public class RobotDetailDialog extends JFrame {
 	
 	
 	/* CONSTRUCTORS */
-	public RobotDetailDialog(int type, RobotType robotType, RobotTypeController robotTypeController) {
+	public RobotDetailDialog(int type, RobotType robotType, RobotTypeController robotTypeController, RobotModelView robotModelView) {
 		super();
 		_type = type;
 		_robotTypeController = robotTypeController;
+		setRobotModelView(robotModelView);
+		
 		// Construct north panel, with title
 		_northPanel = new JPanel();
 		
@@ -158,7 +162,7 @@ public class RobotDetailDialog extends JFrame {
 			_addRobotType_button.addActionListener(new AddRobotTypeListener(this));
 		} else if (type == MODIFY_ROBOT_TYPE_DIALOG) {
 			_addRobotType_button = new JButton("Modifier");
-			_addRobotType_button.addActionListener(new AddRobotTypeListener(this));
+			_addRobotType_button.addActionListener(new ModifyRobotTypeListener(robotType.getName(), this));
 		}
 		_cancelAddRobotType_button = new JButton("Annuler");
 		_cancelAddRobotType_button.addActionListener(new CancelAddRobotTypeListener(this));
@@ -175,13 +179,13 @@ public class RobotDetailDialog extends JFrame {
 	}
 
 
-	public int get_type() {
+	public int getType() {
 		return _type;
 	}
 
 
-	public void set_type(int _type) {
-		this._type = _type;
+	public void setType(int type) {
+		_type = type;
 	}
 
 	public JPanel getNorthPanel() {
@@ -312,11 +316,19 @@ public class RobotDetailDialog extends JFrame {
 		_cancelAddRobotType_button = cancelAddRobotType_button;
 	}
 
-	public RobotTypeController get_robotTypeController() {
+	public RobotTypeController getRobotTypeController() {
 		return _robotTypeController;
 	}
 
-	public void set_robotTypeController(RobotTypeController _robotTypeController) {
-		this._robotTypeController = _robotTypeController;
+	public void setRobotTypeController(RobotTypeController robotTypeController) {
+		_robotTypeController = robotTypeController;
+	}
+
+	public RobotModelView getRobotModelView() {
+		return _robotModelView;
+	}
+
+	public void setRobotModelView(RobotModelView robotModelView) {
+		_robotModelView = robotModelView;
 	}
 }

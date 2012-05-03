@@ -17,6 +17,7 @@ import javax.swing.TransferHandler;
 import Controller.RobotTypeController;
 import Controller.SimulationController;
 import IHM.DragNDrop.CustomTransferHandler;
+import IHM.listeners.DeleteRobotTypeListener;
 import IHM.listeners.OpenAddRobotTypeListener;
 import IHM.listeners.OpenModifyRobotTypeListener;
 import Model.robot.type.RobotType;
@@ -27,9 +28,8 @@ public class RobotModelView extends ARobotTypeObserver{
 	private JPanel panelControlButton;
 	private JButton buttonAddRobotType;
 	private JList listRobotType;
-	private JButton buttonAddRobotTYpe;
 	private JButton buttonModifyRobotType;
-	private JButton buttonDeleteTypeRobot;
+	private JButton buttonDeleteRobotType;
 	private JScrollPane scrollPaneList;
 	private JPanel robotModelPanel;
 	
@@ -53,31 +53,26 @@ public class RobotModelView extends ARobotTypeObserver{
 		
 		// button used to add a new robot type
 		this.buttonAddRobotType = new JButton("Ajouter");
-		this.buttonAddRobotType.addActionListener(new OpenAddRobotTypeListener(new RobotTypeController()));
+		this.buttonAddRobotType.addActionListener(new OpenAddRobotTypeListener(new RobotTypeController(), this));
 		
 		// button used to modify a robot type
 		this.buttonModifyRobotType = new JButton("Modifier");
 		this.buttonModifyRobotType.addActionListener(new OpenModifyRobotTypeListener(new RobotTypeController(), this));
 		
 		// button used to delete a robot type
-		this.buttonDeleteTypeRobot = new JButton("Supprimer");
+		this.buttonDeleteRobotType = new JButton("Supprimer");
+		this.buttonDeleteRobotType.addActionListener(new DeleteRobotTypeListener(this, new RobotTypeController()));
 		
 		// add all buttons to panelControlButton
 		this.panelControlButton.add(this.buttonAddRobotType);
 		this.panelControlButton.add(this.buttonModifyRobotType);
-		this.panelControlButton.add(this.buttonDeleteTypeRobot);
+		this.panelControlButton.add(this.buttonDeleteRobotType);
 		
 		// list used to show all the robot types : we use an array
-		Set<RobotType> robotTypes = SimulationController.getInstance().getSimulation().getRobotModel();
 		
-		String[]listRobot = new String[robotTypes.size()];
-		int i = 0;
-		for (RobotType rt : robotTypes) {
-			listRobot[i] = rt.getName();
-			i++;
-		}
 		
-		this.listRobotType = new JList(listRobot);
+		this.listRobotType = new JList();
+		this.refreshListOfRobotTypes();
 		this.listRobotType.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 		this.listRobotType.setLayoutOrientation(JList.VERTICAL);
 
@@ -97,5 +92,24 @@ public class RobotModelView extends ARobotTypeObserver{
 		};
 		listRobotType.addMouseListener(mouseListener);
 		listRobotType.setDragEnabled(true);
+	}
+	
+	/* -------------- */
+	/* PUBLIC METHODS */
+	/* -------------- */
+	
+	/**
+	 * Refresh the list of Robot Types. Call it after any changes or after closing another window.
+	 */
+	public void refreshListOfRobotTypes() {
+		Set<RobotType> robotTypes = SimulationController.getInstance().getSimulation().getRobotModel();
+		
+		String[]listRobot = new String[robotTypes.size()];
+		int i = 0;
+		for (RobotType rt : robotTypes) {
+			listRobot[i] = rt.getName();
+			i++;
+		}
+		this.listRobotType.setListData(listRobot);
 	}
 }

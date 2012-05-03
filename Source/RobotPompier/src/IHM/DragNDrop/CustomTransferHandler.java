@@ -10,8 +10,6 @@ import javax.swing.JComponent;
 import javax.swing.JList;
 import javax.swing.TransferHandler;
 
-import IHM.RobotModelView;
-
 @SuppressWarnings("serial")
 public class CustomTransferHandler extends TransferHandler {
 private CustomTransferable _data = new CustomTransferable("Nothing");

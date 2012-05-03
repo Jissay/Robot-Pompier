@@ -29,9 +29,11 @@ public class OpenModifyRobotTypeListener implements ActionListener {
 	
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		String robotTypeName = _robotModelView.getListRobotType().getSelectedValue().toString();
-		_robotTypeSelected = SimulationController.getInstance().getRobotTypeFromName(robotTypeName);
-		RobotDetailDialog robotDetailDialogFrame = new RobotDetailDialog(RobotDetailDialog.MODIFY_ROBOT_TYPE_DIALOG, _robotTypeSelected, _robotTypeController);
-		robotDetailDialogFrame.setVisible(true);
+		if (!_robotModelView.getListRobotType().getSelectedValue().equals(null)) {
+			String robotTypeName = _robotModelView.getListRobotType().getSelectedValue().toString();
+			_robotTypeSelected = SimulationController.getInstance().getRobotTypeFromName(robotTypeName);
+			RobotDetailDialog robotDetailDialogFrame = new RobotDetailDialog(RobotDetailDialog.MODIFY_ROBOT_TYPE_DIALOG, _robotTypeSelected, _robotTypeController, _robotModelView);
+			robotDetailDialogFrame.setVisible(true);
+		}
 	}
 }

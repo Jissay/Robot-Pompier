@@ -59,8 +59,8 @@ public class Dijkstra extends Algorithm {
 			}
 			
 			for (DjikstraCell c: adjacents) {
-				if (c._parcouru > curr._parcouru + curr._cell.distance(cellToReach) * robot.getRobotType().getMoveType().cout(0, c._cell.getTerrainType())) {
-					c._parcouru = (int) (curr._parcouru + curr._cell.distance(cellToReach) * robot.getRobotType().getMoveType().cout(0, c._cell.getTerrainType()));
+				if (c._parcouru > curr._parcouru + curr._cell.distance(cellToReach) * robot.getRobotType().getMoveType().getCost(0, c._cell.getTerrainType())) {
+					c._parcouru = (int) (curr._parcouru + curr._cell.distance(cellToReach) * robot.getRobotType().getMoveType().getCost(0, c._cell.getTerrainType()));
 					c._precedent = curr;
 					notVisited.add(c);
 				}

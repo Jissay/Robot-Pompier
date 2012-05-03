@@ -140,4 +140,13 @@ public class MapView extends AMapObserver{
 			cell.setIcon(null);
 		
 	}
+
+	@Override
+	protected void mapReloading() {
+		 for (Vector<JLabel> vectorLabel : _map)
+			 for (JLabel label : vectorLabel)
+			 {
+				 label.setIcon(null);
+			 }
+	}
 }

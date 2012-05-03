@@ -3,6 +3,7 @@ package Model;
 import java.util.HashSet;
 import java.util.Observable;
 import java.util.Set;
+import java.util.Timer;
 
 import Model.algorithms.Algorithm;
 import Model.algorithms.Astar;
@@ -18,29 +19,57 @@ import Model.robot.type.projector.Lance;
 import Model.robot.type.projector.ProjectorType;
 
 
-public class Simulation extends Observable{
-	
+public class Simulation extends Observable {
+
 	/* ATTRIBUTES */
-	
+
 	private Map _map;
 	private Manager _manager;
-	
+
 	private Set<RobotType> _robotModel;
 	private Set<Algorithm> _listAlgorithms;
 	private Set<MoveType> _listMoveTypes;
 	private Set<ProjectorType> _listProjectorTypes;
 
+	private Set<Robot> _robots;
+
+	private Timer _timer;
+	private SimulationThread _thread = null;
+
 	/* METHODS */
-	
+
+	public void start() {
+		if (isRunning())
+			return;
+		_thread = new SimulationThread(this);
+		_timer.schedule(_thread, 0, 1000);
+	}
+
+	public void stop() {
+		if (_thread != null) {
+			_timer.cancel();
+			_timer.purge();
+			_thread = null;
+		}
+	}
+
+	public boolean isRunning() {
+		return _thread != null;
+	}
+
+
 	public void moveRobot() {
 	}
 	
 	public Simulation() {
+		_manager = new Manager(this);
+		
+		_timer = new Timer();
 		
 		_listAlgorithms = new HashSet<Algorithm>();
 		_listAlgorithms.add(new Astar());
 		_listAlgorithms.add(new Dijkstra());
-		
+
 		_listMoveTypes = new HashSet<MoveType>();
 		_listMoveTypes.add(new Chenilles());
 		_listMoveTypes.add(new Ventouses());
@@ -70,7 +99,7 @@ public class Simulation extends Observable{
 	public Set<RobotType> getRobotModel() {
 		return _robotModel;
 	}
-	
+
 	public RobotType getRobotTypeFromName(String name) {
 		for (RobotType type : _robotModel)
 			if (name.equals(type.getName()))
@@ -112,5 +141,13 @@ public class Simulation extends Observable{
 
 	public void setListProjectorTypes(Set<ProjectorType> listProjectorTypes) {
 		_listProjectorTypes = listProjectorTypes;
+	}
+
+	public void addRobot(Robot robot) {
+		_robots.add(robot);
+	}
+
+	public Set<Robot> getRobotList() {
+		return _robots;
 	}
 }

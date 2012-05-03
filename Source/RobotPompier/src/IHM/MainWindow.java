@@ -22,6 +22,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 
 import Controller.MapController;
+import Controller.SimulationController;
 
 public class MainWindow extends JFrame implements ActionListener {
 
@@ -98,6 +99,16 @@ public class MainWindow extends JFrame implements ActionListener {
 		run.setActionCommand("Run");
 		run.addActionListener(this);
 		simulation.add(run);
+		
+		JMenuItem reload = new JMenuItem("Réinitialiser");
+		reload.setMnemonic('r');
+		reload.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_L, ActionEvent.CTRL_MASK));
+		reload.getAccessibleContext().setAccessibleDescription("Réinitialiser la simulation");
+		reload.setActionCommand("Reload");
+		reload.addActionListener(this);
+		simulation.add(reload);
+		simulation.addSeparator();
+		
 		JMenuItem stop = new JMenuItem("Arrêter");
 		stop.setMnemonic('a');
 		stop.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_S, ActionEvent.CTRL_MASK));
@@ -106,6 +117,7 @@ public class MainWindow extends JFrame implements ActionListener {
 		stop.addActionListener(this);
 		simulation.add(stop);
 		simulation.addSeparator();
+		
 		JMenuItem charger = new JMenuItem("Charger une carte");
 		charger.setMnemonic('a');
 		charger.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_O, ActionEvent.CTRL_MASK));
@@ -114,6 +126,7 @@ public class MainWindow extends JFrame implements ActionListener {
 		charger.addActionListener(this);
 		simulation.add(charger);
 		simulation.addSeparator();
+		
 		JMenuItem quit = new JMenuItem("Quitter");
 		quit.setMnemonic('q');
 		quit.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_Q, ActionEvent.CTRL_MASK));
@@ -140,9 +153,11 @@ public class MainWindow extends JFrame implements ActionListener {
 		if (arg0.getActionCommand().equals("Quit"))
 			System.exit(0);
 		else if (arg0.getActionCommand().equals("Run"))
-			getSimulationView().startTimer();
+			SimulationController.getInstance().startSimulation();
 		else if (arg0.getActionCommand().equals("Stop"))
-			getSimulationView().stopTimer();
+			SimulationController.getInstance().stopSimulation();
+		else if (arg0.getActionCommand().equals("Reload"))
+			MapController.getInstance().reload();
 		else if (arg0.getActionCommand().equals("LoadMap"))
 			try {
 				loadMap();

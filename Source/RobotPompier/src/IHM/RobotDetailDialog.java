@@ -35,6 +35,7 @@ public class RobotDetailDialog extends JFrame {
 	/* ATTRIBUTES */
 	
 	private int _type;
+
 	private RobotTypeController _robotTypeController;
 	private RobotModelView _robotModelView;
 	
@@ -178,12 +179,10 @@ public class RobotDetailDialog extends JFrame {
 		this.pack();
 	}
 
-
-	public int getType() {
+	public int get_type() {
 		return _type;
 	}
-
-
+	
 	public void setType(int type) {
 		_type = type;
 	}

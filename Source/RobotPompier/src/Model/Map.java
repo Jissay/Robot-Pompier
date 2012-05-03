@@ -2,6 +2,7 @@ package Model;
 
 import java.util.ArrayList;
 import java.util.Hashtable;
+import java.util.ListIterator;
 import java.util.Observable;
 
 
@@ -62,9 +63,35 @@ public class Map extends Observable {
 		notifyObservers(hashTableForObservers);
 	}
 	
+	public void reload() {
+		for (ArrayList<Cell> list:_cells)
+			for (Cell cell : list)
+			{
+				if (cell.isOnFire() != 0)
+				{
+					System.out.println("inFire");
+					removeFire(cell);
+				}
+				else if (isCellBusy(cell)){
+					System.out.println("isBusy");
+					removeRobot(cell);
+				}
+		}
+		Hashtable<String, Object> args = new Hashtable<String, Object>();
+		args.put("type", "ReloadSimulation");
+		setChanged();
+		notifyObservers(args);
+	}
+	
 	public boolean isCellBusy(int x, int y) {
 		Cell cell = _cells.get(x).get(y);
 		return !(null == cell.getRobot() && cell.isOnFire() == 0);
+	}
+	
+	public boolean isCellBusy(Cell cell) {
+		int x = cell.getX();
+		int y = cell.getY();
+		return isCellBusy(x, y);
 	}
 	
 	//TODO: définir comment on récupère le type de robot
@@ -98,6 +125,16 @@ public class Map extends Observable {
 		}
 	}
 	
+	public void removeFire(Cell cell)
+	{
+		cell.setOnFire(0);
+	}
+	
+	public void removeRobot(Cell cell)
+	{
+		cell.setRobot(null);
+	}
+	
 	/* ------------------- */
 	/* GETTERS AND SETTERS */
 	/* ------------------- */
@@ -125,4 +162,5 @@ public class Map extends Observable {
 	public void setManager(Manager manager) {
 		_manager = manager;
 	}
+
 }

@@ -1,6 +1,7 @@
 package Model.algorithms;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
 
 import Model.Cell;
@@ -29,7 +30,9 @@ public class Astar extends Algorithm {
 		if (cameFrom.containsKey(currentNode)) {
 			ArrayList<Cell> res = new ArrayList<Cell>();
 			res.add(currentNode);
-			res.addAll(reconstructPath(cameFrom, cameFrom.get(currentNode)));
+			ArrayList<Cell> ret = reconstructPath(cameFrom, cameFrom.get(currentNode));
+			if (ret != null)
+				res.addAll(ret);
 			return res;
 		} else {
 			return null;
@@ -63,8 +66,11 @@ public class Astar extends Algorithm {
 				}
 			}
 			
-			if (current.equals(cellToReach))
-				return reconstructPath(cameFrom, current);
+			if (current.equals(cellToReach)) {
+				ArrayList<Cell> ret = reconstructPath(cameFrom, current);
+				Collections.reverse(ret);
+				return ret;
+			}
 			
 			openset.remove(current);
 			closedset.add(current);

@@ -41,7 +41,7 @@ public class Dijkstra extends Algorithm {
 		
 		currentCell._parcouru = 0;
 		
-		Collection<DjikstraCell> notVisited = cells.values();
+		ArrayList<DjikstraCell> notVisited = new ArrayList<DjikstraCell>(cells.values());
 		while (!notVisited.isEmpty()) {
 			// Recherche du parcouru minimum
 			DjikstraCell curr = null;

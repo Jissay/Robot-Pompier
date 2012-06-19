@@ -7,6 +7,9 @@ class Cell : public QLabel {
 
     Q_OBJECT
 
+    Q_PROPERTY(ETerrainType type READ terrainType WRITE setTerrainType)
+    Q_ENUMS(ETerrainType)
+
 public:
     enum ETerrainType {
         GRASS = 0,
@@ -21,6 +24,10 @@ public:
     };
 
     explicit Cell(QWidget *parent = 0);
+
+    inline ETerrainType terrainType() const {
+        return _type;
+    }
 
     void setTerrainType(ETerrainType type);
     void setHeight(int height);

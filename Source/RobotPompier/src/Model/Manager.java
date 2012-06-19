@@ -12,18 +12,19 @@ public class Manager {
 
 	private Robot _mostEfficient = null;
 	private int _minDistance = Integer.MAX_VALUE;
-	
+
 	public Manager(Simulation simulation) {
 		_simulation = simulation;
 	}
-	
+
 	public void checkForFire() {
 		for (ArrayList<Cell> line : MapController.getInstance().getModel().getCell())
 			for (Cell cell : line) {
 				if (cell.isOnFire() > 0) {
+					resetValues();
 					for (Robot r : _simulation.getRobotList()) {
 						r.checkDestinationStillOnFire();
-						
+
 						if (!r.isFree())
 							continue;
 						
@@ -33,20 +34,19 @@ public class Manager {
 							_minDistance = distance;
 						}
 					}
-					
+
 					if (_mostEfficient != null) {
 						_mostEfficient.go(cell);
-						resetValues();
 					}
 				}
 			}				
 	}
-	
+
 	private void resetValues() {
 		_mostEfficient = null;
 		_minDistance = Integer.MAX_VALUE;
 	}
-	
+
 	public Simulation getSimulation() {
 		return _simulation;
 	}

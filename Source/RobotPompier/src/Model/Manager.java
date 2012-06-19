@@ -22,6 +22,8 @@ public class Manager {
 			for (Cell cell : line) {
 				if (cell.isOnFire() > 0) {
 					for (Robot r : _simulation.getRobotList()) {
+						r.checkDestinationStillOnFire();
+						
 						if (!r.isFree())
 							continue;
 						
@@ -32,8 +34,10 @@ public class Manager {
 						}
 					}
 					
-					if (_mostEfficient != null)
-						_mostEfficient.setDestination(cell);
+					if (_mostEfficient != null) {
+						_mostEfficient.go(cell);
+						_mostEfficient = null;
+					}
 				}
 			}				
 	}

@@ -5,7 +5,7 @@ public class Lance extends ProjectorType {
 	private static final String NAME = "Lance";
 	private static final float FLOW = 0.5f;
 	private static final float WEIGHT = 2.0f;
-	private static final int RANGE = 100;
+	private static final int RANGE = 1;
 	
 	public Lance() {
 		super();

@@ -6,7 +6,7 @@ import Model.Cell;
 import Model.Map;
 import Model.Robot;
 
-public abstract class Algorithm {
+public class Algorithm {
 	
 	private String _name;
 	

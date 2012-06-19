@@ -2,6 +2,7 @@ package Controller;
 
 import Model.Simulation;
 import Model.robot.type.RobotType;
+import Model.Robot;
 
 public class SimulationController {
 	
@@ -44,5 +45,13 @@ public class SimulationController {
 
 	public void setSimulation(Simulation simulation) {
 		_simulation = simulation;
+	}
+	
+	public void addRobot(Robot robot) {
+		_simulation.addRobot(robot);
+	}
+	
+	public void removeRobot(Robot robot) {
+		_simulation.removeRobot(robot);
 	}
 }

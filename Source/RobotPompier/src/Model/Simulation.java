@@ -80,10 +80,10 @@ public class Simulation extends Observable {
 		_listProjectorTypes.add(new Jet());
 		
 		_robotModel = new HashSet<RobotType>();
-		RobotTypeFactory rbtf = new RobotTypeFactory();
-		_robotModel.add(rbtf.newInstance("Defaut 1", new Chenilles(), new Lance(), new Astar(), 15));
-		_robotModel.add(rbtf.newInstance("Defaut 2", new Ventouses(), new Jet(), new Dijkstra(), 20));
+		_robotModel.add(RobotTypeFactory.newInstance("Defaut 1", new Chenilles(), new Lance(), new Algorithm(), 15));
+		_robotModel.add(RobotTypeFactory.newInstance("Defaut 2", new Ventouses(), new Jet(), new Algorithm(), 20));
 		
+		_robots = new HashSet<Robot>();
 	}
 
 	/* GETTERS AND SETTERS */
@@ -147,6 +147,10 @@ public class Simulation extends Observable {
 		_robots.add(robot);
 	}
 
+	public void removeRobot(Robot robot) {
+		_robots.remove(robot);
+	}
+	
 	public Set<Robot> getRobotList() {
 		return _robots;
 	}

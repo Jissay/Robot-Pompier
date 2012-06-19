@@ -93,13 +93,19 @@ public class Map extends Observable {
 	}
 	
 	//TODO: définir comment on récupère le type de robot
-	public void setRobotAt(int x, int y, String robotTypeName) {
-		Cell cell = _cells.get(x).get(y);
+	public Robot setRobotAt(int x, int y, String robotTypeName) {
 		RobotType type = SimulationController.getInstance().getRobotTypeFromName(robotTypeName);
+		if (type == null)
+			return null;
 		Robot robot = new Robot();
-		if (type != null)
-			robot.setRobotType(type);
+		robot.setRobotType(type);
+		return setRobotAt(x, y, robot);
+	}
+	
+	public Robot setRobotAt(int x, int y, Robot robot) {
+		Cell cell = _cells.get(x).get(y);
 		cell.setRobot(robot);
+		robot.setCell(cell);
 		Hashtable<String, Object> args = new Hashtable<String, Object>();
 		args.put("type", "SetRobot");
 		args.put("url", "/images/unknown-tux-robot-1708.png");
@@ -107,6 +113,7 @@ public class Map extends Observable {
 		args.put("y", y);
 		setChanged();
 		notifyObservers(args);
+		return robot;
 	}
 	
 	public void setOnFireAt(int x, int y, int fireLevel) {

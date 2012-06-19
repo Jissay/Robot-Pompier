@@ -131,8 +131,7 @@ public class Map extends Observable {
 		}
 	}
 	
-	public void removeFire(Cell cell)
-	{
+	public void removeFire(Cell cell) {
 		cell.setOnFire(0);
 	}
 	

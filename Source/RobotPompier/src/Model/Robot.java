@@ -64,7 +64,7 @@ public class Robot extends Observable {
 	
 	private boolean isAtRange() {
 		int range = _robotType.getProjectorType().getRange();
-		if (_cell.getY() == _destination.getY()) {
+		/*if (_cell.getY() == _destination.getY()) {
 			int x = _cell.getX();
 			int destX = _destination.getX();
 			return (x < destX ? destX - x : x - destX) <= range;
@@ -72,8 +72,18 @@ public class Robot extends Observable {
 			int y = _cell.getY();
 			int destY = _destination.getY();
 			return (y < destY ? destY - y : y - destY) <= range;
-		}
-		return false;
+		}*/
+		
+		int distance = (int) Math.floor(
+					Math.sqrt(
+						(Math.pow((_cell.getX() - _destination.getX()), 2)
+						+ Math.pow((_cell.getY() - _destination.getY()), 2)
+						)
+					)
+				);
+		return distance <= range;
+		/*System.out.println("Distance : " + distance);
+		return false;*/
 	}
 
 	public int computeDistance(Cell destination) {

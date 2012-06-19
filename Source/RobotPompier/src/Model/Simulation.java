@@ -80,8 +80,9 @@ public class Simulation extends Observable {
 		_listProjectorTypes.add(new Jet());
 		
 		_robotModel = new HashSet<RobotType>();
-		_robotModel.add(RobotTypeFactory.newInstance("Defaut 1", new Chenilles(), new Lance(), new Algorithm(), 15));
-		_robotModel.add(RobotTypeFactory.newInstance("Defaut 2", new Ventouses(), new Jet(), new Algorithm(), 20));
+		_robotModel.add(RobotTypeFactory.newInstance("Dijkstra/chenilles/lance", new Chenilles(), new Lance(), new Dijkstra(), 15));
+		_robotModel.add(RobotTypeFactory.newInstance("A*/ventouses/jet", new Ventouses(), new Jet(), new Astar(), 20));
+		_robotModel.add(RobotTypeFactory.newInstance("Défaut/ventouses/jet", new Ventouses(), new Jet(), new Algorithm(), 20));
 		
 		_robots = new HashSet<Robot>();
 	}

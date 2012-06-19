@@ -36,10 +36,15 @@ public class Manager {
 					
 					if (_mostEfficient != null) {
 						_mostEfficient.go(cell);
-						_mostEfficient = null;
+						resetValues();
 					}
 				}
 			}				
+	}
+	
+	private void resetValues() {
+		_mostEfficient = null;
+		_minDistance = Integer.MAX_VALUE;
 	}
 	
 	public Simulation getSimulation() {

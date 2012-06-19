@@ -17,7 +17,6 @@ public class Robot extends Observable {
 	private Manager _manager;
 	private boolean _isFree;
 	private WayToFollow _wayToFollow;
-	//private ArrayList<Cell> _wayToFollow;
 	
 	public Robot() {
 		_isFree = true;
@@ -26,8 +25,6 @@ public class Robot extends Observable {
 
 	public void go(Cell destination) {
 		_wayToFollow = new WayToFollow(_robotType.getAlgorithm().findBestWay(MapController.getInstance().getModel(), this, destination));
-		/*if (!_wayToFollow.contains(_cell))
-			_wayToFollow.add(0, _cell);*/
 		
 		_destination = destination;
 		_isFree = false;
@@ -47,9 +44,6 @@ public class Robot extends Observable {
 			} else {
 				if (_wayToFollow.hasNext())
 					moveTo(_wayToFollow.next());
-				/*int index = _wayToFollow.indexOf(_cell);
-				Cell cellToReach = _wayToFollow.get(index == _wayToFollow.size() - 1 ? index : index + 1);
-				moveTo(cellToReach);*/
 			}
 		} else
 			_isFree = true;
@@ -73,11 +67,11 @@ public class Robot extends Observable {
 		if (_cell.getY() == _destination.getY()) {
 			int x = _cell.getX();
 			int destX = _destination.getX();
-			return (x < destX ? destX - x : x - destX) >= range;
+			return (x < destX ? destX - x : x - destX) <= range;
 		} else if (_cell.getX() == _destination.getX()) {
 			int y = _cell.getY();
 			int destY = _destination.getY();
-			return (y < destY ? destY - y : y - destY) >= range;
+			return (y < destY ? destY - y : y - destY) <= range;
 		}
 		return false;
 	}

@@ -77,7 +77,7 @@ public class SimulationView extends AMapObserver {
 
 	@Override
 	protected void mapSetRobot(int x, int y, String url) {
-		labelRobot.setText(String.valueOf(Integer.parseInt(labelRobot.getText())+1));
+		labelRobot.setText(String.valueOf(Integer.parseInt(labelRobot.getText()) + (null != url ? 1 : -1)));
 	}
 
 	@Override

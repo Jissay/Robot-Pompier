@@ -22,6 +22,8 @@ public class Manager {
 			for (Cell cell : line) {
 				if (cell.isOnFire() > 0) {
 					for (Robot r : _simulation.getRobotList()) {
+						r.checkDestinationStillOnFire();
+						
 						if (!r.isFree())
 							continue;
 						
@@ -32,10 +34,17 @@ public class Manager {
 						}
 					}
 					
-					if (_mostEfficient != null)
-						_mostEfficient.setDestination(cell);
+					if (_mostEfficient != null) {
+						_mostEfficient.go(cell);
+						resetValues();
+					}
 				}
 			}				
+	}
+	
+	private void resetValues() {
+		_mostEfficient = null;
+		_minDistance = Integer.MAX_VALUE;
 	}
 	
 	public Simulation getSimulation() {

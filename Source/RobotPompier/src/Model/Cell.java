@@ -120,13 +120,13 @@ public class Cell {
 		if (getX() > 0)
 			ret.put(EOrientation.W, _map.getCell().get(getX() - 1).get(getY()));
 		
-		if (getX() < _map.getLargeur() - 1)
+		if (getX() < _map.getLongueur() - 1)
 			ret.put(EOrientation.E, _map.getCell().get(getX() + 1).get(getY()));
 
 		if (getY() > 0)
 			ret.put(EOrientation.N, _map.getCell().get(getX()).get(getY() - 1));
 		
-		if (getY() < _map.getLongueur() - 1)
+		if (getY() < _map.getLargeur() - 1)
 			ret.put(EOrientation.S, _map.getCell().get(getX()).get(getY() + 1));
 		
 		return ret;

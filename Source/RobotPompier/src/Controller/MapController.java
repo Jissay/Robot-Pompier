@@ -4,7 +4,10 @@ import org.json.JSONArray;
 import org.json.JSONException;
 
 import IHM.MapView;
+import Model.Cell;
 import Model.Map;
+import Model.Robot;
+import Model.robot.type.RobotType;
 
 public class MapController {
 	private MapView					_view;
@@ -56,7 +59,12 @@ public class MapController {
 	}
 	
 	public void removeRobotAt(int x, int y) {
-		_model.removeRobot(_model.getCell().get(x).get(y));
+		Cell cell = _model.getCell().get(x).get(y);
+		Robot robot = cell.getRobot();
+		if (robot != null) {
+			_model.removeRobot(cell);
+			SimulationController.getInstance().removeRobot(robot);
+		}
 	}
 	
 	public boolean isOnFire(int x, int y) {
@@ -64,7 +72,9 @@ public class MapController {
 	}
 	
 	public void setRobotAt(int x, int y, String robotTypeName) {
-		_model.setRobotAt(x, y, robotTypeName);
+		Robot robot = _model.setRobotAt(x, y, robotTypeName);
+		if (robot != null)
+			SimulationController.getInstance().addRobot(robot);
 	}
 	
 	public void setOnFireAt(int x, int y, int onFire) {
@@ -81,5 +91,10 @@ public class MapController {
 	
 	public int getLongueur() {
 		return _model.getLongueur();
+	}
+	
+	public void moveRobotToCell(Robot robot, Cell cell) {
+		_model.removeRobot(robot.getCell());
+		_model.setRobotAt(cell.getX(), cell.getY(), robot);
 	}
 }

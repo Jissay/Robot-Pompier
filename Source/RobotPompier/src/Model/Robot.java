@@ -1,5 +1,6 @@
 package Model;
 
+import java.util.ArrayList;
 import java.util.Observable;
 
 import Controller.MapController;
@@ -15,10 +16,16 @@ public class Robot extends Observable {
 	private RobotType _robotType;
 	private Manager _manager;
 	private boolean _isFree;
-
-	public Robot() {}
+	private WayToFollow _wayToFollow;
+	
+	public Robot() {
+		_isFree = true;
+		_wayToFollow = null;
+	}
 
 	public void go(Cell destination) {
+		_wayToFollow = new WayToFollow(_robotType.getAlgorithm().findBestWay(MapController.getInstance().getModel(), this, destination));
+		
 		_destination = destination;
 		_isFree = false;
 	}
@@ -27,7 +34,7 @@ public class Robot extends Observable {
 		if (_isFree || _destination == null)
 			return;
 		
-		if (_destination.isOnFire() == 0) {
+		if (_destination.isOnFire() != 0) {
 			if (isAtRange()) {
 				MapController.getInstance().setOnFireAt(
 						_destination.getX(),
@@ -35,10 +42,17 @@ public class Robot extends Observable {
 						_destination.isOnFire() -1
 						);
 			} else {
-				// TODO: déplacer le robot en direction de la case _destination
+				if (_wayToFollow.hasNext())
+					moveTo(_wayToFollow.next());
 			}
 		} else
 			_isFree = true;
+	}
+	
+	private void moveTo(Cell cell) {
+		MapController controller = MapController.getInstance();
+		if (!controller.isCellBusy(cell.getX(), cell.getY()))
+			MapController.getInstance().moveRobotToCell(this, cell);
 	}
 
 	public void checkDestinationStillOnFire() {
@@ -53,17 +67,17 @@ public class Robot extends Observable {
 		if (_cell.getY() == _destination.getY()) {
 			int x = _cell.getX();
 			int destX = _destination.getX();
-			return (x < destX ? destX - x : x - destX) >= range; 
+			return (x < destX ? destX - x : x - destX) <= range;
 		} else if (_cell.getX() == _destination.getX()) {
 			int y = _cell.getY();
 			int destY = _destination.getY();
-			return (y < destY ? destY - y : y - destY) >= range;
+			return (y < destY ? destY - y : y - destY) <= range;
 		}
 		return false;
 	}
 
 	public int computeDistance(Cell destination) {
-		return _cell.distance(destination);
+		return _robotType.getAlgorithm().findBestWay(MapController.getInstance().getModel(), this, destination).size();
 	} 
 
 	public boolean isFree() {
@@ -122,7 +136,22 @@ public class Robot extends Observable {
 		_robotType = robotType;
 	}
 	
-	public void setDestination(Cell cell) {
-		_destination = cell;
+	private class WayToFollow {
+		private ArrayList<Cell> _way;
+		
+		public WayToFollow(ArrayList<Cell> cells) {
+			_way = cells;
+		}
+		
+		public boolean hasNext() {
+			return _way.size() > 0;
+		}
+		
+		public Cell next() {
+			if (_way.size() == 0)
+				return null;
+			
+			return _way.remove(0);
+		}
 	}
 }

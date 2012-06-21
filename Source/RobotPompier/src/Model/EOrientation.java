@@ -4,5 +4,9 @@ public enum EOrientation {
 	N,
 	S,
 	E,
-	W
+	W,
+	NE,
+	NW,
+	SE,
+	SW
 }

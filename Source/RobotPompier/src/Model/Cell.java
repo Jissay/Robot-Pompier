@@ -129,6 +129,18 @@ public class Cell {
 		if (getY() < _map.getLargeur() - 1)
 			ret.put(EOrientation.S, _map.getCell().get(getX()).get(getY() + 1));
 		
+		if (getX() > 0 && getY() > 0)
+			ret.put(EOrientation.NW, _map.getCell().get(getX() - 1).get(getY() - 1));
+		
+		if (getX() > 0 && getY() < _map.getLargeur() - 1)
+			ret.put(EOrientation.NE, _map.getCell().get(getX() - 1).get(getY() + 1));
+		
+		if (getX() < _map.getLongueur() - 1 && getY() > 0)
+			ret.put(EOrientation.SW, _map.getCell().get(getX() + 1).get(getY() - 1));
+		
+		if (getX() < _map.getLongueur() - 1 && getY() < _map.getLargeur() - 1)
+			ret.put(EOrientation.SE, _map.getCell().get(getX() + 1).get(getY() + 1));
+		
 		return ret;
 	}
 	

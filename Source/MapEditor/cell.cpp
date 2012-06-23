@@ -4,6 +4,8 @@
 #include <QtGui/QMouseEvent>
 
 Cell::Cell(QWidget *parent) : QLabel(parent) {
+    setTerrainType(GRASS);
+    setHeight(0);
     setAutoFillBackground(true);
 }
 

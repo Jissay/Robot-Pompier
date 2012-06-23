@@ -25,11 +25,11 @@ private slots:
     void saveAs();
     
 private:
-    Ui::MainWindow  *_ui;
-    QGridLayout     *_centerLayout;
-    unsigned int    _height;
-    unsigned int    _width;
-    QString         _fileName;
+    Ui::MainWindow*         _ui;
+    QGridLayout*            _centerLayout;
+    unsigned int            _height;
+    unsigned int            _width;
+    QString                 _fileName;
 
     void openMap(const QString &fileName);
 };

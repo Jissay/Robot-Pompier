@@ -4,6 +4,7 @@
 #include "cell.hpp"
 
 #include <qjson/parser.h>
+#include <qjson/serializer.h>
 #include <QtCore/QDebug>
 #include <QtGui/QFileDialog>
 #include <QtGui/QMessageBox>
@@ -31,8 +32,8 @@ void MainWindow::newMap() {
     for (unsigned int i = 0; i < _height; ++i) {
         for (unsigned int j = 0; j < _width; ++j) {
             Cell *tmp = new Cell(this);
-            tmp->setTerrainType(Cell::WATER);
-            tmp->setText("X");
+            tmp->setTerrainType(Cell::GRASS);
+            tmp->setHeight(0);
             _centerLayout->addWidget(tmp, i, j);
         }
     }
@@ -98,6 +99,72 @@ void MainWindow::save() {
         return;
     }
 
+    QString out;
+
+    out = "[";
+
+    bool rowFirstPass = true;
+
+    for (int i = 0; i < _centerLayout->rowCount(); ++i) {
+        if (!rowFirstPass)
+            out.append(",");
+        else
+            rowFirstPass = false;
+        out.append(" [");
+
+        bool cellFirstPass = true;
+        for (int j = 0; j < _centerLayout->columnCount(); ++j) {
+            Cell* c = dynamic_cast<Cell*>(_centerLayout->itemAtPosition(i, j)->widget());
+            QVariantMap variant;
+            variant.insert("height", c->height());
+            switch (c->terrainType()) {
+            case Cell::GRASS:
+                variant.insert("type", "grass");
+                break;
+            case Cell::SNOW:
+                variant.insert("type", "snow");
+                break;
+            case Cell::WATER:
+                variant.insert("type", "water");
+                break;
+            case Cell::FOREST:
+                variant.insert("type", "forest");
+                break;
+            case Cell::ROCK:
+                variant.insert("type", "rock");
+                break;
+            case Cell::SWAMP:
+                variant.insert("type", "swamp");
+                break;
+            case Cell::SAND:
+                variant.insert("type", "sand");
+                break;
+            case Cell::AIR:
+                variant.insert("type", "air");
+                break;
+            default:
+                variant.insert("type", "none");
+                break;
+            }
+            QJson::Serializer serializer;
+            if (!cellFirstPass)
+                out.append(", ");
+            else
+                cellFirstPass = false;
+            out.append(serializer.serialize(variant));
+        }
+        out.append(" ]");
+    }
+    out.append(" ]");
+
+    QFile file(_fileName);
+    if (!file.open(QIODevice::WriteOnly | QIODevice::Text)) {
+        QMessageBox::critical(this, "Error", "Unable to open " + _fileName);
+        return;
+    }
+    file.write(out.toAscii());
+
+    file.close();
 }
 
 void MainWindow::saveAs() {
@@ -162,4 +229,5 @@ void MainWindow::openMap(const QString &fileName) {
             _centerLayout->addWidget(tmp, i, j);
         }
     }
+    file.close();
 }

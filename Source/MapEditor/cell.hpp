@@ -8,6 +8,7 @@ class Cell : public QLabel {
     Q_OBJECT
 
     Q_PROPERTY(ETerrainType type READ terrainType WRITE setTerrainType)
+    Q_PROPERTY(int height READ height WRITE setHeight)
     Q_ENUMS(ETerrainType)
 
 public:
@@ -27,6 +28,10 @@ public:
 
     inline ETerrainType terrainType() const {
         return _type;
+    }
+
+    inline int height() const {
+        return _height;
     }
 
     void setTerrainType(ETerrainType type);

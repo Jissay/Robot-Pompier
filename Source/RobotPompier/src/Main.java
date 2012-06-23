@@ -3,6 +3,7 @@ import java.awt.Frame;
 import Controller.MapController;
 import IHM.MainWindow;
 import Model.Map;
+import Model.Simulation;
 
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
@@ -22,6 +23,7 @@ public class Main {
 		}
 		
 		Map map = new Map();
+		Simulation simulation = new Simulation();
 		
 		MainWindow w = new MainWindow(1, 1);
 		w.setExtendedState(w.getExtendedState() | Frame.MAXIMIZED_BOTH);
@@ -32,5 +34,6 @@ public class Main {
 		map.addObserver(w.getMapView());
 		map.addObserver(w.getEventsView());
 		map.addObserver(w.getSimulationView());
+		simulation.addObserver(w.getSimulationView());
 	}
 }

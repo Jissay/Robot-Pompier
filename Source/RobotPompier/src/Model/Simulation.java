@@ -81,7 +81,7 @@ public class Simulation extends Observable {
 		
 		_robotModel = new HashSet<RobotType>();
 		_robotModel.add(RobotTypeFactory.newInstance("Dijkstra/chenilles/lance", new Chenilles(), new Lance(), new Dijkstra(), 15));
-		_robotModel.add(RobotTypeFactory.newInstance("A*/ventouses/jet", new Ventouses(), new Jet(), new Astar(), 20));
+		_robotModel.add(RobotTypeFactory.newInstance("A*/roues/jet", new Roues(), new Jet(), new Astar(), 20));
 		_robotModel.add(RobotTypeFactory.newInstance("Défaut/ventouses/jet", new Ventouses(), new Jet(), new Algorithm(), 20));
 		
 		_robots = new HashSet<Robot>();

@@ -141,7 +141,6 @@ public class MapView extends AMapObserver{
 			cell.setIcon(image);
 		} else
 			cell.setIcon(null);
-		
 	}
 
 	@Override

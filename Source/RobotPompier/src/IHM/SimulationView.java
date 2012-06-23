@@ -59,14 +59,13 @@ public class SimulationView extends AMapObserver {
 
 	@Override
 	protected void mapLoading() {
-		labelFire.setText("0");
-		labelRobot.setText("0");
+		//TODO
 	}
 
 	@Override
 	protected void mapLoaded() {
-		// TODO Auto-generated method stub
-		
+		labelFire.setText("0");
+		labelRobot.setText("0");
 	}
 
 	@Override

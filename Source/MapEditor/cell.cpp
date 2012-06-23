@@ -29,10 +29,15 @@ void Cell::mouseReleaseEvent(QMouseEvent *evt) {
 }
 
 void Cell::wheelEvent(QWheelEvent *evt) {
+    int val = (int)_type;
     if (evt->delta() > 0)
-        setTerrainType((ETerrainType)(((int)_type + 1) % (int)COUNT));
+        ++val;
     else
-        setTerrainType((ETerrainType)(((int)_type - 1) % (int)COUNT));
+        --val;
+    if (val < 0)
+        val += (int)COUNT;
+    val %= COUNT;
+    setTerrainType((ETerrainType)val);
 }
 
 void Cell::setColor(const QColor &color) {

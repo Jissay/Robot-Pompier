@@ -19,31 +19,31 @@ public class Roues extends MoveType {
 		int coast;
 		switch (groundType) {
 		case GRASS:
-			coast = 1;
+			coast = 2;
 			break;
 		case SNOW:
-			coast = 40;
+			coast = 80;
 			break;
 		case WATER:
 			coast = Integer.MAX_VALUE;
 			break;
 		case FOREST:
-			coast = 50;
-			break;
-		case ROCK:
 			coast = 100;
 			break;
+		case ROCK:
+			coast = 200;
+			break;
 		case SWAMP:
-			coast = 50;
+			coast = 100;
 			break;
 		case SAND:
-			coast = 30;
+			coast = 60;
 			break;
 		case AIR:
 			coast = Integer.MAX_VALUE;
 			break;
 		default:
-			coast = 0;
+			coast = 2;
 			break;
 		}
 		return coast;

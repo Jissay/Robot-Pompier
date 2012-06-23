@@ -19,31 +19,31 @@ public class Chenilles extends MoveType {
 		int coast;
 		switch (groundType) {
 		case GRASS:
-			coast = 10;
+			coast = 20;
 			break;
 		case SNOW:
-			coast = 1;
+			coast = 2;
 			break;
 		case WATER:
 			coast = Integer.MAX_VALUE;
 			break;
 		case FOREST:
-			coast = 10;
-			break;
-		case ROCK:
 			coast = 20;
 			break;
+		case ROCK:
+			coast = 40;
+			break;
 		case SWAMP:
-			coast = 10;
+			coast = 20;
 			break;
 		case SAND:
-			coast = 100;
+			coast = 200;
 			break;
 		case AIR:
 			coast = Integer.MAX_VALUE;
 			break;
 		default:
-			coast = 1;
+			coast = 2;
 			break;
 		}
 		

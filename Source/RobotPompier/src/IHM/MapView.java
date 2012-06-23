@@ -92,7 +92,7 @@ public class MapView extends AMapObserver{
 					lab.setBackground(Color.green);
 					break;
 				case SNOW:
-					lab.setBackground(Color.white);
+					lab.setBackground(Color.gray);
 					break;
 				case WATER:
 					lab.setBackground(Color.blue);

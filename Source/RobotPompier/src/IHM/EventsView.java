@@ -1,9 +1,7 @@
 package IHM;
 
-import java.awt.Color;
 import java.awt.Dimension;
 
-import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;

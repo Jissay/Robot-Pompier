@@ -7,7 +7,6 @@ import IHM.MapView;
 import Model.Cell;
 import Model.Map;
 import Model.Robot;
-import Model.robot.type.RobotType;
 
 public class MapController {
 	private MapView					_view;

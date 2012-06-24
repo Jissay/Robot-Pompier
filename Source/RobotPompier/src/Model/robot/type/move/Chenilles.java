@@ -16,37 +16,37 @@ public class Chenilles extends MoveType {
 	
 	@Override
 	public float getCost(float incline, ETerrainType groundType) {
-		int coast;
+		int cost;
 		switch (groundType) {
 		case GRASS:
-			coast = 20;
+			cost = 20;
 			break;
 		case SNOW:
-			coast = 2;
+			cost = 2;
 			break;
 		case WATER:
-			coast = Integer.MAX_VALUE;
+			cost = Integer.MAX_VALUE;
 			break;
 		case FOREST:
-			coast = 20;
+			cost = 20;
 			break;
 		case ROCK:
-			coast = 40;
+			cost = 40;
 			break;
 		case SWAMP:
-			coast = 20;
+			cost = 20;
 			break;
 		case SAND:
-			coast = 200;
+			cost = 200;
 			break;
 		case AIR:
-			coast = Integer.MAX_VALUE;
+			cost = Integer.MAX_VALUE;
 			break;
 		default:
-			coast = 2;
+			cost = 2;
 			break;
 		}
 		
-		return coast;
+		return cost;
 	}
 }

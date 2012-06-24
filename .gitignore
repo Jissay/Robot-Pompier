@@ -8,4 +8,12 @@ Makefile
 moc_*.cpp
 ui_*.h
 bin
+*.swp
+*.aux
+*.pdf
+*.log
+*.nav
+*.out
+*.snm
+*.toc
 Source/MapEditor/MapEditor

@@ -4,7 +4,8 @@
 .metadata
 Makefile
 *.o
-*.pro.user
+*.pro.user*
 moc_*.cpp
 ui_*.h
 bin
+Source/MapEditor/MapEditor

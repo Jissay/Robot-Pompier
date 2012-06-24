@@ -9,6 +9,9 @@ import org.json.JSONArray;
 import org.json.JSONException;
 
 import Controller.SimulationController;
+import Model.algorithms.Algorithm;
+import Model.algorithms.Astar;
+import Model.algorithms.Dijkstra;
 import Model.robot.type.RobotType;
 
 public class Map extends Observable {
@@ -107,7 +110,13 @@ public class Map extends Observable {
 		robot.setCell(cell);
 		Hashtable<String, Object> args = new Hashtable<String, Object>();
 		args.put("type", "SetRobot");
-		args.put("url", "/images/unknown-tux-robot-1708.png");
+		Algorithm a = robot.getRobotType().getAlgorithm();
+		if (a instanceof Dijkstra)
+			args.put("url", "/images/robot-chenille.png");
+		else if (a instanceof Astar)
+			args.put("url", "/images/robot-roue.png");
+		else
+			args.put("url", "/images/unknown-tux-robot-1708.png");
 		args.put("x", x);
 		args.put("y", y);
 		setChanged();
